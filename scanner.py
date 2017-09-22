@@ -1,12 +1,12 @@
 from ply import lex
 
 reserved = {
-    'else': 'else',
-    'if': 'if',
-    'int': 'int',
-    'void': 'void',
-    'return': 'return',
-    'while': 'while'
+    'ELSE': 'ELSE',
+    'IF': 'IF',
+    'INT': 'INT',
+    'VOID': 'VOID',
+    'RETURN': 'RETURN',
+    'WHILE': 'WHILE'
 }
 
 tokens = [
@@ -30,6 +30,7 @@ tokens = [
             'COMA',
             'PUNTOC',
             'NUM',
+            'IDENT',
             'RESERVED'
          ] + list(reserved.values())
 
@@ -66,15 +67,10 @@ def t_NEWLINE(t):
     r'\n+'
     t.lexer.lineno += t.value.count("\n")
 
-# palabra reservada
-def t_RESERVED(t):
-    r'[a-zA-Z]+'
-    t.type = reserved.get(t.value,'RESERVED')    # chequear palabras reservadas
-    return t
-
 # identificadores
-def t_ID(t):
-    r'[A-Za-z]+(_[A-Za-z]+)*_?([a-z]|[0-9]+)'
+def t_IDENT(t):
+    r'([A-Za-z]+(_[A-Za-z]+)*_?([a-z]|[0-9]+))|[a-z]|(?i)else|(?i)if|(?i)int|(?i)void|(?i)return|(?i)while'
+    t.type = reserved.get(t.value.upper(), 'IDENT')
     return t
 
 # numero
