@@ -1,16 +1,18 @@
+from ply import lex
+
 reserved = {
-    'else': '(?i)else',
-    'if': '(?i)if',
-    'int': '(?i)int',
-    'void': '(?i)void',
-    'return': '(?i)return',
-    'while': '(?i)while'
+    'else': 'else',
+    'if': 'if',
+    'int': 'int',
+    'void': 'void',
+    'return': 'return',
+    'while': 'while'
 }
 
 tokens = [
             'SUMA',
             'RESTA',
-            'MULTI'
+            'MULTI',
             'DIVI',
             'MENOR',
             'MENORI',
@@ -35,7 +37,7 @@ tokens = [
 t_SUMA = r'\+'
 t_RESTA = r'-'
 t_MULTI = r'\*'
-t_DIVI = r'/'
+t_DIVI = r'\/'
 t_MENOR = r'<'
 t_MENORI = r'<='
 t_MAYOR = r'>'
@@ -54,7 +56,7 @@ t_DCORCH = r'\]'
 t_ILLAVE = r'\{'
 t_DLLAVE = r'\}'
 t_COMA = r','
-t_PUNTOC = r'\.'
+t_PUNTOC = r'\;'
 
 # tokens ignorados
 t_ignore = ' \t\n'
@@ -90,4 +92,16 @@ def t_coment(t):
     r'(\?|\!).*'
 
 # error
+def t_error(t):
+    print("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno))
+    # tratamiento de errores
+    t.lexer.skip(1)
 
+# build the lexer
+lexer = lex.lex()
+
+with open('sample1.txt', 'r') as f:
+    contents = f.read()
+    lex.input(contents)
+    for tok in iter(lex.token, None):
+        print(repr(tok.type), repr(tok.value))
