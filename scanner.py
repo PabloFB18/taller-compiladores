@@ -30,7 +30,7 @@ tokens = [
             'COMA',
             'PUNTOC',
             'NUM',
-            'IDENT',
+            'ID',
             'RESERVED'
          ] + list(reserved.values())
 
@@ -68,9 +68,9 @@ def t_NEWLINE(t):
     t.lexer.lineno += t.value.count("\n")
 
 # identificadores
-def t_IDENT(t):
-    r'([A-Za-z]+(_[A-Za-z]+)*_?([a-z]|[0-9]+))|[a-z]|(?i)else|(?i)if|(?i)int|(?i)void|(?i)return|(?i)while'
-    t.type = reserved.get(t.value.upper(), 'IDENT')
+def t_ID(t):
+    r'[eE][lL][sS]E|[iI]F|[iI][nN]T|[vV][oO][iI]D|[rR][eE][tT][uU][rR]N|[wW][hH][iI][lL]E|([A-Za-z]+(_[A-Za-z]+)*_?([a-z]|[0-9]+))|[a-z]'
+    t.type = reserved.get(t.value.upper(), 'ID')
     return t
 
 # numero
