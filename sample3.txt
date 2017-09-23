@@ -1,0 +1,14 @@
+a =23;
+while (a>20) {
+a= a-01;
+}
+
+b= a + 05;
+
+c = b/05;
+
+if (c==05){
+    return;
+}else{
+    return;
+}
