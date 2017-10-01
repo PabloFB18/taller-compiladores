@@ -1,3 +1,6 @@
+int a = 01
+InT b = 03
+?hola
 iF (a == b) {
     a = 55;
 }
@@ -6,4 +9,5 @@ elSe {
 }
 
 a = 01;
-</asjhdk</sdfs/>ashd/>
+</no soporta</comentarios/>anidados/>
+!comentario,comentario

@@ -1,0 +1,15 @@
+!sumador
+int i_1 = 00;
+int su_m = 00;
+int n = 50;
+!suma
+while (n > i_1){
+    su_m = su_m + i_1;
+    i_1 = i_1 + 01;
+}
+</suma
+de
+todos los
+numeros entre
+0
+ y 50/>
