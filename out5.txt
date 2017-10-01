@@ -11,17 +11,24 @@
 'ID''for'
 'IPAREN''('
 'ID''alg'
+Illegal character 'O' at line 6
 'ASIGN''='
 'NUM''00'
+Illegal character '3' at line 6
 'PUNTOC'';'
 'ID''alg'
+Illegal character 'O' at line 6
 'MAYOR''>'
+Illegal character '2' at line 6
 'PUNTOC'';'
 'ID''alg'
+Illegal character 'O' at line 6
 'ASIGN''='
 'ID''alg'
+Illegal character 'O' at line 6
 'RESTA''-'
 'ID''alg'
+Illegal character 'O' at line 6
 'DPAREN'')'
 'ILLAVE''{'
 'ID''a1'
@@ -36,7 +43,10 @@
 'ID''este'
 'ID''comentario'
 'ID''multil'
+Illegal character 'í' at line 6
 'ID''nea'
 'ID''est'
+Illegal character 'á' at line 6
 'ID''err'
+Illegal character 'ó' at line 6
 'ID''neo'

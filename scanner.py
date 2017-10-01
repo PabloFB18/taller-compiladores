@@ -1,4 +1,5 @@
 from ply import lex
+import io
 
 reserved = {
     'ELSE': 'ELSE',
@@ -90,6 +91,7 @@ def t_coment(t):
 # error
 def t_error(t):
     print("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno))
+    out1.write("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno) + '\n')
     # tratamiento de errores
     t.lexer.skip(1)
 
@@ -136,7 +138,7 @@ with open('sample4.txt', 'r') as arch1:
         out1.write(repr(tok.type))
         out1.write(repr(tok.value)+'\n')
 
-out1 = open('out5.txt', 'w')
+out1 = io.open('out5.txt', 'w', encoding='utf8',errors="ignore")
 with open('sample5.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)

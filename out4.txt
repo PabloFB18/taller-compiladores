@@ -1,42 +1,60 @@
+Illegal character '¡' at line 6
 'ID''sumador'
 'ID''con'
 'ID''errores'
 'INT''int'
 'ID''i'
+Illegal character '_' at line 6
 'ASIGN''='
+Illegal character '0' at line 6
 'PUNTOC'';'
 'INT''int'
+Illegal character '7' at line 6
 'ID''sum'
 'ASIGN''='
+Illegal character '0' at line 6
+Illegal character ':' at line 6
 'INT''int'
+Illegal character 'N' at line 6
 'ASIGN''='
+Illegal character '5' at line 6
 'PUNTOC'';'
+Illegal character '#' at line 6
 'ID''suma'
 'ID''for'
 'IPAREN''('
+Illegal character 'N' at line 6
 'MAYOR''>'
 'ID''i'
+Illegal character '_' at line 6
 'DPAREN'')'
 'ILLAVE''{'
+Illegal character '7' at line 6
 'ID''sum'
 'ASIGN''='
+Illegal character '7' at line 6
 'ID''sum'
 'SUMA''+'
 'ID''i'
 'PUNTOC'';'
 'ID''i'
+Illegal character '_' at line 6
 'ASIGN''='
 'ID''i'
+Illegal character '_' at line 6
 'SUMA''+'
+Illegal character '1' at line 6
 'PUNTOC'';'
 'DLLAVE''}'
 'MENOR''<'
+Illegal character '\' at line 6
 'ID''suma'
 'ID''de'
 'ID''todos'
 'ID''los'
 'ID''numeros'
 'ID''entre'
+Illegal character '0' at line 6
 'ID''y'
 'NUM''50'
 'DIVI''/'
