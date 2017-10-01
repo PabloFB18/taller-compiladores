@@ -1,0 +1,8 @@
+//Este comentario es ilegal
+?Este comentario si está permitido
+a1= 10;
+for (algO=003;algO>2;algO=algO-algO){
+    a1= a1+ 02;
+}
+</ este comentario multilínea está erróneo?
+
