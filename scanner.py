@@ -96,8 +96,11 @@ def t_error(t):
 # build the lexer
 lexer = lex.lex()
 
-with open('sample1.txt', 'r') as f:
-    contents = f.read()
+out1 = open('out1.txt', 'w')
+with open('sample1.txt', 'r') as arch1:
+    contents = arch1.read()
     lex.input(contents)
     for tok in iter(lex.token, None):
         print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')
