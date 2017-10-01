@@ -96,8 +96,52 @@ def t_error(t):
 # build the lexer
 lexer = lex.lex()
 
-with open('sample1.txt', 'r') as f:
-    contents = f.read()
+out1 = open('out1.txt', 'w')
+with open('sample1.txt', 'r') as arch1:
+    contents = arch1.read()
     lex.input(contents)
+    print('\n sample1')
     for tok in iter(lex.token, None):
         print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')
+
+out1 = open('out2.txt', 'w')
+with open('sample2.txt', 'r') as arch1:
+    contents = arch1.read()
+    lex.input(contents)
+    print('\n sample2')
+    for tok in iter(lex.token, None):
+        print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')
+
+out1 = open('out3.txt', 'w')
+with open('sample3.txt', 'r') as arch1:
+    contents = arch1.read()
+    lex.input(contents)
+    print('\n sample3')
+    for tok in iter(lex.token, None):
+        print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')
+
+out1 = open('out4.txt', 'w')
+with open('sample4.txt', 'r') as arch1:
+    contents = arch1.read()
+    lex.input(contents)
+    print('\n sample4')
+    for tok in iter(lex.token, None):
+        print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')
+
+out1 = open('out5.txt', 'w')
+with open('sample5.txt', 'r') as arch1:
+    contents = arch1.read()
+    lex.input(contents)
+    print('\n sample5')
+    for tok in iter(lex.token, None):
+        print(repr(tok.type), repr(tok.value))
+        out1.write(repr(tok.type))
+        out1.write(repr(tok.value)+'\n')

@@ -1,0 +1,15 @@
+¡sumador con errores
+int i_ = 0;
+int 7sum = 0:
+int N = 5;
+#suma
+for (N > i_){
+    7sum = 7sum + i;
+    i_ = i_ + 1;
+}
+<\suma
+de
+todos los
+numeros entre
+0
+ y 50/>
