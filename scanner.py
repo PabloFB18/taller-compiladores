@@ -63,10 +63,12 @@ t_PUNTOC = r'\;'
 # tokens ignorados
 t_ignore = ' \t\n'
 
+
 # nueva linea
 def t_NEWLINE(t):
     r'\n+'
     t.lexer.lineno += t.value.count("\n")
+
 
 # identificadores
 def t_ID(t):
@@ -74,19 +76,23 @@ def t_ID(t):
     t.type = reserved.get(t.value.upper(), 'ID')
     return t
 
+
 # numero
 def t_NUM(t):
     r'0[0-9]|[1-9][0-9]+'
     return t
+
 
 # comentario multilinea
 def t_comentMult(t):
     r'<\/(.|\n)*?\/>'
     t.lexer.lineno += t.value.count('\n')
 
+
 # comentario de una linea
 def t_coment(t):
     r'(\?|\!).*'
+
 
 # error
 def t_error(t):
@@ -95,11 +101,12 @@ def t_error(t):
     # tratamiento de errores
     t.lexer.skip(1)
 
+
 # build the lexer
 lexer = lex.lex()
 
-out1 = open('out1.txt', 'w')
-with open('sample1.txt', 'r') as arch1:
+out1 = open('scanner-exmples/out1.txt', 'w')
+with open('scanner-exmples/sample1.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)
     print('\n sample1')
@@ -108,8 +115,8 @@ with open('sample1.txt', 'r') as arch1:
         out1.write(repr(tok.type))
         out1.write(repr(tok.value)+'\n')
 
-out1 = open('out2.txt', 'w')
-with open('sample2.txt', 'r') as arch1:
+out1 = open('scanner-exmples/out2.txt', 'w')
+with open('scanner-exmples/sample2.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)
     print('\n sample2')
@@ -118,8 +125,8 @@ with open('sample2.txt', 'r') as arch1:
         out1.write(repr(tok.type))
         out1.write(repr(tok.value)+'\n')
 
-out1 = open('out3.txt', 'w')
-with open('sample3.txt', 'r') as arch1:
+out1 = open('scanner-exmples/out3.txt', 'w')
+with open('scanner-exmples/sample3.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)
     print('\n sample3')
@@ -128,8 +135,8 @@ with open('sample3.txt', 'r') as arch1:
         out1.write(repr(tok.type))
         out1.write(repr(tok.value)+'\n')
 
-out1 = open('out4.txt', 'w')
-with open('sample4.txt', 'r') as arch1:
+out1 = open('scanner-exmples/out4.txt', 'w')
+with open('scanner-exmples/sample4.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)
     print('\n sample4')
@@ -138,8 +145,8 @@ with open('sample4.txt', 'r') as arch1:
         out1.write(repr(tok.type))
         out1.write(repr(tok.value)+'\n')
 
-out1 = io.open('out5.txt', 'w', encoding='utf8',errors="ignore")
-with open('sample5.txt', 'r') as arch1:
+out1 = io.open('scanner-exmples/out5.txt', 'w', encoding='utf8', errors="ignore")
+with open('scanner-exmples/sample5.txt', 'r') as arch1:
     contents = arch1.read()
     lex.input(contents)
     print('\n sample5')
