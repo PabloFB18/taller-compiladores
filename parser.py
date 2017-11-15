@@ -7,16 +7,18 @@ from scanner import tokens
 
 
 precedence = (
-    ('left', 'PLUS', 'MINUS'),
-    ('left', 'TIMES', 'DIVIDE'),
-    ('left', 'POWER'),
-    ('right', 'UMINUS')
+    ('left', 'SUMA', 'RESTA'),
+    ('left', 'MULTI', 'DIVI'),
+    ('right','ID','NUM'),
+    ('left', 'DPAREN','IPAREN')
 )
 
 
 def p_program(p):
     """program : declarationlist"""
     p[0] = p[1]
+
+
 
 
 def p_declarationlist(p):
