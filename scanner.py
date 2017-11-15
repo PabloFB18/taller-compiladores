@@ -105,52 +105,52 @@ def t_error(t):
 # build the lexer
 lexer = lex.lex()
 
-out1 = open('scanner-exmples/out1.txt', 'w')
-with open('scanner-exmples/sample1.txt', 'r') as arch1:
-    contents = arch1.read()
-    lex.input(contents)
-    print('\n sample1')
-    for tok in iter(lex.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
-
-out1 = open('scanner-exmples/out2.txt', 'w')
-with open('scanner-exmples/sample2.txt', 'r') as arch1:
-    contents = arch1.read()
-    lex.input(contents)
-    print('\n sample2')
-    for tok in iter(lex.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
-
-out1 = open('scanner-exmples/out3.txt', 'w')
-with open('scanner-exmples/sample3.txt', 'r') as arch1:
-    contents = arch1.read()
-    lex.input(contents)
-    print('\n sample3')
-    for tok in iter(lex.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
-
-out1 = open('scanner-exmples/out4.txt', 'w')
-with open('scanner-exmples/sample4.txt', 'r') as arch1:
-    contents = arch1.read()
-    lex.input(contents)
-    print('\n sample4')
-    for tok in iter(lex.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
-
-out1 = io.open('scanner-exmples/out5.txt', 'w', encoding='utf8', errors="ignore")
-with open('scanner-exmples/sample5.txt', 'r') as arch1:
-    contents = arch1.read()
-    lex.input(contents)
-    print('\n sample5')
-    for tok in iter(lex.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
+out1 = open('out1.txt', 'w')
+# with open('scanner-exmples/sample1.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     lex.input(contents)
+#     print('\n sample1')
+#     for tok in iter(lex.token, None):
+#         print(repr(tok.type), repr(tok.value))
+#         out1.write(repr(tok.type))
+#         out1.write(repr(tok.value)+'\n')
+#
+# out1 = open('scanner-exmples/out2.txt', 'w')
+# with open('scanner-exmples/sample2.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     lex.input(contents)
+#     print('\n sample2')
+#     for tok in iter(lex.token, None):
+#         print(repr(tok.type), repr(tok.value))
+#         out1.write(repr(tok.type))
+#         out1.write(repr(tok.value)+'\n')
+#
+# out1 = open('scanner-exmples/out3.txt', 'w')
+# with open('scanner-exmples/sample3.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     lex.input(contents)
+#     print('\n sample3')
+#     for tok in iter(lex.token, None):
+#         print(repr(tok.type), repr(tok.value))
+#         out1.write(repr(tok.type))
+#         out1.write(repr(tok.value)+'\n')
+#
+# out1 = open('scanner-exmples/out4.txt', 'w')
+# with open('scanner-exmples/sample4.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     lex.input(contents)
+#     print('\n sample4')
+#     for tok in iter(lex.token, None):
+#         print(repr(tok.type), repr(tok.value))
+#         out1.write(repr(tok.type))
+#         out1.write(repr(tok.value)+'\n')
+#
+# out1 = io.open('scanner-exmples/out5.txt', 'w', encoding='utf8', errors="ignore")
+# with open('scanner-exmples/sample5.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     lex.input(contents)
+#     print('\n sample5')
+#     for tok in iter(lex.token, None):
+#         print(repr(tok.type), repr(tok.value))
+#         out1.write(repr(tok.type))
+#         out1.write(repr(tok.value)+'\n')

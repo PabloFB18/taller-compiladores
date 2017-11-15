@@ -3,136 +3,198 @@ import ply.yacc as yacc
 # Obtener tokens del scanner
 from __builtin__ import raw_input
 
+import nodos
 from scanner import tokens
 
 
 precedence = (
     ('left', 'SUMA', 'RESTA'),
     ('left', 'MULTI', 'DIVI'),
-    ('right','ID','NUM'),
-    ('left', 'DPAREN','IPAREN')
+    ('right', 'ID', 'NUM'),
+    ('left', 'DPAREN', 'IPAREN')
 )
 
 
 def p_program(p):
     """program : declarationList"""
-    #p[0] = program(p[1],'program')
+    p[0] = nodos.Program(p[1])
 
 
-def p_declarationList1(p):
+def p_declaration_list1(p):
     """declarationList : declarationList declaration"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
+
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
 
 
-def p_declarationList2(p):
+def p_declaration_list2(p):
     """declarationList : declaration"""
+    p[0] = p[1]
 
 
 def p_declaration1(p):
     """declaration : varDeclaration"""
+    p[0] = p[1]
 
 
 def p_declaration2(p):
     """declaration : funDeclaration"""
+    p[0] = p[1]
 
 
-def p_varDeclaration1(p):
-    """varDeclaration : typeSpecifer ID PUNTOC"""
+def p_var_declaration1(p):
+    """varDeclaration : typeSpecifier ID PUNTOC"""
+    p[0] = nodos.VarDeclaration(p[1], p[2])
 
 
-def p_varDeclaration2(p):
-    """varDeclaration : typeSpecifer ID ICORCH NUM DCORCH PUNTOC"""
+def p_var_declaration2(p):
+    """varDeclaration : typeSpecifier ID ICORCH NUM DCORCH PUNTOC"""
+    p[0] = nodos.VarDeclaration(p[1], p[2], p[4])
 
 
-def p_typeSpecifier1(p):
-    """typeSpecifer : INT"""
+def p_type_specifier1(p):
+    """typeSpecifier : INT"""
+    p[0] = p[1]
 
 
-def p_typeSpecifier2(p):
-    """typeSpecifer : VOID"""
+def p_type_specifier2(p):
+    """typeSpecifier : VOID"""
+    p[0] = p[1]
 
 
-def p_funDeclaration(p):
-    """funDeclaration : typeSpecifer ID IPAREN NUM DPAREN compoundStmt"""
+def p_fun_declaration(p):
+    """funDeclaration : typeSpecifier ID IPAREN params DPAREN compoundStmt"""
+    p[0] = nodos.FunDeclaration(p[1], p[2], p[4], p[6])
 
 
 def p_params1(p):
     """params : paramList"""
+    p[0] = p[1]
 
 
 def p_params2(p):
     """params : VOID"""
+    pass
 
 
 def p_paramList1(p):
     """paramList : paramList COMA param"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
+
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
 
 
 def p_paramList2(p):
     """paramList : param"""
+    p[0] = p[1]
 
 
 def p_param1(p):
     """param : typeSpecifier ID"""
+    p[0] = nodos.Param(p[1], p[2], False)
 
 
 def p_param2(p):
     """param : typeSpecifier ID ICORCH DCORCH"""
+    p[0] = nodos.Param(p[1], p[2], True)
 
 
 def p_compoundStmt(p):
     """compoundStmt : ILLAVE localDeclarations statementList DLLAVE"""
+    p[0] = nodos.CompoundStmt(p[1], p[2])
 
 
 def p_localDeclarations1(p):
-    """localDeclarations : localDeclarations varDeclarations"""
+    """localDeclarations : localDeclarations varDeclaration"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
+
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
 
 
 def p_localDeclarationsEmpty(p):
     """localDeclarations :  empty"""
+    p[0] = nodos.Null()
 
 
 def p_statementList1(p):
     """statementList : statementList statement"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
+
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
 
 
 def p_statementListEmpty(p):
     """statementList : empty"""
+    p[0] = nodos.Null()
 
 
 def p_statement1(p):
     """statement : expressionStmt"""
+    p[0] = p[1]
 
 
 def p_statement2(p):
     """statement : compoundStmt"""
+    p[0] = p[1]
 
 
 def p_statement3(p):
     """statement : selectionStmt"""
+    p[0] = p[1]
 
 
 def p_statement4(p):
     """statement : iterationStmt"""
+    p[0] = p[1]
 
 
 def p_statement5(p):
     """statement : returnStmt"""
+    p[0] = p[1]
 
 
 def p_expressionStmt1(p):
-    """expressionStmt : statementList statement PUNTOC"""
+    """expressionStmt : expression PUNTOC"""
+    p[0] = p[1]
 
 
 def p_expressionStmt2(p):
     """expressionStmt : PUNTOC"""
+    pass
 
 
 def p_selectionStmt1(p):
     """selectionStmt : IF IPAREN expression DPAREN statement"""
+    p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
 
 
 def p_selectionStmt2(p):
     """selectionStmt :  IF IPAREN expression DPAREN statement ELSE statement"""
+    p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
 
 
 def p_iterationStmt(p):
@@ -195,11 +257,11 @@ def p_relop6(p):
     """relop : DIST"""
 
 
-def P_additiveExpression1(p):
+def p_additiveExpression1(p):
     """additiveExpression : additiveExpression addop term"""
 
 
-def P_additiveExpression2(p):
+def p_additiveExpression2(p):
     """additiveExpression : term"""
 
 
@@ -256,11 +318,11 @@ def p_argsEmpty(p):
 
 
 def p_argList1(p):
-    """argsList : argList COMA expression"""
+    """argList : argList COMA expression"""
 
 
 def p_argList2(p):
-    """argsList : expression"""
+    """argList : expression"""
 
 
 def p_empty(p):
@@ -277,13 +339,8 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-while True:
-    try:
-        s = raw_input('calc > ')
-    except EOFError:
-        break
-    if not s:
-        continue
-    result = parser.parse(s)
-    print(result)
+with open('sample.txt', 'r') as arch1:
+    contents = arch1.read()
+    result = parser.parse(contents)
+    print result
 

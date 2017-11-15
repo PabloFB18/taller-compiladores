@@ -15,10 +15,47 @@ class Program(Nodo):
         visitor.visit_program(self)
 
 
+# class declarationList1(Nodo):
+#     def __init__(self, hijo1, hijo2, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#         self.hijo2 = hijo2
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+#
+#
+# class declarationList2(Nodo):
+#     def __init__(self, hijo1, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+#
+#
+# class declaration1(Nodo):
+#     def __init__(self, hijo1, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+#
+#
+# class declaration2(Nodo):
+#     def __init__(self, hijo1, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+
+
 class VarDeclaration(Nodo):
-    def __init__(self, type_specifier_t, id_t, num_t=None):
+    def __init__(self, type_specifier_t, identificador_t, num_t=None):
         self.type_specifier_t = type_specifier_t
-        self.id_t = id_t
+        self.identificador_t = identificador_t
 
         if num_t is not None:
             self.num_t = num_t
@@ -27,10 +64,42 @@ class VarDeclaration(Nodo):
         visitor.visit_var_declaration(self)
 
 
+# class varDeclaration2(Nodo):
+#     def __init__(self, hijo1, hijo2, hijo3, hijo4, hijo5, hijo6, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#         self.hijo2 = hijo2
+#         self.hijo3 = hijo3
+#         self.hijo4 = hijo4
+#         self.hijo5 = hijo5
+#         self.hijo6 = hijo6
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+#
+#
+# class typeSpecifier1(Nodo):
+#     def __init__(self, hijo1, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+#
+#
+# class typeSpecifier2(Nodo):
+#     def __init__(self, hijo1, name):
+#         self.name = name
+#         self.hijo1 = hijo1
+#
+#     def accept(self, visitor):
+#         visitor.visit_program(self)
+
+
 class FunDeclaration(Nodo):
-    def __init__(self, type_specifier_t, id_t, params_p, compound_stmt_p):
+    def __init__(self, type_specifier_t, identificador_t, params_p, compound_stmt_p):
         self.type_specifier_t = type_specifier_t
-        self.id_t = id_t
+        self.identificador_t = identificador_t
         self.params_p = params_p
         self.compound_stmt_p = compound_stmt_p
 
@@ -38,40 +107,190 @@ class FunDeclaration(Nodo):
         visitor.visit_fun_declaration(self)
 
 
-class Param(Nodo):
-    def __init__(self, type_specifier_t, id_t, arreglo_si_no):
-        self.type_specifier_t = type_specifier_t
-        self.id_t = id_t
-        self.arreglo_si_no = arreglo_si_no
+class params1(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
 
     def accept(self, visitor):
-        visitor.visit_param(self)
+        visitor.visit_program(self)
 
 
-class CompoundStmt(Nodo):
-    def __init__(self, local_declaration_p, stmt_list_p):
-        self.local_declaration_p = local_declaration_p
-        self.stmt_list_p = stmt_list_p
-
-    def accept(self, visitor):
-        visitor.visit_compound_stmt(self)
-
-
-class SelectionStmt(Nodo):
-    def __init__(self, if_t, expresion_p, stmt_p, else_t=None, stmt2_p=None):
-        self.if_t = if_t
-        self.expresion_p = expresion_p
-        self.stmt_p = stmt_p
-
-        if else_t is not None:
-            self.else_t = else_t
-            self.stmt2_p = stmt2_p
+class params2(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
 
     def accept(self, visitor):
-        visitor.visit_selection_stmt(self)
+        visitor.visit_program(self)
 
 
-# TODO: hasta aqui llegamos
+class paramList1(Nodo):
+    def __init__(self, hijo1, hijo2, hijo3, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+        self.hijo3 = hijo3
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class paramList2(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class param1(Nodo):
+    def __init__(self, hijo1, hijo2, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class param2(Nodo):
+    def __init__(self, hijo1, hijo2, hijo3, hijo4, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+        self.hijo3 = hijo3
+        self.hijo4 = hijo4
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class compoundStmt(Nodo):
+    def __init__(self, hijo1, hijo2, hijo3, hijo4, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+        self.hijo3 = hijo3
+        self.hijo4 = hijo4
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class localDeclarations1(Nodo):
+    def __init__(self, hijo1, hijo2, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statementList1(Nodo):
+    def __init__(self, hijo1, hijo2, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statement1(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statement2(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statement3(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statement4(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class statement5(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class expressionStmt1(Nodo):
+    def __init__(self, hijo1, hijo2, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class expressionStmt2(Nodo):
+    def __init__(self, hijo1, name):
+        self.name = name
+        self.hijo1 = hijo1
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class selectionStmt1(Nodo):
+    def __init__(self, hijo1, hijo2, hijo3, hijo4, hijo5, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+        self.hijo3 = hijo3
+        self.hijo4 = hijo4
+        self.hijo5 = hijo5
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
+class selectionStmt2(Nodo):
+    def __init__(self, hijo1, hijo2, hijo3, hijo4, hijo5, hijo6, hijo7, name):
+        self.name = name
+        self.hijo1 = hijo1
+        self.hijo2 = hijo2
+        self.hijo3 = hijo3
+        self.hijo4 = hijo4
+        self.hijo5 = hijo5
+        self.hijo6 = hijo6
+        self.hijo7 = hijo7
+
+    def accept(self, visitor):
+        visitor.visit_program(self)
+
+
 class iterationStmt(Nodo):
     def __init__(self, hijo1, hijo2, hijo3, hijo4, hijo5, name):
         self.name = name

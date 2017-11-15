@@ -1,0 +1,4 @@
+void main(void){
+    int a_1;
+    int x_2 [11];
+}
