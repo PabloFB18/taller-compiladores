@@ -214,25 +214,12 @@ def p_return_stmt2(p):
 
 def p_expression1(p):
     """expression :  var ASIGN expression"""
-    if isinstance(p[1], list):
-        p[0] = p[1]
-    else:
-        p[0] = [p[1]]
-
-    if isinstance(p[2], list):
-        p[0].extend(p[2])
-    else:
-        p[0].extend([p[2]])
-
-    if isinstance(p[3], list):
-        p[0].extend(p[3])
-    else:
-        p[0].extend([p[3]])
+    p[0] = nodos.Expression(p[1], p[2], p[3])
 
 
 def p_expression2(p):
     """expression :  simple_expression"""
-    p[0] = [p[1]]
+    p[0] = p[1]
 
 
 def p_var1(p):
@@ -287,7 +274,7 @@ def p_relop6(p):
 
 def p_additive_expression1(p):
     """additive_expression : additive_expression addop term"""
-    p[0] = nodos.AdditiveExpression(p[3], p[1], p[2]) #Van en desorden para solo tener un nodo.
+    p[0] = nodos.AdditiveExpression(p[3], p[1], p[2])  # Van en desorden para solo tener un nodo.
 
 
 def p_additive_expression2(p):
@@ -299,13 +286,15 @@ def p_addop1(p):
     """addop : SUMA"""
     p[0] = p[1]
 
+
 def p_addop2(p):
     """addop : RESTA"""
     p[0] = p[1]
 
+
 def p_term1(p):
     """term : term mulop factor"""
-    p[0] = nodos.Term(p[3], p[1], p[2])
+    p[0] = nodos.Term(p[3], p[1], p[2])  # Van en desorden para solo tener un nodo.
 
 
 def p_term2(p):

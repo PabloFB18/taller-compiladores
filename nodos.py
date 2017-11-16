@@ -101,6 +101,17 @@ class ReturnStmt(Nodo):
         visitor.visit_return_stmt(self)
 
 
+class Expression(Nodo):
+    def __init__(self, var_p, asign_t, expression_p):
+
+        self.var_p = var_p
+        self.asign_t = asign_t
+        self.expression_p = expression_p
+
+    def accept(self, visitor):
+        visitor.visit_expression(self)
+
+
 class Var(Nodo):
     def __init__(self, id_t, expression_p=None):
         self.id_t = id_t
