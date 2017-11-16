@@ -203,11 +203,9 @@ def p_iteration_stmt(p):
     p[0] = nodos.iterationStmt(p[1],p[3],p[5])
 
 
-
 def p_return_stmt1(p):
     """return_stmt :  RETURN PUNTOC"""
     p[0] = nodos.returnStmt(p[1])
-
 
 
 def p_return_stmt2(p):
@@ -217,13 +215,25 @@ def p_return_stmt2(p):
 
 def p_expression1(p):
     """expression :  var ASIGN expression"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
 
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
+
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
+    else:
+        p[0].extend([p[3]])
 
 
 def p_expression2(p):
     """expression :  simple_expression"""
-
-
+    p[0] = [p[1]]
 
 def p_var1(p):
     """var :  ID"""
