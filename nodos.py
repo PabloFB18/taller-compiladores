@@ -62,7 +62,6 @@ class ExpressionStmt(Nodo):
     def __init__(self, expresion_p):
         self.expresion_p = expresion_p
 
-
     def accept(self, visitor):
         visitor.visit_expression_stmt(self)
 
@@ -81,19 +80,18 @@ class SelectionStmt(Nodo):
         visitor.visit_selection_stmt(self)
 
 
-class iterationStmt(Nodo):
+class IterationStmt(Nodo):
     def __init__(self, while_t, expression_p, stmt_p):
         self.while_t = while_t
         self.expression_p = expression_p
         self.stmt_p = stmt_p
 
-
     def accept(self, visitor):
         visitor.visit_iteration_stmt(self)
 
 
-class returnStmt(Nodo):
-    def __init__(self, return_t, expression_p = None):
+class ReturnStmt(Nodo):
+    def __init__(self, return_t, expression_p=None):
         self.return_t = return_t
 
         if expression_p is not None:
@@ -103,69 +101,42 @@ class returnStmt(Nodo):
         visitor.visit_return_stmt(self)
 
 
+class Var1(Nodo):
+    def __init__(self, id_t):
+        self.id_t = id_t
+
+    def accept(self, visitor):
+        visitor.visit_var1(self)
 
 
-
-class expression1(Nodo):
-    def __init__(self, var_p, asign_t, expression_p):
-        self.var_p = var_p
-        self.asign_t = asign_t
+class Var2(Nodo):
+    def __init__(self, id_t, expression_p):
+        self.id_t = id_t
         self.expression_p = expression_p
 
     def accept(self, visitor):
-        visitor.visit_expression1(self)
+        visitor.visit_var2(self)
 
 
-class expression2(Nodo):
-    def __init__(self, simple_expression_p):
-        self.simple_expression_p = simple_expression_p
-
-    def accept(self, visitor):
-        visitor.visit_expression2(self)
-
-
-class var1(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
+class SimpleExpression1(Nodo):
+    def __init__(self, additive_expression1_p, relop_p, additive_expression2_p):
+        self.additive_expression1_p = additive_expression1_p
+        self.relop_p = relop_p
+        self.additive_expression2_p = additive_expression2_p
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_simple_expression1(self)
 
 
-class var2(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, hijo4, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-        self.hijo4 = hijo4
+class SimpleExpression2(Nodo):
+    def __init__(self, additive_expression_p):
+        self.additive_expression_p = additive_expression_p
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_simple_expression2(self)
 
 
-class simpleExpression1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class simpleExpression2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class relop1(Nodo):
+class Relop1(Nodo):
     def __init__(self, hijo1, hijo2, name):
         self.name = name
         self.hijo1 = hijo1
@@ -175,7 +146,7 @@ class relop1(Nodo):
         visitor.visit_program(self)
 
 
-class relop2(Nodo):
+class Relop2(Nodo):
     def __init__(self, hijo1, name):
         self.name = name
         self.hijo1 = hijo1

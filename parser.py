@@ -182,7 +182,6 @@ def p_expression_stmt1(p):
     p[0] = nodos.ExpressionStmt(p[1])
 
 
-
 def p_expression_stmt2(p):
     """expression_stmt : PUNTOC"""
     pass
@@ -200,17 +199,17 @@ def p_selection_stmt2(p):
 
 def p_iteration_stmt(p):
     """iteration_stmt :  WHILE IPAREN expression DPAREN statement"""
-    p[0] = nodos.iterationStmt(p[1],p[3],p[5])
+    p[0] = nodos.IterationStmt(p[1], p[3], p[5])
 
 
 def p_return_stmt1(p):
     """return_stmt :  RETURN PUNTOC"""
-    p[0] = nodos.returnStmt(p[1])
+    p[0] = nodos.ReturnStmt(p[1])
 
 
 def p_return_stmt2(p):
     """return_stmt :  RETURN expression PUNTOC"""
-    p[0] = nodos.returnStmt(p[1],p[2])
+    p[0] = nodos.ReturnStmt(p[1], p[2])
 
 
 def p_expression1(p):
@@ -235,20 +234,25 @@ def p_expression2(p):
     """expression :  simple_expression"""
     p[0] = [p[1]]
 
+
 def p_var1(p):
     """var :  ID"""
+    p[0] = nodos.Var1(p[1])
 
 
 def p_var2(p):
     """var :  ID ICORCH expression DCORCH"""
+    p[0] = nodos.Var2(p[1], p[3])
 
 
 def p_simple_expression1(p):
     """simple_expression :  additive_expression relop additive_expression"""
+    p[0] = nodos.SimpleExpression1(p[1], p[2], p[3])
 
 
 def p_simple_expression2(p):
     """simple_expression :  additive_expression"""
+    p[0] = nodos.SimpleExpression2(p[1])
 
 
 def p_relop1(p):
