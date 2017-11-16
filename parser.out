@@ -37,11 +37,11 @@ Rule 27    expression_stmt -> expression PUNTOC
 Rule 28    expression_stmt -> PUNTOC
 Rule 29    selection_stmt -> IF IPAREN expression DPAREN statement
 Rule 30    selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement
-Rule 31    iterationStmt -> WHILE IPAREN expression DPAREN statement
-Rule 32    returnStmt -> RETURN PUNTOC
-Rule 33    returnStmt -> RETURN expression PUNTOC
+Rule 31    iteration_stmt -> WHILE IPAREN expression DPAREN statement
+Rule 32    return_stmt -> RETURN PUNTOC
+Rule 33    return_stmt -> RETURN expression PUNTOC
 Rule 34    expression -> var ASIGN expression
-Rule 35    expression -> simpleExpression
+Rule 35    expression -> simple_expression
 Rule 36    var -> ID
 Rule 37    var -> ID ICORCH expression DCORCH
 Rule 38    simple_expression -> additive_expression relop additive_expression
@@ -120,7 +120,6 @@ expression           : 27 29 30 31 33 34 37 54 61 62
 expression_stmt      : 22
 factor               : 50 51
 fun_declaration      : 5
-iterationStmt        : 
 iteration_stmt       : 25
 local_declarations   : 17 18
 mulop                : 50
@@ -130,11 +129,9 @@ param_list           : 11
 params               : 10
 program              : 0
 relop                : 38
-returnStmt           : 
 return_stmt          : 26
 selection_stmt       : 24
-simpleExpression     : 35
-simple_expression    : 
+simple_expression    : 35
 statement            : 20 29 30 30 31
 statement_list       : 17 20
 term                 : 46 47 50
