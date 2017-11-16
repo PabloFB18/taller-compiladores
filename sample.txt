@@ -1,5 +1,8 @@
 void main(int c_2, int c_3){
-    int a_1;
-    int x_2 [11];
+    int d_1;
+    int f_1;
+    01;
 }
 int b_1;
+int a_1;
+
