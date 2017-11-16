@@ -58,73 +58,61 @@ class CompoundStmt(Nodo):
         visitor.visit_compound_stmt(self)
 
 
-class SelectionStmt(Nodo):
-    def __init__(self, if_t, expresion_p, stmt_p, else_t=None, stmt2_p=None):
-        self.if_t = if_t
-        self.expresion_p = expresion_p
-        self.stmt_p = stmt_p
-
-        if else_t is not None:
-            self.else_t = else_t
-            self.stmt2_p = stmt2_p
-
-    def accept(self, visitor):
-        visitor.visit_selection_stmt(self)
-
-
-# TODO: hasta aqui llegamos
-class iterationStmt(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, hijo4, hijo5, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-        self.hijo4 = hijo4
-        self.hijo5 = hijo5
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class returnStmt1(Nodo):
-    def __init__(self, hijo1, hijo2, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
+# class SelectionStmt(Nodo):
+#     def __init__(self, if_t, expresion_p, stmt_p, else_t=None, stmt2_p=None):
+#         self.if_t = if_t
+#         self.expresion_p = expresion_p
+#         self.stmt_p = stmt_p
+#
+#         if else_t is not None:
+#             self.else_t = else_t
+#             self.stmt2_p = stmt2_p
+#
+#     def accept(self, visitor):
+#         visitor.visit_selection_stmt(self)
+#
+#
+# class iterationStmt(Nodo):
+#     def __init__(self, while_t, expression_p, stmt_p):
+#         self.while_t = while_t
+#         self.expression_p = expression_p
+#         self.stmt_p = stmt_p
+#
+#
+#     def accept(self, visitor):
+#         visitor.visit_iteration_stmt(self)
+#
+#
+# class returnStmt(Nodo):
+#     def __init__(self, return_t, expression_p = None):
+#         self.return_t = return_t
+#
+#         if expression_p is not None:
+#             self.expression_p = expression_p
+#
+#     def accept(self, visitor):
+#         visitor.visit_return_stmt(self)
 
 
-class returnStmt2(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
 
-    def accept(self, visitor):
-        visitor.visit_program(self)
 
 
 class expression1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
+    def __init__(self, var_p, asign_t, expression_p):
+        self.var_p = var_p
+        self.asign_t = asign_t
+        self.expression_p = expression_p
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_expression1(self)
 
 
 class expression2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
+    def __init__(self, simple_expression_p):
+        self.simple_expression_p = simple_expression_p
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_expression2(self)
 
 
 class var1(Nodo):

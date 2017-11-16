@@ -9,8 +9,7 @@ class Visitor(object):
     def visit_program(self, program):
         self.ast += "[label= " + "program" + "]" + "\n\t"
         for declaration in program.declarations_p:
-            print declaration.accept(self)
-            declaration_txt = declaration.accept(self)
+            declaration.accept(self)
             self.ast += "->" + declaration_txt + "\n\t"
         return "digraph G {\n\t"+self.ast+"}"
 
@@ -21,7 +20,6 @@ class Visitor(object):
         else:
             self.ast += "[label= " + "var declaration: " + var_declaration.type_specifier_t + " " + \
                         var_declaration.id_t + "[" + var_declaration.num_t + "]" + "]" + "\n\t"
-        return self.ast
 
     def visit_fun_declaration(self, fun_declaration):
         pass
