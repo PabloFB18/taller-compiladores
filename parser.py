@@ -257,94 +257,123 @@ def p_simple_expression2(p):
 
 def p_relop1(p):
     """relop : MENORI"""
+    p[0] = p[1]
 
 
 def p_relop2(p):
     """relop : MENOR"""
+    p[0] = p[1]
 
 
 def p_relop3(p):
     """relop : MAYOR"""
+    p[0] = p[1]
 
 
 def p_relop4(p):
     """relop : MAYORI"""
+    p[0] = p[1]
 
 
 def p_relop5(p):
     """relop : IGUAL"""
+    p[0] = p[1]
 
 
 def p_relop6(p):
     """relop : DIST"""
+    p[0] = p[1]
 
 
 def p_additive_expression1(p):
     """additive_expression : additive_expression addop term"""
+    p[0] = nodos.AdditiveExpression(p[3], p[1], p[2]) #Van en desorden para solo tener un nodo.
 
 
 def p_additive_expression2(p):
     """additive_expression : term"""
+    p[0] = nodos.AdditiveExpression(p[1])
 
 
 def p_addop1(p):
     """addop : SUMA"""
-
+    p[0] = p[1]
 
 def p_addop2(p):
     """addop : RESTA"""
-
+    p[0] = p[1]
 
 def p_term1(p):
     """term : term mulop factor"""
+    p[0] = nodos.Term(p[3], p[1], p[2])
 
 
 def p_term2(p):
     """term : factor"""
+    p[0] = nodos.Term(p[1])
 
 
 def p_mulop1(p):
     """mulop : MULTI"""
+    p[0] = p[1]
 
 
 def p_mulop2(p):
     """mulop : DIVI"""
+    p[0] = p[1]
 
 
 def p_factor1(p):
     """factor : IPAREN expression DPAREN"""
+    p[0] = p[1]
 
 
 def p_factor2(p):
     """factor : var"""
+    p[0] = p[1]
 
 
 def p_factor3(p):
     """factor : call"""
+    p[0] = p[1]
 
 
 def p_factor4(p):
     """factor : NUM"""
+    p[0] = p[1]
 
 
 def p_call(p):
     """call : ID IPAREN args DPAREN"""
+    p[0] = nodos.Call(p[1], p[3])
 
 
 def p_args1(p):
     """args : arg_list"""
+    p[0] = p[1]
 
 
 def p_args_empty(p):
     """args : empty"""
+    pass
 
 
 def p_arg_list1(p):
     """arg_list : arg_list COMA expression"""
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
+
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
+    else:
+        p[0].extend([p[3]])
 
 
 def p_arg_list2(p):
     """arg_list : expression"""
+    p[0] = [p[1]]
 
 
 def p_empty(p):

@@ -123,214 +123,46 @@ class SimpleExpression(Nodo):
         visitor.visit_simple_expression(self)
 
 
-class Relop1(Nodo):
-    def __init__(self, hijo1, hijo2, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
+class Relop(Nodo):
+    def __init__(self, relop_t):
+        self.relop_t = relop_t
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_relop(self)
 
 
-class Relop2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class relop3(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
+class AdditiveExpression(Nodo):
+    def __init__(self, term_p, additive_expression_p=None, addop_t=None):
+        self.term_p = term_p
+        if additive_expression_p is not None and addop_t is not None:
+            self.additive_expression_p = additive_expression_p
+            self.addop_t = addop_t
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_additive_expression(self)
 
 
-class relop4(Nodo):
-    def __init__(self, hijo1, hijo2, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class relop5(Nodo):
-    def __init__(self, hijo1, hijo2, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
+class Term(Nodo):
+    def __init__(self, factor_p, term_p=None, mulop_t=None):
+        self.factor_p = factor_p
+        if term_p is not None and mulop_t is not None:
+            self.term_p = term_p
+            self.mulop_t = mulop_t
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_term(self)
 
 
-class relop6(Nodo):
-    def __init__(self, hijo1, hijo2, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class additiveExpression1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
+class Call(Nodo):
+    def __init__(self, id_t, args_p):
+        self.id_t = id_t
+        self.args_p = args_p
 
     def accept(self, visitor):
-        visitor.visit_program(self)
+        visitor.visit_call(self)
 
 
-class additiveExpression2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
 
 
-class addop1(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
 
 
-class addop2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class term1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class term2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class mulop1(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class mulop2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class factor1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class factor2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class factor3(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class factor4(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class call(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, hijo4, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-        self.hijo4 = hijo4
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class args1(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class argList1(Nodo):
-    def __init__(self, hijo1, hijo2, hijo3, name):
-        self.name = name
-        self.hijo1 = hijo1
-        self.hijo2 = hijo2
-        self.hijo3 = hijo3
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
-
-
-class argList2(Nodo):
-    def __init__(self, hijo1, name):
-        self.name = name
-        self.hijo1 = hijo1
-
-    def accept(self, visitor):
-        visitor.visit_program(self)
