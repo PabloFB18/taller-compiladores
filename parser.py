@@ -5,7 +5,7 @@ from __builtin__ import raw_input
 
 import nodos
 from scanner import tokens
-
+from visitor import Visitor
 
 precedence = (
     ('left', 'SUMA', 'RESTA'),
@@ -35,7 +35,7 @@ def p_declaration_list1(p):
 
 def p_declaration_list2(p):
     """declarationList : declaration"""
-    p[0] = p[1]
+    p[0] = [p[1]]
 
 
 def p_declaration1(p):
@@ -343,4 +343,7 @@ with open('sample.txt', 'r') as arch1:
     contents = arch1.read()
     result = parser.parse(contents)
     print result
+    visitor = Visitor()
+    nodos.Program.accept(result, visitor)
+    print(visitor.ast)
 
