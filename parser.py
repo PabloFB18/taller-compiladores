@@ -16,12 +16,12 @@ precedence = (
 
 
 def p_program(p):
-    """program : declarationList"""
+    """program : declaration_list"""
     p[0] = nodos.Program(p[1])
 
 
 def p_declaration_list1(p):
-    """declarationList : declarationList declaration"""
+    """declaration_list : declaration_list declaration"""
     if isinstance(p[1], list):
         p[0] = p[1]
     else:
@@ -34,47 +34,47 @@ def p_declaration_list1(p):
 
 
 def p_declaration_list2(p):
-    """declarationList : declaration"""
+    """declaration_list : declaration"""
     p[0] = p[1]
 
 
 def p_declaration1(p):
-    """declaration : varDeclaration"""
+    """declaration : var_declaration"""
     p[0] = p[1]
 
 
 def p_declaration2(p):
-    """declaration : funDeclaration"""
+    """declaration : fun_declaration"""
     p[0] = p[1]
 
 
 def p_var_declaration1(p):
-    """varDeclaration : typeSpecifier ID PUNTOC"""
+    """var_declaration : type_specifier ID PUNTOC"""
     p[0] = nodos.VarDeclaration(p[1], p[2])
 
 
 def p_var_declaration2(p):
-    """varDeclaration : typeSpecifier ID ICORCH NUM DCORCH PUNTOC"""
+    """var_declaration : type_specifier ID ICORCH NUM DCORCH PUNTOC"""
     p[0] = nodos.VarDeclaration(p[1], p[2], p[4])
 
 
 def p_type_specifier1(p):
-    """typeSpecifier : INT"""
+    """type_specifier : INT"""
     p[0] = p[1]
 
 
 def p_type_specifier2(p):
-    """typeSpecifier : VOID"""
+    """type_specifier : VOID"""
     p[0] = p[1]
 
 
 def p_fun_declaration(p):
-    """funDeclaration : typeSpecifier ID IPAREN params DPAREN compoundStmt"""
+    """fun_declaration : type_specifier ID IPAREN params DPAREN compound_stmt"""
     p[0] = nodos.FunDeclaration(p[1], p[2], p[4], p[6])
 
 
 def p_params1(p):
-    """params : paramList"""
+    """params : param_list"""
     p[0] = p[1]
 
 
@@ -83,7 +83,7 @@ def p_params2(p):
     pass
 
 
-def p_paramList1(p):
+def p_param_list1(p):
     """paramList : paramList COMA param"""
     if isinstance(p[1], list):
         p[0] = p[1]
@@ -96,28 +96,28 @@ def p_paramList1(p):
         p[0].extend([p[2]])
 
 
-def p_paramList2(p):
-    """paramList : param"""
+def p_param_list2(p):
+    """param_list : param"""
     p[0] = p[1]
 
 
 def p_param1(p):
-    """param : typeSpecifier ID"""
+    """param : type_specifier ID"""
     p[0] = nodos.Param(p[1], p[2], False)
 
 
 def p_param2(p):
-    """param : typeSpecifier ID ICORCH DCORCH"""
+    """param : type_specifier ID ICORCH DCORCH"""
     p[0] = nodos.Param(p[1], p[2], True)
 
 
-def p_compoundStmt(p):
-    """compoundStmt : ILLAVE localDeclarations statementList DLLAVE"""
+def p_compound_stmt(p):
+    """compound_stmt : ILLAVE local_declarations statement_list DLLAVE"""
     p[0] = nodos.CompoundStmt(p[1], p[2])
 
 
-def p_localDeclarations1(p):
-    """localDeclarations : localDeclarations varDeclaration"""
+def p_local_declarations1(p):
+    """local_declarations : local_declarations var_declaration"""
     if isinstance(p[1], list):
         p[0] = p[1]
     else:
@@ -129,13 +129,13 @@ def p_localDeclarations1(p):
         p[0].extend([p[2]])
 
 
-def p_localDeclarationsEmpty(p):
-    """localDeclarations :  empty"""
+def p_local_declarations_empty(p):
+    """local_declarations :  empty"""
     p[0] = nodos.Null()
 
 
-def p_statementList1(p):
-    """statementList : statementList statement"""
+def p_statement_list1(p):
+    """statement_list : statement_list statement"""
     if isinstance(p[1], list):
         p[0] = p[1]
     else:
@@ -147,74 +147,149 @@ def p_statementList1(p):
         p[0].extend([p[2]])
 
 
-def p_statementListEmpty(p):
-    """statementList : empty"""
+def p_statement_list_empty(p):
+    """statement_list : empty"""
     p[0] = nodos.Null()
 
 
 def p_statement1(p):
-    """statement : expressionStmt"""
+    """statement : expression_stmt"""
     p[0] = p[1]
 
 
 def p_statement2(p):
-    """statement : compoundStmt"""
+    """statement : compound_stmt"""
     p[0] = p[1]
 
 
 def p_statement3(p):
-    """statement : selectionStmt"""
+    """statement : selection_stmt"""
     p[0] = p[1]
 
 
 def p_statement4(p):
-    """statement : iterationStmt"""
+    """statement : iteration_stmt"""
     p[0] = p[1]
 
 
 def p_statement5(p):
-    """statement : returnStmt"""
+    """statement : return_stmt"""
     p[0] = p[1]
 
 
-def p_expressionStmt1(p):
-    """expressionStmt : expression PUNTOC"""
-    p[0] = p[1]
+def p_expression_stmt1(p):
+    """expression_stmt : expression PUNTOC"""
+    #p[0] = p[1]
+    if isinstance(p[1], list):
+        p[0] = p[1]
+    else:
+        p[0] = [p[1]]
 
 
-def p_expressionStmt2(p):
-    """expressionStmt : PUNTOC"""
+
+
+def p_expression_stmt2(p):
+    """expression_stmt : PUNTOC"""
     pass
 
 
-def p_selectionStmt1(p):
-    """selectionStmt : IF IPAREN expression DPAREN statement"""
-    p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
+def p_selection_stmt1(p):
+    """selection_stmt : IF IPAREN expression DPAREN statement"""
+    #p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
+    if isinstance(p[1], list):
+        p[0].extend(p[1])
+    else:
+        p[0].extend([p[1]])
+
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
+    else:
+        p[0].extend([p[3]])
+
+    if isinstance(p[5], list):
+        p[0].extend(p[5])
+    else:
+        p[0].extend([p[5]])
 
 
-def p_selectionStmt2(p):
-    """selectionStmt :  IF IPAREN expression DPAREN statement ELSE statement"""
-    p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
+def p_selection_stmt2(p):
+    """selection_stmt :  IF IPAREN expression DPAREN statement ELSE statement"""
+    #p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
+    if isinstance(p[1], list):
+        p[0].extend(p[1])
+    else:
+        p[0].extend([p[1]])
+
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
+    else:
+        p[0].extend([p[3]])
+
+    if isinstance(p[5], list):
+        p[0].extend(p[5])
+    else:
+        p[0].extend([p[5]])
+
+    if isinstance(p[6], list):
+        p[0].extend(p[6])
+    else:
+        p[0].extend([p[6]])
+
+    if isinstance(p[7], list):
+        p[0].extend(p[7])
+    else:
+        p[0].extend([p[7]])
 
 
-def p_iterationStmt(p):
+def p_iteration_stmt(p):
     """iterationStmt :  WHILE IPAREN expression DPAREN statement"""
+    #p[0] = nodos.iterationStmt(p[1],p[3],p[5])
+    if isinstance(p[1], list):
+        p[0].extend(p[1])
+    else:
+        p[0].extend([p[1]])
+
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
+    else:
+        p[0].extend([p[3]])
+
+    if isinstance(p[5], list):
+        p[0].extend(p[5])
+    else:
+        p[0].extend([p[5]])
 
 
-def p_returnStmt1(p):
+def p_return_stmt1(p):
     """returnStmt :  RETURN PUNTOC"""
+    #p[0] = nodos.returnStmt(p[1])
+    if isinstance(p[1], list):
+        p[0].extend(p[1])
+    else:
+        p[0].extend([p[1]])
 
 
-def p_returnStmt2(p):
+def p_return_stmt2(p):
     """returnStmt :  RETURN expression PUNTOC"""
+    #p[0] = nodos.returnStmt(p[1],p[2])
+    if isinstance(p[1], list):
+        p[0].extend(p[1])
+    else:
+        p[0].extend([p[1]])
 
+    if isinstance(p[2], list):
+        p[0].extend(p[2])
+    else:
+        p[0].extend([p[2]])
 
 def p_expression1(p):
     """expression :  var ASIGN expression"""
+    p[0] = nodos.expression1(p[1], p[2], p[3])
 
 
 def p_expression2(p):
     """expression :  simpleExpression"""
+    p[0] = nodos.expression2(p[1])
 
 
 def p_var1(p):
@@ -225,12 +300,12 @@ def p_var2(p):
     """var :  ID ICORCH expression DCORCH"""
 
 
-def p_simpleExpression1(p):
-    """simpleExpression :  additiveExpression relop additiveExpression"""
+def p_simple_expression1(p):
+    """simple_expression :  additive_expression relop additive_expression"""
 
 
-def p_simpleExpression2(p):
-    """simpleExpression :  additiveExpression"""
+def p_simple_expression2(p):
+    """simple_expression :  additive_expression"""
 
 
 def p_relop1(p):
@@ -257,12 +332,12 @@ def p_relop6(p):
     """relop : DIST"""
 
 
-def p_additiveExpression1(p):
-    """additiveExpression : additiveExpression addop term"""
+def p_additive_expression1(p):
+    """additive_expression : additive_expression addop term"""
 
 
-def p_additiveExpression2(p):
-    """additiveExpression : term"""
+def p_additive_expression2(p):
+    """additive_expression : term"""
 
 
 def p_addop1(p):
@@ -313,16 +388,16 @@ def p_args1(p):
     """args : argList"""
 
 
-def p_argsEmpty(p):
+def p_args_empty(p):
     """args : empty"""
 
 
-def p_argList1(p):
-    """argList : argList COMA expression"""
+def p_arg_list1(p):
+    """arg_list : arg_list COMA expression"""
 
 
-def p_argList2(p):
-    """argList : expression"""
+def p_arg_list2(p):
+    """arg_list : expression"""
 
 
 def p_empty(p):
