@@ -90,15 +90,15 @@ def p_param_list1(p):
     else:
         p[0] = [p[1]]
 
-    if isinstance(p[2], list):
-        p[0].extend(p[2])
+    if isinstance(p[3], list):
+        p[0].extend(p[3])
     else:
-        p[0].extend([p[2]])
+        p[0].extend([p[3]])
 
 
 def p_param_list2(p):
     """param_list : param"""
-    p[0] = p[1]
+    p[0] = [p[1]]
 
 
 def p_param1(p):
@@ -113,7 +113,7 @@ def p_param2(p):
 
 def p_compound_stmt(p):
     """compound_stmt : ILLAVE local_declarations statement_list DLLAVE"""
-    p[0] = nodos.CompoundStmt(p[1], p[2])
+    p[0] = nodos.CompoundStmt(p[2], p[3])
 
 
 def p_local_declarations1(p):
@@ -131,7 +131,7 @@ def p_local_declarations1(p):
 
 def p_local_declarations_empty(p):
     """local_declarations :  empty"""
-    p[0] = nodos.Null()
+    pass
 
 
 def p_statement_list1(p):
@@ -149,7 +149,7 @@ def p_statement_list1(p):
 
 def p_statement_list_empty(p):
     """statement_list : empty"""
-    p[0] = nodos.Null()
+    pass
 
 
 def p_statement1(p):
@@ -237,22 +237,22 @@ def p_expression2(p):
 
 def p_var1(p):
     """var :  ID"""
-    p[0] = nodos.Var1(p[1])
+    p[0] = nodos.Var(p[1])
 
 
 def p_var2(p):
     """var :  ID ICORCH expression DCORCH"""
-    p[0] = nodos.Var2(p[1], p[3])
+    p[0] = nodos.Var(p[1], p[3])
 
 
 def p_simple_expression1(p):
     """simple_expression :  additive_expression relop additive_expression"""
-    p[0] = nodos.SimpleExpression1(p[1], p[2], p[3])
+    p[0] = nodos.SimpleExpression(p[1], p[2], p[3])
 
 
 def p_simple_expression2(p):
     """simple_expression :  additive_expression"""
-    p[0] = nodos.SimpleExpression2(p[1])
+    p[0] = nodos.SimpleExpression(p[1])
 
 
 def p_relop1(p):

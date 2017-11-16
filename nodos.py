@@ -2,9 +2,9 @@ class Nodo():
     pass
 
 
-class Null(Nodo):
-    def __init__(self):
-        self.type = 'empty'
+# class Null(Nodo):
+#     def __init__(self):
+#         self.type = 'empty'
 
 
 class Program(Nodo):
@@ -101,39 +101,25 @@ class ReturnStmt(Nodo):
         visitor.visit_return_stmt(self)
 
 
-class Var1(Nodo):
-    def __init__(self, id_t):
+class Var(Nodo):
+    def __init__(self, id_t, expression_p=None):
         self.id_t = id_t
+        if expression_p is not None:
+            self.expression_p = expression_p
 
     def accept(self, visitor):
-        visitor.visit_var1(self)
+        visitor.visit_var(self)
 
 
-class Var2(Nodo):
-    def __init__(self, id_t, expression_p):
-        self.id_t = id_t
-        self.expression_p = expression_p
-
-    def accept(self, visitor):
-        visitor.visit_var2(self)
-
-
-class SimpleExpression1(Nodo):
-    def __init__(self, additive_expression1_p, relop_p, additive_expression2_p):
+class SimpleExpression(Nodo):
+    def __init__(self, additive_expression1_p, relop_p=None, additive_expression2_p=None):
         self.additive_expression1_p = additive_expression1_p
-        self.relop_p = relop_p
-        self.additive_expression2_p = additive_expression2_p
+        if relop_p is not None and additive_expression2_p is not None:
+            self.relop_p = relop_p
+            self.additive_expression2_p = additive_expression2_p
 
     def accept(self, visitor):
-        visitor.visit_simple_expression1(self)
-
-
-class SimpleExpression2(Nodo):
-    def __init__(self, additive_expression_p):
-        self.additive_expression_p = additive_expression_p
-
-    def accept(self, visitor):
-        visitor.visit_simple_expression2(self)
+        visitor.visit_simple_expression(self)
 
 
 class Relop1(Nodo):
