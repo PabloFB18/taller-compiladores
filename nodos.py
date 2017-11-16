@@ -57,40 +57,49 @@ class CompoundStmt(Nodo):
         visitor.visit_compound_stmt(self)
 
 
-# class SelectionStmt(Nodo):
-#     def __init__(self, if_t, expresion_p, stmt_p, else_t=None, stmt2_p=None):
-#         self.if_t = if_t
-#         self.expresion_p = expresion_p
-#         self.stmt_p = stmt_p
-#
-#         if else_t is not None:
-#             self.else_t = else_t
-#             self.stmt2_p = stmt2_p
-#
-#     def accept(self, visitor):
-#         visitor.visit_selection_stmt(self)
-#
-#
-# class iterationStmt(Nodo):
-#     def __init__(self, while_t, expression_p, stmt_p):
-#         self.while_t = while_t
-#         self.expression_p = expression_p
-#         self.stmt_p = stmt_p
-#
-#
-#     def accept(self, visitor):
-#         visitor.visit_iteration_stmt(self)
-#
-#
-# class returnStmt(Nodo):
-#     def __init__(self, return_t, expression_p = None):
-#         self.return_t = return_t
-#
-#         if expression_p is not None:
-#             self.expression_p = expression_p
-#
-#     def accept(self, visitor):
-#         visitor.visit_return_stmt(self)
+class ExpressionStmt(Nodo):
+    def __init__(self, expresion_p):
+        self.expresion_p = expresion_p
+
+
+    def accept(self, visitor):
+        visitor.visit_expression_stmt(self)
+
+
+class SelectionStmt(Nodo):
+    def __init__(self, if_t, expresion_p, stmt_p, else_t=None, stmt2_p=None):
+        self.if_t = if_t
+        self.expresion_p = expresion_p
+        self.stmt_p = stmt_p
+
+        if else_t is not None:
+            self.else_t = else_t
+            self.stmt2_p = stmt2_p
+
+    def accept(self, visitor):
+        visitor.visit_selection_stmt(self)
+
+
+class iterationStmt(Nodo):
+    def __init__(self, while_t, expression_p, stmt_p):
+        self.while_t = while_t
+        self.expression_p = expression_p
+        self.stmt_p = stmt_p
+
+
+    def accept(self, visitor):
+        visitor.visit_iteration_stmt(self)
+
+
+class returnStmt(Nodo):
+    def __init__(self, return_t, expression_p = None):
+        self.return_t = return_t
+
+        if expression_p is not None:
+            self.expression_p = expression_p
+
+    def accept(self, visitor):
+        visitor.visit_return_stmt(self)
 
 
 
