@@ -19,6 +19,7 @@ class VarDeclaration(Nodo):
     def __init__(self, type_specifier_t, id_t, num_t=None):
         self.type_specifier_t = type_specifier_t
         self.id_t = id_t
+        self.num_t = None
 
         if num_t is not None:
             self.num_t = num_t
