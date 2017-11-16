@@ -34,7 +34,7 @@ def p_declaration_list1(p):
 
 
 def p_declaration_list2(p):
-    """declarationList : declaration"""
+    """declaration_list : declaration"""
     p[0] = [p[1]]
 
 
@@ -84,7 +84,7 @@ def p_params2(p):
 
 
 def p_param_list1(p):
-    """paramList : paramList COMA param"""
+    """param_list : param_list COMA param"""
     if isinstance(p[1], list):
         p[0] = p[1]
     else:
@@ -318,7 +318,7 @@ def p_call(p):
 
 
 def p_args1(p):
-    """args : argList"""
+    """args : arg_list"""
 
 
 def p_args_empty(p):

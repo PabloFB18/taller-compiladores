@@ -10,7 +10,7 @@ class Visitor(object):
         self.ast += "[label= " + "program" + "]" + "\n\t"
         for declaration in program.declarations_p:
             declaration.accept(self)
-            self.ast += "->" + declaration_txt + "\n\t"
+            # self.ast += "->" + declaration_txt + "\n\t"
         return "digraph G {\n\t"+self.ast+"}"
 
     def visit_var_declaration(self, var_declaration):
