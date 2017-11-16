@@ -179,12 +179,7 @@ def p_statement5(p):
 
 def p_expression_stmt1(p):
     """expression_stmt : expression PUNTOC"""
-    #p[0] = p[1]
-    if isinstance(p[1], list):
-        p[0] = p[1]
-    else:
-        p[0] = [p[1]]
-
+    p[0] = nodos.ExpressionStmt(p[1])
 
 
 
@@ -195,101 +190,39 @@ def p_expression_stmt2(p):
 
 def p_selection_stmt1(p):
     """selection_stmt : IF IPAREN expression DPAREN statement"""
-    #p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
-    if isinstance(p[1], list):
-        p[0].extend(p[1])
-    else:
-        p[0].extend([p[1]])
-
-    if isinstance(p[3], list):
-        p[0].extend(p[3])
-    else:
-        p[0].extend([p[3]])
-
-    if isinstance(p[5], list):
-        p[0].extend(p[5])
-    else:
-        p[0].extend([p[5]])
+    p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
 
 
 def p_selection_stmt2(p):
     """selection_stmt :  IF IPAREN expression DPAREN statement ELSE statement"""
-    #p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
-    if isinstance(p[1], list):
-        p[0].extend(p[1])
-    else:
-        p[0].extend([p[1]])
-
-    if isinstance(p[3], list):
-        p[0].extend(p[3])
-    else:
-        p[0].extend([p[3]])
-
-    if isinstance(p[5], list):
-        p[0].extend(p[5])
-    else:
-        p[0].extend([p[5]])
-
-    if isinstance(p[6], list):
-        p[0].extend(p[6])
-    else:
-        p[0].extend([p[6]])
-
-    if isinstance(p[7], list):
-        p[0].extend(p[7])
-    else:
-        p[0].extend([p[7]])
+    p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
 
 
 def p_iteration_stmt(p):
-    """iterationStmt :  WHILE IPAREN expression DPAREN statement"""
-    #p[0] = nodos.iterationStmt(p[1],p[3],p[5])
-    if isinstance(p[1], list):
-        p[0].extend(p[1])
-    else:
-        p[0].extend([p[1]])
+    """iteration_stmt :  WHILE IPAREN expression DPAREN statement"""
+    p[0] = nodos.iterationStmt(p[1],p[3],p[5])
 
-    if isinstance(p[3], list):
-        p[0].extend(p[3])
-    else:
-        p[0].extend([p[3]])
-
-    if isinstance(p[5], list):
-        p[0].extend(p[5])
-    else:
-        p[0].extend([p[5]])
 
 
 def p_return_stmt1(p):
-    """returnStmt :  RETURN PUNTOC"""
-    #p[0] = nodos.returnStmt(p[1])
-    if isinstance(p[1], list):
-        p[0].extend(p[1])
-    else:
-        p[0].extend([p[1]])
+    """return_stmt :  RETURN PUNTOC"""
+    p[0] = nodos.returnStmt(p[1])
+
 
 
 def p_return_stmt2(p):
-    """returnStmt :  RETURN expression PUNTOC"""
-    #p[0] = nodos.returnStmt(p[1],p[2])
-    if isinstance(p[1], list):
-        p[0].extend(p[1])
-    else:
-        p[0].extend([p[1]])
+    """return_stmt :  RETURN expression PUNTOC"""
+    p[0] = nodos.returnStmt(p[1],p[2])
 
-    if isinstance(p[2], list):
-        p[0].extend(p[2])
-    else:
-        p[0].extend([p[2]])
 
 def p_expression1(p):
     """expression :  var ASIGN expression"""
-    p[0] = nodos.expression1(p[1], p[2], p[3])
+
 
 
 def p_expression2(p):
-    """expression :  simpleExpression"""
-    p[0] = nodos.expression2(p[1])
+    """expression :  simple_expression"""
+
 
 
 def p_var1(p):
