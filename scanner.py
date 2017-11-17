@@ -45,7 +45,7 @@ t_MENORI = r'<='
 t_MAYOR = r'>'
 t_MAYORI = r'>='
 t_IGUAL = r'=='
-t_DIST = r'!='
+t_DIST = r'<>'
 
 # asignacion
 t_ASIGN = r'\='

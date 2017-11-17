@@ -390,7 +390,7 @@ with open('sample.txt', 'r') as arch1:
 out1 = open('parser-examples/out1.txt', 'w')
 with open('parser-examples/sample1.txt', 'r') as arch1:
     contents = arch1.read()
-    result = parser.parse(contents, debug=True)
+    result = parser.parse(contents)
     print('\n sample1')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)

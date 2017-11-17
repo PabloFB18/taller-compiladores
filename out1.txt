@@ -1,2 +1,0 @@
-Illegal character '1' at line 1
-Illegal character '_' at line 1

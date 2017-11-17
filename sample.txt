@@ -1,5 +1,5 @@
 void main(int c_2, int c_3){
-    if(1_a == 01){
+    if(a <> 01){
         if(00 == 00){
             a = 04;
         }

@@ -5,7 +5,7 @@ Void funcion (int parametro){
     if(00 == 00){
         a = 04;
     }
-    while(parametro != 00){
+    while(parametro <> 00){
         a = a + 01;
         parametro = parametro - 01;
     }
