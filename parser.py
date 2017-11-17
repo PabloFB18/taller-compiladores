@@ -379,19 +379,19 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-with open('sample.txt', 'r') as arch1:
-    contents = arch1.read()
-    result = parser.parse(contents)
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    print(visitor.ast)
-
-# out1 = open('parser-examples/out1.txt', 'w')
-# with open('parser-examples/sample1.txt', 'r') as arch1:
+# with open('sample.txt', 'r') as arch1:
 #     contents = arch1.read()
 #     result = parser.parse(contents)
-#     print('\n sample1')
 #     visitor = Visitor()
 #     nodos.Program.accept(result, visitor)
-#     out1.write(visitor.ast)
+#     print(visitor.ast)
+
+out1 = open('parser-examples/out1.txt', 'w')
+with open('parser-examples/sample1.txt', 'r') as arch1:
+    contents = arch1.read()
+    result = parser.parse(contents)
+    print('\n sample1')
+    visitor = Visitor()
+    nodos.Program.accept(result, visitor)
+    out1.write(visitor.ast)
 
