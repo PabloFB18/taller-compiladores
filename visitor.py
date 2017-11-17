@@ -7,7 +7,6 @@ class Visitor(object):
     #     # return id
 
     def visit_program(self, program):
-
         for declaration in program.declarations_p:
             self.ast += '\t"program" '
             declaration.accept(self)
@@ -27,7 +26,7 @@ class Visitor(object):
         fun = '"function: ' + fun_declaration.type_specifier_t + ' ' + \
                     fun_declaration.id_t + '"'
         self.ast += '-> ' + fun + '\n'
-        if fun_declaration.compound_stmt_p.local_declaration_p is not None or \
+        if fun_declaration.compound_stmt_p.local_declarations_p is not None or \
                 fun_declaration.compound_stmt_p.stmt_list_p is not None:
             self.ast += '\t' + fun
             fun_declaration.compound_stmt_p.accept(self)
@@ -38,22 +37,35 @@ class Visitor(object):
 
     def visit_param(self, param):
         if param.arreglo_si_no:
-            var = '-> ' + '"param: ' + param.type_specifier_t + ' ' + \
+            param = '-> ' + '"param: ' + param.type_specifier_t + ' ' + \
                   param.id_t + '"'
-            self.ast += var + '\n'
+            self.ast += param + '\n'
         else:
-            var = '-> ' + '"param: ' + param.type_specifier_t + '[] ' + \
+            param = '-> ' + '"param: ' + param.type_specifier_t + '[] ' + \
                   param.id_t + '"'
-            self.ast += var + '\n'
+            self.ast += param + '\n'
 
     def visit_compound_stmt(self, compound_stmt):
-        pass
+        self.ast += '-> ' + '"compound stmt"' + '\n'
+        if compound_stmt.local_declarations_p is not None:
+            for local_declaration in compound_stmt.local_declarations_p:
+                if local_declaration is not None:
+                    self.ast += '\t"compound stmt" '
+                    local_declaration.accept(self)
+        if compound_stmt.stmt_list_p is not None:
+            for stmt in compound_stmt.stmt_list_p:
+                if stmt is not None:
+                    self.ast += '\t"compound stmt" '
+                    stmt.accept(self)
 
     def visit_expression_stmt(self, expresion_stmt):
-        pass
+        self.ast += '-> ' + '"expresion"' + '\n'
+        self.ast += '\t"expresion" '
+        expresion_stmt.expresion_p.accept(self)
 
     def visit_selection_stmt(self, selection_stmt):
-        pass
+        self.ast += '-> ' + '"if / if else"' + '\n'
+        self.ast += '\t"expresion" '
 
     def visit_iteration_stmt(self, iteration_stmt):
         pass

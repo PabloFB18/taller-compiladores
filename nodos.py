@@ -50,8 +50,8 @@ class Param(Nodo):
 
 
 class CompoundStmt(Nodo):
-    def __init__(self, local_declaration_p, stmt_list_p):
-        self.local_declaration_p = local_declaration_p
+    def __init__(self, local_declarations_p, stmt_list_p):
+        self.local_declarations_p = local_declarations_p
         self.stmt_list_p = stmt_list_p
 
     def accept(self, visitor):
@@ -71,6 +71,7 @@ class SelectionStmt(Nodo):
         self.if_t = if_t
         self.expresion_p = expresion_p
         self.stmt_p = stmt_p
+        self.else_t = None
 
         if else_t is not None:
             self.else_t = else_t
