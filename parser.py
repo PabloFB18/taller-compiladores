@@ -193,7 +193,7 @@ def p_selection_stmt1(p):
 
 
 def p_selection_stmt2(p):
-    """selection_stmt :  IF IPAREN expression DPAREN statement ELSE statement"""
+    """selection_stmt : IF IPAREN expression DPAREN statement ELSE statement"""
     p[0] = nodos.SelectionStmt(p[1], p[3], p[5], p[6], p[7])
 
 
@@ -373,7 +373,7 @@ def p_empty(p):
 # Error rule for syntax errors
 def p_error(p):
     print ('Syntax error in input!')
-    print ('Error en la linea ' + str(p.lineno))
+    print ('Error en el ' + str(p.type))
 
 
 # Build the parser
@@ -382,17 +382,16 @@ parser = yacc.yacc()
 with open('sample.txt', 'r') as arch1:
     contents = arch1.read()
     result = parser.parse(contents)
-    print result
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
     print(visitor.ast)
 
-out1 = open('parser-examples/out1.txt', 'w')
-with open('parser-examples/sample1.txt', 'r') as arch1:
-    contents = arch1.read()
-    result = parser.parse(contents)
-    print('\n sample1')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+# out1 = open('parser-examples/out1.txt', 'w')
+# with open('parser-examples/sample1.txt', 'r') as arch1:
+#     contents = arch1.read()
+#     result = parser.parse(contents)
+#     print('\n sample1')
+#     visitor = Visitor()
+#     nodos.Program.accept(result, visitor)
+#     out1.write(visitor.ast)
 

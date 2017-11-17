@@ -19,10 +19,11 @@ class VarDeclaration(Nodo):
     def __init__(self, type_specifier_t, id_t, num_t=None):
         self.type_specifier_t = type_specifier_t
         self.id_t = id_t
-        self.num_t = None
+        self.numero_si_no = False
 
         if num_t is not None:
             self.num_t = num_t
+            self.numero_si_no = True
 
     def accept(self, visitor):
         visitor.visit_var_declaration(self)
@@ -71,11 +72,12 @@ class SelectionStmt(Nodo):
         self.if_t = if_t
         self.expresion_p = expresion_p
         self.stmt_p = stmt_p
-        self.else_t = None
+        self.else_si_no = False
 
         if else_t is not None:
             self.else_t = else_t
             self.stmt2_p = stmt2_p
+            self.else_si_no = True
 
     def accept(self, visitor):
         visitor.visit_selection_stmt(self)

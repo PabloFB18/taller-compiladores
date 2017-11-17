@@ -30,7 +30,7 @@ class Visitor(object):
 
     def visit_var_declaration(self, var_declaration):
         self.id_var_declaration += 1
-        if var_declaration.num_t is None:
+        if not var_declaration.numero_si_no:
             var = '-> ' + '"var' + str(self.id_var_declaration) + ': ' + var_declaration.type_specifier_t + ' ' + \
                         var_declaration.id_t + '"'
             self.ast += var + '\n'
@@ -46,11 +46,11 @@ class Visitor(object):
         self.ast += '-> ' + fun + '\n'
         if fun_declaration.compound_stmt_p.local_declarations_p is not None or \
                 fun_declaration.compound_stmt_p.stmt_list_p is not None:
-            self.ast += '\t' + fun
+            self.ast += '\t' + fun + ' '
             fun_declaration.compound_stmt_p.accept(self)
         if fun_declaration.params_p is not None:
             for param in fun_declaration.params_p:
-                self.ast += '\t' + fun
+                self.ast += '\t' + fun + ' '
                 param.accept(self)
 
     def visit_param(self, param):
@@ -85,21 +85,33 @@ class Visitor(object):
         expresion_stmt.expresion_p.accept(self)
 
     def visit_selection_stmt(self, selection_stmt):
-        self.id_selection_stmt += 1
-        self.ast += '-> ' + selection_stmt.if_t + str(self.id_selection_stmt) + '"' + '\n'
-        self.ast += '\t"' + selection_stmt.if_t + str(self.id_selection_stmt) + '"'
-        selection_stmt.stmt_p.accept(self)
-        selection_stmt.expresion_p.accept(self)
+        if not selection_stmt.else_si_no:
+            self.id_selection_stmt += 1
+            self.ast += '-> "' + 'if' + str(self.id_selection_stmt) + '"' + '\n'
+            self.ast += '\t"' + 'if' + str(self.id_selection_stmt) + '" '
+            selection_stmt.expresion_p.accept(self)
+            self.ast += '\t"' + 'if' + str(self.id_selection_stmt) + '" '
+            selection_stmt.stmt_p.accept(self)
+        else:
+            self.id_selection_stmt += 1
+            self.ast += '-> "' + 'if_else' + str(self.id_selection_stmt) + '"' + '\n'
+            self.ast += '\t"' + 'if_else' + str(self.id_selection_stmt) + '" '
+            selection_stmt.expresion_p.accept(self)
+            self.ast += '\t"' + 'if_else' + str(self.id_selection_stmt) + '" '
+            selection_stmt.stmt_p.accept(self)
+            self.ast += '\t"' + 'if_else' + str(self.id_selection_stmt) + '" '
+            selection_stmt.stmt2_p.accept(self)
 
     def visit_iteration_stmt(self, iteration_stmt):
         self.id_iteration_stmt += 1
-        self.ast += '-> ' + '"if / if else"' + '\n'
-        self.ast += '\t"expresion" '
+            # self.ast += '-> "' + 'if' + str(self.id_selection_stmt) + '"' + '\n'
+            # self.ast += '\t"' + 'if' + str(self.id_selection_stmt) + '" '
+            # selection_stmt.expresion_p.accept(self)
+            # self.ast += '\t"' + 'if' + str(self.id_selection_stmt) + '" '
+            # selection_stmt.stmt_p.accept(self)
 
     def visit_return_stmt(self, return_stmt):
         self.id_return_stmt += 1
-        self.ast += '-> ' + '"if / if else"' + '\n'
-        self.ast += '\t"expresion" '
 
     def visit_expression(self, expression):
         self.id_expression += 1
