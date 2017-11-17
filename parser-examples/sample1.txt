@@ -3,7 +3,7 @@ int a;
 
 a=00;
 while(parametro =! 00){
-    a = a + 1;
+    a = a + 01;
     parametro = parametro - 01;
 }
 }
