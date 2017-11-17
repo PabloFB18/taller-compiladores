@@ -1,0 +1,9 @@
+Void funcion (int parametro){
+int a;
+
+a=00;
+while(parametro =! 00){
+    a = a + 1;
+    parametro = parametro - 01;
+}
+}
