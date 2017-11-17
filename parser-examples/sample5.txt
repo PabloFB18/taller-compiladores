@@ -2,5 +2,12 @@
 void a;
 
 if [ a == 24 ] {
+    35;
+}
 
+a <> 03;
+
+int function (){
+
+    return 00
 }
