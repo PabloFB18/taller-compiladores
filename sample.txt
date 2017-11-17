@@ -1,13 +1,16 @@
 void main(int c_2, int c_3){
-    while(00){
+    while(00 == 00){
         if(a <> 01){
+            c = 45;
+            return 04;
         }
-        else{
-            b = 04;
-        }
-        a = 04;
+        a = t = 04;
     }
-
+    if(00){
+        b = 54 + 10 * 05;
+    }
+    hola(a, 00);
+    00;
 }
 
 int b_1;

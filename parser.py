@@ -179,7 +179,8 @@ def p_statement5(p):
 
 def p_expression_stmt1(p):
     """expression_stmt : expression PUNTOC"""
-    p[0] = nodos.ExpressionStmt(p[1])
+    p[0] = p[1]
+    # p[0] = nodos.ExpressionStmt(p[1])
 
 
 def p_expression_stmt2(p):
@@ -239,7 +240,7 @@ def p_simple_expression1(p):
 
 def p_simple_expression2(p):
     """simple_expression :  additive_expression"""
-    p[0] = nodos.SimpleExpression(p[1])
+    p[0] = p[1]
 
 
 def p_relop1(p):
@@ -274,12 +275,12 @@ def p_relop6(p):
 
 def p_additive_expression1(p):
     """additive_expression : additive_expression addop term"""
-    p[0] = nodos.AdditiveExpression(p[3], p[1], p[2])  # Van en desorden para solo tener un nodo.
+    p[0] = nodos.AdditiveExpression(p[1], p[2], p[3])
 
 
 def p_additive_expression2(p):
     """additive_expression : term"""
-    p[0] = nodos.AdditiveExpression(p[1])
+    p[0] = p[1]
 
 
 def p_addop1(p):
@@ -294,12 +295,12 @@ def p_addop2(p):
 
 def p_term1(p):
     """term : term mulop factor"""
-    p[0] = nodos.Term(p[3], p[1], p[2])  # Van en desorden para solo tener un nodo.
+    p[0] = nodos.Term(p[1], p[2], p[3])
 
 
 def p_term2(p):
     """term : factor"""
-    p[0] = nodos.Term(p[1])
+    p[0] = p[1]
 
 
 def p_mulop1(p):
@@ -329,7 +330,7 @@ def p_factor3(p):
 
 def p_factor4(p):
     """factor : NUM"""
-    p[0] = p[1]
+    p[0] = nodos.Num(p[1])
 
 
 def p_call(p):
