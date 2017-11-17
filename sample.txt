@@ -1,7 +1,10 @@
 void main(int c_2, int c_3){
-    int d_1;
-    int f_1;
-    01;
+    if(1_a == 01){
+        if(00 == 00){
+            a = 04;
+        }
+
+    }
 }
 int b_1;
 int a_1;

@@ -134,14 +134,6 @@ class SimpleExpression(Nodo):
         visitor.visit_simple_expression(self)
 
 
-class Relop(Nodo):
-    def __init__(self, relop_t):
-        self.relop_t = relop_t
-
-    def accept(self, visitor):
-        visitor.visit_relop(self)
-
-
 class AdditiveExpression(Nodo):
     def __init__(self, term_p, additive_expression_p=None, addop_t=None):
         self.term_p = term_p

@@ -379,7 +379,7 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-with open('parser-examples/sample1.txt', 'r') as arch1:
+with open('sample.txt', 'r') as arch1:
     contents = arch1.read()
     result = parser.parse(contents)
     print result
@@ -390,10 +390,9 @@ with open('parser-examples/sample1.txt', 'r') as arch1:
 out1 = open('parser-examples/out1.txt', 'w')
 with open('parser-examples/sample1.txt', 'r') as arch1:
     contents = arch1.read()
-    parser.input(contents)
+    result = parser.parse(contents, debug=True)
     print('\n sample1')
-    for tok in iter(yacc.token, None):
-        print(repr(tok.type), repr(tok.value))
-        out1.write(repr(tok.type))
-        out1.write(repr(tok.value)+'\n')
+    visitor = Visitor()
+    nodos.Program.accept(result, visitor)
+    out1.write(visitor.ast)
 
