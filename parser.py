@@ -373,12 +373,17 @@ def p_empty(p):
 
 # Error rule for syntax errors
 def p_error(p):
-    print ('Syntax error in input!')
-    print ('Error en el ' + str(p.type))
+    errors_parser.write('Error de sintaxis! ')
+    if p is not None:
+        errors_parser.write('Error en el ' + str(p.type) + '\n')
+    else:
+        errors_parser.write('Null\n')
 
 
 # Build the parser
 parser = yacc.yacc()
+
+errors_parser = open('errors_parser.txt', 'w')
 
 # with open('sample.txt', 'r') as arch1:
 #     contents = arch1.read()
@@ -391,62 +396,83 @@ out1 = open('parser-examples/out1.txt', 'w')
 with open('parser-examples/sample1.txt', 'r') as arch1:
     contents = arch1.read()
     result = parser.parse(contents)
-    print('\n sample1')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out1.write(visitor.ast)
+    else:
+        errors_parser.write('sample1\n')
+        out1.write('Error al realizar el parse.')
 
 out2 = open('parser-examples/out2.txt', 'w')
 with open('parser-examples/sample2.txt', 'r') as arch2:
-    contents = arch1.read()
+    contents = arch2.read()
     result = parser.parse(contents)
-    print('\n sample2')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out2.write(visitor.ast)
+    else:
+        errors_parser.write('sample2\n')
+        out2.write('Error al realizar el parse.')
 
 out3 = open('parser-examples/out3.txt', 'w')
 with open('parser-examples/sample3.txt', 'r') as arch3:
-    contents = arch1.read()
+    contents = arch3.read()
     result = parser.parse(contents)
-    print('\n sample3')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out3.write(visitor.ast)
+    else:
+        errors_parser.write('sample3\n')
+        out3.write('Error al realizar el parse.')
 
 out4 = open('parser-examples/out4.txt', 'w')
 with open('parser-examples/sample4.txt', 'r') as arch4:
-    contents = arch1.read()
+    contents = arch4.read()
     result = parser.parse(contents)
-    print('\n sample4')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out4.write(visitor.ast)
+    else:
+        errors_parser.write('sample4\n')
+        out4.write('Error al realizar el parse.')
 
 out5 = open('parser-examples/out5.txt', 'w')
 with open('parser-examples/sample5.txt', 'r') as arch5:
-    contents = arch1.read()
+    contents = arch5.read()
     result = parser.parse(contents)
-    print('\n sample5')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out5.write(visitor.ast)
+    else:
+        errors_parser.write('sample5\n')
+        out5.write('Error al realizar el parse.')
 
 out6 = open('parser-examples/out6.txt', 'w')
 with open('parser-examples/sample6.txt', 'r') as arch6:
-    contents = arch1.read()
+    contents = arch6.read()
     result = parser.parse(contents)
-    print('\n sample6')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out6.write(visitor.ast)
+    else:
+        errors_parser.write('sample6\n')
+        out6.write('Error al realizar el parse.')
 
 out7 = open('parser-examples/out7.txt', 'w')
 with open('parser-examples/sample7.txt', 'r') as arch7:
-    contents = arch1.read()
+    contents = arch7.read()
     result = parser.parse(contents)
-    print('\n sample7')
-    visitor = Visitor()
-    nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out7.write(visitor.ast)
+    else:
+        errors_parser.write('sample7\n')
+        out7.write('Error al realizar el parse.')
 

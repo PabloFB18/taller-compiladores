@@ -122,7 +122,7 @@ class Visitor(object):
         self.id_return_stmt += 1
         id_return_stmt = self.id_return_stmt
         self.ast += '-> "' + 'return' + str(id_return_stmt) + '"' + '\n'
-        if not return_stmt.expression_si_no:
+        if return_stmt.expression_si_no:
             self.ast += '\t"' + 'return' + str(id_return_stmt) + '" '
             return_stmt.expression_p.accept(self)
 
@@ -178,8 +178,8 @@ class Visitor(object):
     def visit_call(self, call):
         self.id_call += 1
         id_call = self.id_call
-        self.ast += '-> "' + 'call' + str(id_call) + '"' + '\n'
+        self.ast += '-> "' + 'call' + str(id_call) + ": " + call.id_t + '"' + '\n'
         for arg in call.args_p:
-            self.ast += '\t"' + 'call' + str(id_call) + '" '
+            self.ast += '\t"' + 'call' + str(id_call) + ": " + call.id_t + '" '
             arg.accept(self)
 

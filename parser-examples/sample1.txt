@@ -4,8 +4,6 @@ Void funcion (int parametro){
     a=00;
     if(00 == 00){
         a = 04;
-    }ELSE{
-        a= 05;
     }
     while(parametro <> 00){
         a = a + 01;

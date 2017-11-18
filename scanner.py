@@ -97,7 +97,7 @@ def t_coment(t):
 # error
 def t_error(t):
     print("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno))
-    out1.write("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno) + '\n')
+    errors_lexer.write("Illegal character '{0}' at line {1}".format(t.value[0], t.lineno) + '\n')
     # tratamiento de errores
     t.lexer.skip(1)
 
@@ -105,7 +105,9 @@ def t_error(t):
 # build the lexer
 lexer = lex.lex()
 
-out1 = open('out1.txt', 'w')
+errors_lexer = open('errors_lexer.txt', 'w')
+
+# out1 = open('scanner-exmples/out1.txt', 'w')
 # with open('scanner-exmples/sample1.txt', 'r') as arch1:
 #     contents = arch1.read()
 #     lex.input(contents)

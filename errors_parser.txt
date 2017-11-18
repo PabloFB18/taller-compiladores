@@ -1,0 +1,9 @@
+Error de sintaxis! Error en el IF
+sample4
+Error de sintaxis! Error en el IF
+Error de sintaxis! Error en el DPAREN
+sample5
+Error de sintaxis! Null
+sample6
+Error de sintaxis! Null
+sample7

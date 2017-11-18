@@ -15,4 +15,3 @@ void main(int c_2, int c_3){
 
 int b_1;
 int a_1;
-
