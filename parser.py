@@ -7,12 +7,7 @@ import nodos
 from scanner import tokens
 from visitor import Visitor
 
-precedence = (
-    ('left', 'SUMA', 'RESTA'),
-    ('left', 'MULTI', 'DIVI'),
-    ('right', 'ID', 'NUM'),
-    ('left', 'DPAREN', 'IPAREN')
-)
+
 
 
 def p_program(p):
@@ -382,6 +377,7 @@ def p_error(p):
 
 # Build the parser
 parser = yacc.yacc()
+
 
 errors_parser = open('errors_parser.txt', 'w')
 

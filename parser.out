@@ -1761,6 +1761,7 @@ state 101
     (29) selection_stmt -> IF IPAREN expression DPAREN statement .
     (30) selection_stmt -> IF IPAREN expression DPAREN statement . ELSE statement
 
+  ! shift/reduce conflict for ELSE resolved as shift
     DLLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
     PUNTOC          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
     ILLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
@@ -1770,9 +1771,9 @@ state 101
     ID              reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
     IPAREN          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
     NUM             reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    ELSE            reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
+    ELSE            shift and go to state 102
 
-  ! ELSE            [ shift and go to state 102 ]
+  ! ELSE            [ reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .) ]
 
 
 state 102
@@ -1845,3 +1846,7 @@ state 103
     NUM             reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
     ELSE            reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
 
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ELSE in state 101 resolved as shift
