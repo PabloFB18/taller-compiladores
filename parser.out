@@ -35,105 +35,104 @@ Rule 25    statement -> iteration_stmt
 Rule 26    statement -> return_stmt
 Rule 27    expression_stmt -> expression PUNTOC
 Rule 28    expression_stmt -> PUNTOC
-Rule 29    selection_stmt -> IF IPAREN expression DPAREN statement
-Rule 30    selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement
-Rule 31    iteration_stmt -> WHILE IPAREN expression DPAREN statement
-Rule 32    return_stmt -> RETURN PUNTOC
-Rule 33    return_stmt -> RETURN expression PUNTOC
-Rule 34    expression -> var ASIGN expression
-Rule 35    expression -> simple_expression
-Rule 36    var -> ID
-Rule 37    var -> ID ICORCH expression DCORCH
-Rule 38    simple_expression -> additive_expression relop additive_expression
-Rule 39    simple_expression -> additive_expression
-Rule 40    relop -> MENORI
-Rule 41    relop -> MENOR
-Rule 42    relop -> MAYOR
-Rule 43    relop -> MAYORI
-Rule 44    relop -> IGUAL
-Rule 45    relop -> DIST
-Rule 46    additive_expression -> additive_expression addop term
-Rule 47    additive_expression -> term
-Rule 48    addop -> SUMA
-Rule 49    addop -> RESTA
-Rule 50    term -> term mulop factor
-Rule 51    term -> factor
-Rule 52    mulop -> MULTI
-Rule 53    mulop -> DIVI
-Rule 54    factor -> IPAREN expression DPAREN
-Rule 55    factor -> var
-Rule 56    factor -> call
-Rule 57    factor -> NUM
-Rule 58    call -> ID IPAREN args DPAREN
-Rule 59    args -> arg_list
-Rule 60    args -> empty
-Rule 61    arg_list -> arg_list COMA expression
-Rule 62    arg_list -> expression
-Rule 63    empty -> <empty>
+Rule 29    selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement
+Rule 30    iteration_stmt -> WHILE IPAREN expression DPAREN statement
+Rule 31    return_stmt -> RETURN PUNTOC
+Rule 32    return_stmt -> RETURN expression PUNTOC
+Rule 33    expression -> var ASIGN expression
+Rule 34    expression -> simple_expression
+Rule 35    var -> ID
+Rule 36    var -> ID ICORCH expression DCORCH
+Rule 37    simple_expression -> additive_expression relop additive_expression
+Rule 38    simple_expression -> additive_expression
+Rule 39    relop -> MENORI
+Rule 40    relop -> MENOR
+Rule 41    relop -> MAYOR
+Rule 42    relop -> MAYORI
+Rule 43    relop -> IGUAL
+Rule 44    relop -> DIST
+Rule 45    additive_expression -> additive_expression addop term
+Rule 46    additive_expression -> term
+Rule 47    addop -> SUMA
+Rule 48    addop -> RESTA
+Rule 49    term -> term mulop factor
+Rule 50    term -> factor
+Rule 51    mulop -> MULTI
+Rule 52    mulop -> DIVI
+Rule 53    factor -> IPAREN expression DPAREN
+Rule 54    factor -> var
+Rule 55    factor -> call
+Rule 56    factor -> NUM
+Rule 57    call -> ID IPAREN args DPAREN
+Rule 58    args -> arg_list
+Rule 59    args -> empty
+Rule 60    arg_list -> arg_list COMA expression
+Rule 61    arg_list -> expression
+Rule 62    empty -> <empty>
 
 Terminals, with rules where they appear
 
-ASIGN                : 34
-COMA                 : 13 61
-DCORCH               : 7 16 37
-DIST                 : 45
-DIVI                 : 53
+ASIGN                : 33
+COMA                 : 13 60
+DCORCH               : 7 16 36
+DIST                 : 44
+DIVI                 : 52
 DLLAVE               : 17
-DPAREN               : 10 29 30 31 54 58
-ELSE                 : 30
-ICORCH               : 7 16 37
-ID                   : 6 7 10 15 16 36 37 58
-IF                   : 29 30
-IGUAL                : 44
+DPAREN               : 10 29 30 53 57
+ELSE                 : 29
+ICORCH               : 7 16 36
+ID                   : 6 7 10 15 16 35 36 57
+IF                   : 29
+IGUAL                : 43
 ILLAVE               : 17
 INT                  : 8
-IPAREN               : 10 29 30 31 54 58
-MAYOR                : 42
-MAYORI               : 43
-MENOR                : 41
-MENORI               : 40
-MULTI                : 52
-NUM                  : 7 57
-PUNTOC               : 6 7 27 28 32 33
+IPAREN               : 10 29 30 53 57
+MAYOR                : 41
+MAYORI               : 42
+MENOR                : 40
+MENORI               : 39
+MULTI                : 51
+NUM                  : 7 56
+PUNTOC               : 6 7 27 28 31 32
 RESERVED             : 
-RESTA                : 49
-RETURN               : 32 33
-SUMA                 : 48
+RESTA                : 48
+RETURN               : 31 32
+SUMA                 : 47
 VOID                 : 9 12
-WHILE                : 31
+WHILE                : 30
 error                : 
 
 Nonterminals, with rules where they appear
 
-additive_expression  : 38 38 39 46
-addop                : 46
-arg_list             : 59 61
-args                 : 58
-call                 : 56
+additive_expression  : 37 37 38 45
+addop                : 45
+arg_list             : 58 60
+args                 : 57
+call                 : 55
 compound_stmt        : 10 23
 declaration          : 2 3
 declaration_list     : 1 2
-empty                : 19 21 60
-expression           : 27 29 30 31 33 34 37 54 61 62
+empty                : 19 21 59
+expression           : 27 29 30 32 33 36 53 60 61
 expression_stmt      : 22
-factor               : 50 51
+factor               : 49 50
 fun_declaration      : 5
 iteration_stmt       : 25
 local_declarations   : 17 18
-mulop                : 50
+mulop                : 49
 param                : 13 14
 param_list           : 11 13
 params               : 10
 program              : 0
-relop                : 38
+relop                : 37
 return_stmt          : 26
 selection_stmt       : 24
-simple_expression    : 35
-statement            : 20 29 30 30 31
+simple_expression    : 34
+statement            : 20 29 29 30
 statement_list       : 17 20
-term                 : 46 47 50
+term                 : 45 46 49
 type_specifier       : 6 7 10 15 16
-var                  : 34 55
+var                  : 33 54
 var_declaration      : 4 18
 
 Parsing method: LALR
@@ -430,19 +429,19 @@ state 27
     (17) compound_stmt -> ILLAVE . local_declarations statement_list DLLAVE
     (18) local_declarations -> . local_declarations var_declaration
     (19) local_declarations -> . empty
-    (63) empty -> .
+    (62) empty -> .
 
-    INT             reduce using rule 63 (empty -> .)
-    VOID            reduce using rule 63 (empty -> .)
-    DLLAVE          reduce using rule 63 (empty -> .)
-    PUNTOC          reduce using rule 63 (empty -> .)
-    ILLAVE          reduce using rule 63 (empty -> .)
-    IF              reduce using rule 63 (empty -> .)
-    WHILE           reduce using rule 63 (empty -> .)
-    RETURN          reduce using rule 63 (empty -> .)
-    ID              reduce using rule 63 (empty -> .)
-    IPAREN          reduce using rule 63 (empty -> .)
-    NUM             reduce using rule 63 (empty -> .)
+    INT             reduce using rule 62 (empty -> .)
+    VOID            reduce using rule 62 (empty -> .)
+    DLLAVE          reduce using rule 62 (empty -> .)
+    PUNTOC          reduce using rule 62 (empty -> .)
+    ILLAVE          reduce using rule 62 (empty -> .)
+    IF              reduce using rule 62 (empty -> .)
+    WHILE           reduce using rule 62 (empty -> .)
+    RETURN          reduce using rule 62 (empty -> .)
+    ID              reduce using rule 62 (empty -> .)
+    IPAREN          reduce using rule 62 (empty -> .)
+    NUM             reduce using rule 62 (empty -> .)
 
     local_declarations             shift and go to state 30
     empty                          shift and go to state 31
@@ -472,19 +471,19 @@ state 30
     (21) statement_list -> . empty
     (6) var_declaration -> . type_specifier ID PUNTOC
     (7) var_declaration -> . type_specifier ID ICORCH NUM DCORCH PUNTOC
-    (63) empty -> .
+    (62) empty -> .
     (8) type_specifier -> . INT
     (9) type_specifier -> . VOID
 
-    DLLAVE          reduce using rule 63 (empty -> .)
-    PUNTOC          reduce using rule 63 (empty -> .)
-    ILLAVE          reduce using rule 63 (empty -> .)
-    IF              reduce using rule 63 (empty -> .)
-    WHILE           reduce using rule 63 (empty -> .)
-    RETURN          reduce using rule 63 (empty -> .)
-    ID              reduce using rule 63 (empty -> .)
-    IPAREN          reduce using rule 63 (empty -> .)
-    NUM             reduce using rule 63 (empty -> .)
+    DLLAVE          reduce using rule 62 (empty -> .)
+    PUNTOC          reduce using rule 62 (empty -> .)
+    ILLAVE          reduce using rule 62 (empty -> .)
+    IF              reduce using rule 62 (empty -> .)
+    WHILE           reduce using rule 62 (empty -> .)
+    RETURN          reduce using rule 62 (empty -> .)
+    ID              reduce using rule 62 (empty -> .)
+    IPAREN          reduce using rule 62 (empty -> .)
+    NUM             reduce using rule 62 (empty -> .)
     INT             shift and go to state 3
     VOID            shift and go to state 4
 
@@ -547,26 +546,25 @@ state 34
     (27) expression_stmt -> . expression PUNTOC
     (28) expression_stmt -> . PUNTOC
     (17) compound_stmt -> . ILLAVE local_declarations statement_list DLLAVE
-    (29) selection_stmt -> . IF IPAREN expression DPAREN statement
-    (30) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
-    (31) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
-    (32) return_stmt -> . RETURN PUNTOC
-    (33) return_stmt -> . RETURN expression PUNTOC
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (29) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
+    (30) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
+    (31) return_stmt -> . RETURN PUNTOC
+    (32) return_stmt -> . RETURN expression PUNTOC
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     DLLAVE          shift and go to state 55
     PUNTOC          shift and go to state 50
@@ -618,23 +616,23 @@ state 36
 
 state 37
 
-    (32) return_stmt -> RETURN . PUNTOC
-    (33) return_stmt -> RETURN . expression PUNTOC
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (31) return_stmt -> RETURN . PUNTOC
+    (32) return_stmt -> RETURN . expression PUNTOC
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     PUNTOC          shift and go to state 58
     ID              shift and go to state 52
@@ -651,7 +649,7 @@ state 37
 
 state 38
 
-    (31) iteration_stmt -> WHILE . IPAREN expression DPAREN statement
+    (30) iteration_stmt -> WHILE . IPAREN expression DPAREN statement
 
     IPAREN          shift and go to state 60
 
@@ -660,6 +658,7 @@ state 39
 
     (26) statement -> return_stmt .
 
+    ELSE            reduce using rule 26 (statement -> return_stmt .)
     DLLAVE          reduce using rule 26 (statement -> return_stmt .)
     PUNTOC          reduce using rule 26 (statement -> return_stmt .)
     ILLAVE          reduce using rule 26 (statement -> return_stmt .)
@@ -669,37 +668,36 @@ state 39
     ID              reduce using rule 26 (statement -> return_stmt .)
     IPAREN          reduce using rule 26 (statement -> return_stmt .)
     NUM             reduce using rule 26 (statement -> return_stmt .)
-    ELSE            reduce using rule 26 (statement -> return_stmt .)
 
 
 state 40
 
-    (35) expression -> simple_expression .
+    (34) expression -> simple_expression .
 
-    DPAREN          reduce using rule 35 (expression -> simple_expression .)
-    PUNTOC          reduce using rule 35 (expression -> simple_expression .)
-    DCORCH          reduce using rule 35 (expression -> simple_expression .)
-    COMA            reduce using rule 35 (expression -> simple_expression .)
+    DPAREN          reduce using rule 34 (expression -> simple_expression .)
+    PUNTOC          reduce using rule 34 (expression -> simple_expression .)
+    DCORCH          reduce using rule 34 (expression -> simple_expression .)
+    COMA            reduce using rule 34 (expression -> simple_expression .)
 
 
 state 41
 
-    (38) simple_expression -> additive_expression . relop additive_expression
-    (39) simple_expression -> additive_expression .
-    (46) additive_expression -> additive_expression . addop term
-    (40) relop -> . MENORI
-    (41) relop -> . MENOR
-    (42) relop -> . MAYOR
-    (43) relop -> . MAYORI
-    (44) relop -> . IGUAL
-    (45) relop -> . DIST
-    (48) addop -> . SUMA
-    (49) addop -> . RESTA
+    (37) simple_expression -> additive_expression . relop additive_expression
+    (38) simple_expression -> additive_expression .
+    (45) additive_expression -> additive_expression . addop term
+    (39) relop -> . MENORI
+    (40) relop -> . MENOR
+    (41) relop -> . MAYOR
+    (42) relop -> . MAYORI
+    (43) relop -> . IGUAL
+    (44) relop -> . DIST
+    (47) addop -> . SUMA
+    (48) addop -> . RESTA
 
-    PUNTOC          reduce using rule 39 (simple_expression -> additive_expression .)
-    DCORCH          reduce using rule 39 (simple_expression -> additive_expression .)
-    DPAREN          reduce using rule 39 (simple_expression -> additive_expression .)
-    COMA            reduce using rule 39 (simple_expression -> additive_expression .)
+    PUNTOC          reduce using rule 38 (simple_expression -> additive_expression .)
+    DCORCH          reduce using rule 38 (simple_expression -> additive_expression .)
+    DPAREN          reduce using rule 38 (simple_expression -> additive_expression .)
+    COMA            reduce using rule 38 (simple_expression -> additive_expression .)
     MENORI          shift and go to state 65
     MENOR           shift and go to state 67
     MAYOR           shift and go to state 70
@@ -714,42 +712,42 @@ state 41
 
 state 42
 
-    (56) factor -> call .
+    (55) factor -> call .
 
-    MULTI           reduce using rule 56 (factor -> call .)
-    DIVI            reduce using rule 56 (factor -> call .)
-    MENORI          reduce using rule 56 (factor -> call .)
-    MENOR           reduce using rule 56 (factor -> call .)
-    MAYOR           reduce using rule 56 (factor -> call .)
-    MAYORI          reduce using rule 56 (factor -> call .)
-    IGUAL           reduce using rule 56 (factor -> call .)
-    DIST            reduce using rule 56 (factor -> call .)
-    SUMA            reduce using rule 56 (factor -> call .)
-    RESTA           reduce using rule 56 (factor -> call .)
-    COMA            reduce using rule 56 (factor -> call .)
-    DPAREN          reduce using rule 56 (factor -> call .)
-    PUNTOC          reduce using rule 56 (factor -> call .)
-    DCORCH          reduce using rule 56 (factor -> call .)
+    MULTI           reduce using rule 55 (factor -> call .)
+    DIVI            reduce using rule 55 (factor -> call .)
+    MENORI          reduce using rule 55 (factor -> call .)
+    MENOR           reduce using rule 55 (factor -> call .)
+    MAYOR           reduce using rule 55 (factor -> call .)
+    MAYORI          reduce using rule 55 (factor -> call .)
+    IGUAL           reduce using rule 55 (factor -> call .)
+    DIST            reduce using rule 55 (factor -> call .)
+    SUMA            reduce using rule 55 (factor -> call .)
+    RESTA           reduce using rule 55 (factor -> call .)
+    COMA            reduce using rule 55 (factor -> call .)
+    DPAREN          reduce using rule 55 (factor -> call .)
+    PUNTOC          reduce using rule 55 (factor -> call .)
+    DCORCH          reduce using rule 55 (factor -> call .)
 
 
 state 43
 
-    (54) factor -> IPAREN . expression DPAREN
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (53) factor -> IPAREN . expression DPAREN
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -765,28 +763,29 @@ state 43
 
 state 44
 
-    (57) factor -> NUM .
+    (56) factor -> NUM .
 
-    MULTI           reduce using rule 57 (factor -> NUM .)
-    DIVI            reduce using rule 57 (factor -> NUM .)
-    MENORI          reduce using rule 57 (factor -> NUM .)
-    MENOR           reduce using rule 57 (factor -> NUM .)
-    MAYOR           reduce using rule 57 (factor -> NUM .)
-    MAYORI          reduce using rule 57 (factor -> NUM .)
-    IGUAL           reduce using rule 57 (factor -> NUM .)
-    DIST            reduce using rule 57 (factor -> NUM .)
-    SUMA            reduce using rule 57 (factor -> NUM .)
-    RESTA           reduce using rule 57 (factor -> NUM .)
-    COMA            reduce using rule 57 (factor -> NUM .)
-    DPAREN          reduce using rule 57 (factor -> NUM .)
-    PUNTOC          reduce using rule 57 (factor -> NUM .)
-    DCORCH          reduce using rule 57 (factor -> NUM .)
+    MULTI           reduce using rule 56 (factor -> NUM .)
+    DIVI            reduce using rule 56 (factor -> NUM .)
+    MENORI          reduce using rule 56 (factor -> NUM .)
+    MENOR           reduce using rule 56 (factor -> NUM .)
+    MAYOR           reduce using rule 56 (factor -> NUM .)
+    MAYORI          reduce using rule 56 (factor -> NUM .)
+    IGUAL           reduce using rule 56 (factor -> NUM .)
+    DIST            reduce using rule 56 (factor -> NUM .)
+    SUMA            reduce using rule 56 (factor -> NUM .)
+    RESTA           reduce using rule 56 (factor -> NUM .)
+    COMA            reduce using rule 56 (factor -> NUM .)
+    DPAREN          reduce using rule 56 (factor -> NUM .)
+    PUNTOC          reduce using rule 56 (factor -> NUM .)
+    DCORCH          reduce using rule 56 (factor -> NUM .)
 
 
 state 45
 
     (22) statement -> expression_stmt .
 
+    ELSE            reduce using rule 22 (statement -> expression_stmt .)
     DLLAVE          reduce using rule 22 (statement -> expression_stmt .)
     PUNTOC          reduce using rule 22 (statement -> expression_stmt .)
     ILLAVE          reduce using rule 22 (statement -> expression_stmt .)
@@ -796,7 +795,6 @@ state 45
     ID              reduce using rule 22 (statement -> expression_stmt .)
     IPAREN          reduce using rule 22 (statement -> expression_stmt .)
     NUM             reduce using rule 22 (statement -> expression_stmt .)
-    ELSE            reduce using rule 22 (statement -> expression_stmt .)
 
 
 state 46
@@ -816,50 +814,51 @@ state 46
 
 state 47
 
-    (51) term -> factor .
+    (50) term -> factor .
 
-    MULTI           reduce using rule 51 (term -> factor .)
-    DIVI            reduce using rule 51 (term -> factor .)
-    MENORI          reduce using rule 51 (term -> factor .)
-    MENOR           reduce using rule 51 (term -> factor .)
-    MAYOR           reduce using rule 51 (term -> factor .)
-    MAYORI          reduce using rule 51 (term -> factor .)
-    IGUAL           reduce using rule 51 (term -> factor .)
-    DIST            reduce using rule 51 (term -> factor .)
-    SUMA            reduce using rule 51 (term -> factor .)
-    RESTA           reduce using rule 51 (term -> factor .)
-    DPAREN          reduce using rule 51 (term -> factor .)
-    PUNTOC          reduce using rule 51 (term -> factor .)
-    DCORCH          reduce using rule 51 (term -> factor .)
-    COMA            reduce using rule 51 (term -> factor .)
+    MULTI           reduce using rule 50 (term -> factor .)
+    DIVI            reduce using rule 50 (term -> factor .)
+    MENORI          reduce using rule 50 (term -> factor .)
+    MENOR           reduce using rule 50 (term -> factor .)
+    MAYOR           reduce using rule 50 (term -> factor .)
+    MAYORI          reduce using rule 50 (term -> factor .)
+    IGUAL           reduce using rule 50 (term -> factor .)
+    DIST            reduce using rule 50 (term -> factor .)
+    SUMA            reduce using rule 50 (term -> factor .)
+    RESTA           reduce using rule 50 (term -> factor .)
+    DPAREN          reduce using rule 50 (term -> factor .)
+    PUNTOC          reduce using rule 50 (term -> factor .)
+    DCORCH          reduce using rule 50 (term -> factor .)
+    COMA            reduce using rule 50 (term -> factor .)
 
 
 state 48
 
-    (34) expression -> var . ASIGN expression
-    (55) factor -> var .
+    (33) expression -> var . ASIGN expression
+    (54) factor -> var .
 
     ASIGN           shift and go to state 72
-    MULTI           reduce using rule 55 (factor -> var .)
-    DIVI            reduce using rule 55 (factor -> var .)
-    MENORI          reduce using rule 55 (factor -> var .)
-    MENOR           reduce using rule 55 (factor -> var .)
-    MAYOR           reduce using rule 55 (factor -> var .)
-    MAYORI          reduce using rule 55 (factor -> var .)
-    IGUAL           reduce using rule 55 (factor -> var .)
-    DIST            reduce using rule 55 (factor -> var .)
-    SUMA            reduce using rule 55 (factor -> var .)
-    RESTA           reduce using rule 55 (factor -> var .)
-    COMA            reduce using rule 55 (factor -> var .)
-    DPAREN          reduce using rule 55 (factor -> var .)
-    PUNTOC          reduce using rule 55 (factor -> var .)
-    DCORCH          reduce using rule 55 (factor -> var .)
+    MULTI           reduce using rule 54 (factor -> var .)
+    DIVI            reduce using rule 54 (factor -> var .)
+    MENORI          reduce using rule 54 (factor -> var .)
+    MENOR           reduce using rule 54 (factor -> var .)
+    MAYOR           reduce using rule 54 (factor -> var .)
+    MAYORI          reduce using rule 54 (factor -> var .)
+    IGUAL           reduce using rule 54 (factor -> var .)
+    DIST            reduce using rule 54 (factor -> var .)
+    SUMA            reduce using rule 54 (factor -> var .)
+    RESTA           reduce using rule 54 (factor -> var .)
+    COMA            reduce using rule 54 (factor -> var .)
+    DPAREN          reduce using rule 54 (factor -> var .)
+    PUNTOC          reduce using rule 54 (factor -> var .)
+    DCORCH          reduce using rule 54 (factor -> var .)
 
 
 state 49
 
     (24) statement -> selection_stmt .
 
+    ELSE            reduce using rule 24 (statement -> selection_stmt .)
     DLLAVE          reduce using rule 24 (statement -> selection_stmt .)
     PUNTOC          reduce using rule 24 (statement -> selection_stmt .)
     ILLAVE          reduce using rule 24 (statement -> selection_stmt .)
@@ -869,7 +868,6 @@ state 49
     ID              reduce using rule 24 (statement -> selection_stmt .)
     IPAREN          reduce using rule 24 (statement -> selection_stmt .)
     NUM             reduce using rule 24 (statement -> selection_stmt .)
-    ELSE            reduce using rule 24 (statement -> selection_stmt .)
 
 
 state 50
@@ -892,6 +890,7 @@ state 51
 
     (23) statement -> compound_stmt .
 
+    ELSE            reduce using rule 23 (statement -> compound_stmt .)
     DLLAVE          reduce using rule 23 (statement -> compound_stmt .)
     PUNTOC          reduce using rule 23 (statement -> compound_stmt .)
     ILLAVE          reduce using rule 23 (statement -> compound_stmt .)
@@ -901,61 +900,59 @@ state 51
     ID              reduce using rule 23 (statement -> compound_stmt .)
     IPAREN          reduce using rule 23 (statement -> compound_stmt .)
     NUM             reduce using rule 23 (statement -> compound_stmt .)
-    ELSE            reduce using rule 23 (statement -> compound_stmt .)
 
 
 state 52
 
-    (36) var -> ID .
-    (37) var -> ID . ICORCH expression DCORCH
-    (58) call -> ID . IPAREN args DPAREN
+    (35) var -> ID .
+    (36) var -> ID . ICORCH expression DCORCH
+    (57) call -> ID . IPAREN args DPAREN
 
-    ASIGN           reduce using rule 36 (var -> ID .)
-    MULTI           reduce using rule 36 (var -> ID .)
-    DIVI            reduce using rule 36 (var -> ID .)
-    MENORI          reduce using rule 36 (var -> ID .)
-    MENOR           reduce using rule 36 (var -> ID .)
-    MAYOR           reduce using rule 36 (var -> ID .)
-    MAYORI          reduce using rule 36 (var -> ID .)
-    IGUAL           reduce using rule 36 (var -> ID .)
-    DIST            reduce using rule 36 (var -> ID .)
-    SUMA            reduce using rule 36 (var -> ID .)
-    RESTA           reduce using rule 36 (var -> ID .)
-    PUNTOC          reduce using rule 36 (var -> ID .)
-    DPAREN          reduce using rule 36 (var -> ID .)
-    DCORCH          reduce using rule 36 (var -> ID .)
-    COMA            reduce using rule 36 (var -> ID .)
+    ASIGN           reduce using rule 35 (var -> ID .)
+    MULTI           reduce using rule 35 (var -> ID .)
+    DIVI            reduce using rule 35 (var -> ID .)
+    MENORI          reduce using rule 35 (var -> ID .)
+    MENOR           reduce using rule 35 (var -> ID .)
+    MAYOR           reduce using rule 35 (var -> ID .)
+    MAYORI          reduce using rule 35 (var -> ID .)
+    IGUAL           reduce using rule 35 (var -> ID .)
+    DIST            reduce using rule 35 (var -> ID .)
+    SUMA            reduce using rule 35 (var -> ID .)
+    RESTA           reduce using rule 35 (var -> ID .)
+    PUNTOC          reduce using rule 35 (var -> ID .)
+    DPAREN          reduce using rule 35 (var -> ID .)
+    DCORCH          reduce using rule 35 (var -> ID .)
+    COMA            reduce using rule 35 (var -> ID .)
     ICORCH          shift and go to state 73
     IPAREN          shift and go to state 74
 
 
 state 53
 
-    (29) selection_stmt -> IF . IPAREN expression DPAREN statement
-    (30) selection_stmt -> IF . IPAREN expression DPAREN statement ELSE statement
+    (29) selection_stmt -> IF . IPAREN expression DPAREN statement ELSE statement
 
     IPAREN          shift and go to state 75
 
 
 state 54
 
-    (47) additive_expression -> term .
-    (50) term -> term . mulop factor
-    (52) mulop -> . MULTI
-    (53) mulop -> . DIVI
+    (46) additive_expression -> term .
+    (49) term -> term . mulop factor
+    (51) mulop -> . MULTI
+    (52) mulop -> . DIVI
 
-    MENORI          reduce using rule 47 (additive_expression -> term .)
-    MENOR           reduce using rule 47 (additive_expression -> term .)
-    MAYOR           reduce using rule 47 (additive_expression -> term .)
-    MAYORI          reduce using rule 47 (additive_expression -> term .)
-    IGUAL           reduce using rule 47 (additive_expression -> term .)
-    DIST            reduce using rule 47 (additive_expression -> term .)
-    SUMA            reduce using rule 47 (additive_expression -> term .)
-    RESTA           reduce using rule 47 (additive_expression -> term .)
-    DPAREN          reduce using rule 47 (additive_expression -> term .)
-    PUNTOC          reduce using rule 47 (additive_expression -> term .)
-    DCORCH          reduce using rule 47 (additive_expression -> term .)
-    COMA            reduce using rule 47 (additive_expression -> term .)
+    MENORI          reduce using rule 46 (additive_expression -> term .)
+    MENOR           reduce using rule 46 (additive_expression -> term .)
+    MAYOR           reduce using rule 46 (additive_expression -> term .)
+    MAYORI          reduce using rule 46 (additive_expression -> term .)
+    IGUAL           reduce using rule 46 (additive_expression -> term .)
+    DIST            reduce using rule 46 (additive_expression -> term .)
+    SUMA            reduce using rule 46 (additive_expression -> term .)
+    RESTA           reduce using rule 46 (additive_expression -> term .)
+    DPAREN          reduce using rule 46 (additive_expression -> term .)
+    PUNTOC          reduce using rule 46 (additive_expression -> term .)
+    DCORCH          reduce using rule 46 (additive_expression -> term .)
+    COMA            reduce using rule 46 (additive_expression -> term .)
     MULTI           shift and go to state 77
     DIVI            shift and go to state 76
 
@@ -984,6 +981,7 @@ state 56
 
     (25) statement -> iteration_stmt .
 
+    ELSE            reduce using rule 25 (statement -> iteration_stmt .)
     DLLAVE          reduce using rule 25 (statement -> iteration_stmt .)
     PUNTOC          reduce using rule 25 (statement -> iteration_stmt .)
     ILLAVE          reduce using rule 25 (statement -> iteration_stmt .)
@@ -993,7 +991,6 @@ state 56
     ID              reduce using rule 25 (statement -> iteration_stmt .)
     IPAREN          reduce using rule 25 (statement -> iteration_stmt .)
     NUM             reduce using rule 25 (statement -> iteration_stmt .)
-    ELSE            reduce using rule 25 (statement -> iteration_stmt .)
 
 
 state 57
@@ -1005,45 +1002,45 @@ state 57
 
 state 58
 
-    (32) return_stmt -> RETURN PUNTOC .
+    (31) return_stmt -> RETURN PUNTOC .
 
-    DLLAVE          reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    PUNTOC          reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    ILLAVE          reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    IF              reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    WHILE           reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    RETURN          reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    ID              reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    IPAREN          reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    NUM             reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
-    ELSE            reduce using rule 32 (return_stmt -> RETURN PUNTOC .)
+    DLLAVE          reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    PUNTOC          reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    ILLAVE          reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    IF              reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    WHILE           reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    RETURN          reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    ID              reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    IPAREN          reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    NUM             reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
+    ELSE            reduce using rule 31 (return_stmt -> RETURN PUNTOC .)
 
 
 state 59
 
-    (33) return_stmt -> RETURN expression . PUNTOC
+    (32) return_stmt -> RETURN expression . PUNTOC
 
     PUNTOC          shift and go to state 80
 
 
 state 60
 
-    (31) iteration_stmt -> WHILE IPAREN . expression DPAREN statement
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (30) iteration_stmt -> WHILE IPAREN . expression DPAREN statement
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -1059,16 +1056,16 @@ state 60
 
 state 61
 
-    (46) additive_expression -> additive_expression addop . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (58) call -> . ID IPAREN args DPAREN
+    (45) additive_expression -> additive_expression addop . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (57) call -> . ID IPAREN args DPAREN
 
     IPAREN          shift and go to state 43
     NUM             shift and go to state 44
@@ -1081,27 +1078,27 @@ state 61
 
 state 62
 
-    (45) relop -> DIST .
+    (44) relop -> DIST .
 
-    IPAREN          reduce using rule 45 (relop -> DIST .)
-    NUM             reduce using rule 45 (relop -> DIST .)
-    ID              reduce using rule 45 (relop -> DIST .)
+    IPAREN          reduce using rule 44 (relop -> DIST .)
+    NUM             reduce using rule 44 (relop -> DIST .)
+    ID              reduce using rule 44 (relop -> DIST .)
 
 
 state 63
 
-    (38) simple_expression -> additive_expression relop . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (58) call -> . ID IPAREN args DPAREN
+    (37) simple_expression -> additive_expression relop . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (57) call -> . ID IPAREN args DPAREN
 
     IPAREN          shift and go to state 43
     NUM             shift and go to state 44
@@ -1115,92 +1112,92 @@ state 63
 
 state 64
 
-    (43) relop -> MAYORI .
+    (42) relop -> MAYORI .
 
-    IPAREN          reduce using rule 43 (relop -> MAYORI .)
-    NUM             reduce using rule 43 (relop -> MAYORI .)
-    ID              reduce using rule 43 (relop -> MAYORI .)
+    IPAREN          reduce using rule 42 (relop -> MAYORI .)
+    NUM             reduce using rule 42 (relop -> MAYORI .)
+    ID              reduce using rule 42 (relop -> MAYORI .)
 
 
 state 65
 
-    (40) relop -> MENORI .
+    (39) relop -> MENORI .
 
-    IPAREN          reduce using rule 40 (relop -> MENORI .)
-    NUM             reduce using rule 40 (relop -> MENORI .)
-    ID              reduce using rule 40 (relop -> MENORI .)
+    IPAREN          reduce using rule 39 (relop -> MENORI .)
+    NUM             reduce using rule 39 (relop -> MENORI .)
+    ID              reduce using rule 39 (relop -> MENORI .)
 
 
 state 66
 
-    (44) relop -> IGUAL .
+    (43) relop -> IGUAL .
 
-    IPAREN          reduce using rule 44 (relop -> IGUAL .)
-    NUM             reduce using rule 44 (relop -> IGUAL .)
-    ID              reduce using rule 44 (relop -> IGUAL .)
+    IPAREN          reduce using rule 43 (relop -> IGUAL .)
+    NUM             reduce using rule 43 (relop -> IGUAL .)
+    ID              reduce using rule 43 (relop -> IGUAL .)
 
 
 state 67
 
-    (41) relop -> MENOR .
+    (40) relop -> MENOR .
 
-    IPAREN          reduce using rule 41 (relop -> MENOR .)
-    NUM             reduce using rule 41 (relop -> MENOR .)
-    ID              reduce using rule 41 (relop -> MENOR .)
+    IPAREN          reduce using rule 40 (relop -> MENOR .)
+    NUM             reduce using rule 40 (relop -> MENOR .)
+    ID              reduce using rule 40 (relop -> MENOR .)
 
 
 state 68
 
-    (48) addop -> SUMA .
+    (47) addop -> SUMA .
 
-    IPAREN          reduce using rule 48 (addop -> SUMA .)
-    NUM             reduce using rule 48 (addop -> SUMA .)
-    ID              reduce using rule 48 (addop -> SUMA .)
+    IPAREN          reduce using rule 47 (addop -> SUMA .)
+    NUM             reduce using rule 47 (addop -> SUMA .)
+    ID              reduce using rule 47 (addop -> SUMA .)
 
 
 state 69
 
-    (49) addop -> RESTA .
+    (48) addop -> RESTA .
 
-    IPAREN          reduce using rule 49 (addop -> RESTA .)
-    NUM             reduce using rule 49 (addop -> RESTA .)
-    ID              reduce using rule 49 (addop -> RESTA .)
+    IPAREN          reduce using rule 48 (addop -> RESTA .)
+    NUM             reduce using rule 48 (addop -> RESTA .)
+    ID              reduce using rule 48 (addop -> RESTA .)
 
 
 state 70
 
-    (42) relop -> MAYOR .
+    (41) relop -> MAYOR .
 
-    IPAREN          reduce using rule 42 (relop -> MAYOR .)
-    NUM             reduce using rule 42 (relop -> MAYOR .)
-    ID              reduce using rule 42 (relop -> MAYOR .)
+    IPAREN          reduce using rule 41 (relop -> MAYOR .)
+    NUM             reduce using rule 41 (relop -> MAYOR .)
+    ID              reduce using rule 41 (relop -> MAYOR .)
 
 
 state 71
 
-    (54) factor -> IPAREN expression . DPAREN
+    (53) factor -> IPAREN expression . DPAREN
 
     DPAREN          shift and go to state 85
 
 
 state 72
 
-    (34) expression -> var ASIGN . expression
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (33) expression -> var ASIGN . expression
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -1216,22 +1213,22 @@ state 72
 
 state 73
 
-    (37) var -> ID ICORCH . expression DCORCH
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (36) var -> ID ICORCH . expression DCORCH
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -1247,29 +1244,29 @@ state 73
 
 state 74
 
-    (58) call -> ID IPAREN . args DPAREN
-    (59) args -> . arg_list
-    (60) args -> . empty
-    (61) arg_list -> . arg_list COMA expression
-    (62) arg_list -> . expression
-    (63) empty -> .
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (57) call -> ID IPAREN . args DPAREN
+    (58) args -> . arg_list
+    (59) args -> . empty
+    (60) arg_list -> . arg_list COMA expression
+    (61) arg_list -> . expression
+    (62) empty -> .
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
-    DPAREN          reduce using rule 63 (empty -> .)
+    DPAREN          reduce using rule 62 (empty -> .)
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
     NUM             shift and go to state 44
@@ -1287,23 +1284,22 @@ state 74
 
 state 75
 
-    (29) selection_stmt -> IF IPAREN . expression DPAREN statement
-    (30) selection_stmt -> IF IPAREN . expression DPAREN statement ELSE statement
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (29) selection_stmt -> IF IPAREN . expression DPAREN statement ELSE statement
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -1319,32 +1315,32 @@ state 75
 
 state 76
 
-    (53) mulop -> DIVI .
+    (52) mulop -> DIVI .
 
-    IPAREN          reduce using rule 53 (mulop -> DIVI .)
-    NUM             reduce using rule 53 (mulop -> DIVI .)
-    ID              reduce using rule 53 (mulop -> DIVI .)
+    IPAREN          reduce using rule 52 (mulop -> DIVI .)
+    NUM             reduce using rule 52 (mulop -> DIVI .)
+    ID              reduce using rule 52 (mulop -> DIVI .)
 
 
 state 77
 
-    (52) mulop -> MULTI .
+    (51) mulop -> MULTI .
 
-    IPAREN          reduce using rule 52 (mulop -> MULTI .)
-    NUM             reduce using rule 52 (mulop -> MULTI .)
-    ID              reduce using rule 52 (mulop -> MULTI .)
+    IPAREN          reduce using rule 51 (mulop -> MULTI .)
+    NUM             reduce using rule 51 (mulop -> MULTI .)
+    ID              reduce using rule 51 (mulop -> MULTI .)
 
 
 state 78
 
-    (50) term -> term mulop . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (58) call -> . ID IPAREN args DPAREN
+    (49) term -> term mulop . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (57) call -> . ID IPAREN args DPAREN
 
     IPAREN          shift and go to state 43
     NUM             shift and go to state 44
@@ -1372,46 +1368,46 @@ state 79
 
 state 80
 
-    (33) return_stmt -> RETURN expression PUNTOC .
+    (32) return_stmt -> RETURN expression PUNTOC .
 
-    DLLAVE          reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    PUNTOC          reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    ILLAVE          reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    IF              reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    WHILE           reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    RETURN          reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    ID              reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    IPAREN          reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    NUM             reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
-    ELSE            reduce using rule 33 (return_stmt -> RETURN expression PUNTOC .)
+    DLLAVE          reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    PUNTOC          reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    ILLAVE          reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    IF              reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    WHILE           reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    RETURN          reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    ID              reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    IPAREN          reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    NUM             reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
+    ELSE            reduce using rule 32 (return_stmt -> RETURN expression PUNTOC .)
 
 
 state 81
 
-    (31) iteration_stmt -> WHILE IPAREN expression . DPAREN statement
+    (30) iteration_stmt -> WHILE IPAREN expression . DPAREN statement
 
     DPAREN          shift and go to state 94
 
 
 state 82
 
-    (46) additive_expression -> additive_expression addop term .
-    (50) term -> term . mulop factor
-    (52) mulop -> . MULTI
-    (53) mulop -> . DIVI
+    (45) additive_expression -> additive_expression addop term .
+    (49) term -> term . mulop factor
+    (51) mulop -> . MULTI
+    (52) mulop -> . DIVI
 
-    MENORI          reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    MENOR           reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    MAYOR           reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    MAYORI          reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    IGUAL           reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    DIST            reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    SUMA            reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    RESTA           reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    DPAREN          reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    PUNTOC          reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    DCORCH          reduce using rule 46 (additive_expression -> additive_expression addop term .)
-    COMA            reduce using rule 46 (additive_expression -> additive_expression addop term .)
+    MENORI          reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    MENOR           reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    MAYOR           reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    MAYORI          reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    IGUAL           reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    DIST            reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    SUMA            reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    RESTA           reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    DPAREN          reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    PUNTOC          reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    DCORCH          reduce using rule 45 (additive_expression -> additive_expression addop term .)
+    COMA            reduce using rule 45 (additive_expression -> additive_expression addop term .)
     MULTI           shift and go to state 77
     DIVI            shift and go to state 76
 
@@ -1419,35 +1415,35 @@ state 82
 
 state 83
 
-    (55) factor -> var .
+    (54) factor -> var .
 
-    MULTI           reduce using rule 55 (factor -> var .)
-    DIVI            reduce using rule 55 (factor -> var .)
-    SUMA            reduce using rule 55 (factor -> var .)
-    RESTA           reduce using rule 55 (factor -> var .)
-    PUNTOC          reduce using rule 55 (factor -> var .)
-    DPAREN          reduce using rule 55 (factor -> var .)
-    DCORCH          reduce using rule 55 (factor -> var .)
-    COMA            reduce using rule 55 (factor -> var .)
-    MENORI          reduce using rule 55 (factor -> var .)
-    MENOR           reduce using rule 55 (factor -> var .)
-    MAYOR           reduce using rule 55 (factor -> var .)
-    MAYORI          reduce using rule 55 (factor -> var .)
-    IGUAL           reduce using rule 55 (factor -> var .)
-    DIST            reduce using rule 55 (factor -> var .)
+    MULTI           reduce using rule 54 (factor -> var .)
+    DIVI            reduce using rule 54 (factor -> var .)
+    SUMA            reduce using rule 54 (factor -> var .)
+    RESTA           reduce using rule 54 (factor -> var .)
+    PUNTOC          reduce using rule 54 (factor -> var .)
+    DPAREN          reduce using rule 54 (factor -> var .)
+    DCORCH          reduce using rule 54 (factor -> var .)
+    COMA            reduce using rule 54 (factor -> var .)
+    MENORI          reduce using rule 54 (factor -> var .)
+    MENOR           reduce using rule 54 (factor -> var .)
+    MAYOR           reduce using rule 54 (factor -> var .)
+    MAYORI          reduce using rule 54 (factor -> var .)
+    IGUAL           reduce using rule 54 (factor -> var .)
+    DIST            reduce using rule 54 (factor -> var .)
 
 
 state 84
 
-    (38) simple_expression -> additive_expression relop additive_expression .
-    (46) additive_expression -> additive_expression . addop term
-    (48) addop -> . SUMA
-    (49) addop -> . RESTA
+    (37) simple_expression -> additive_expression relop additive_expression .
+    (45) additive_expression -> additive_expression . addop term
+    (47) addop -> . SUMA
+    (48) addop -> . RESTA
 
-    PUNTOC          reduce using rule 38 (simple_expression -> additive_expression relop additive_expression .)
-    DCORCH          reduce using rule 38 (simple_expression -> additive_expression relop additive_expression .)
-    DPAREN          reduce using rule 38 (simple_expression -> additive_expression relop additive_expression .)
-    COMA            reduce using rule 38 (simple_expression -> additive_expression relop additive_expression .)
+    PUNTOC          reduce using rule 37 (simple_expression -> additive_expression relop additive_expression .)
+    DCORCH          reduce using rule 37 (simple_expression -> additive_expression relop additive_expression .)
+    DPAREN          reduce using rule 37 (simple_expression -> additive_expression relop additive_expression .)
+    COMA            reduce using rule 37 (simple_expression -> additive_expression relop additive_expression .)
     SUMA            shift and go to state 68
     RESTA           shift and go to state 69
 
@@ -1455,103 +1451,102 @@ state 84
 
 state 85
 
-    (54) factor -> IPAREN expression DPAREN .
+    (53) factor -> IPAREN expression DPAREN .
 
-    MULTI           reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    DIVI            reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    MENORI          reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    MENOR           reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    MAYOR           reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    MAYORI          reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    IGUAL           reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    DIST            reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    SUMA            reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    RESTA           reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    COMA            reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    DPAREN          reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    PUNTOC          reduce using rule 54 (factor -> IPAREN expression DPAREN .)
-    DCORCH          reduce using rule 54 (factor -> IPAREN expression DPAREN .)
+    MULTI           reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    DIVI            reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    MENORI          reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    MENOR           reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    MAYOR           reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    MAYORI          reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    IGUAL           reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    DIST            reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    SUMA            reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    RESTA           reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    COMA            reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    DPAREN          reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    PUNTOC          reduce using rule 53 (factor -> IPAREN expression DPAREN .)
+    DCORCH          reduce using rule 53 (factor -> IPAREN expression DPAREN .)
 
 
 state 86
 
-    (34) expression -> var ASIGN expression .
+    (33) expression -> var ASIGN expression .
 
-    DPAREN          reduce using rule 34 (expression -> var ASIGN expression .)
-    PUNTOC          reduce using rule 34 (expression -> var ASIGN expression .)
-    DCORCH          reduce using rule 34 (expression -> var ASIGN expression .)
-    COMA            reduce using rule 34 (expression -> var ASIGN expression .)
+    DPAREN          reduce using rule 33 (expression -> var ASIGN expression .)
+    PUNTOC          reduce using rule 33 (expression -> var ASIGN expression .)
+    DCORCH          reduce using rule 33 (expression -> var ASIGN expression .)
+    COMA            reduce using rule 33 (expression -> var ASIGN expression .)
 
 
 state 87
 
-    (37) var -> ID ICORCH expression . DCORCH
+    (36) var -> ID ICORCH expression . DCORCH
 
     DCORCH          shift and go to state 95
 
 
 state 88
 
-    (58) call -> ID IPAREN args . DPAREN
+    (57) call -> ID IPAREN args . DPAREN
 
     DPAREN          shift and go to state 96
 
 
 state 89
 
-    (62) arg_list -> expression .
+    (61) arg_list -> expression .
 
-    COMA            reduce using rule 62 (arg_list -> expression .)
-    DPAREN          reduce using rule 62 (arg_list -> expression .)
+    COMA            reduce using rule 61 (arg_list -> expression .)
+    DPAREN          reduce using rule 61 (arg_list -> expression .)
 
 
 state 90
 
-    (60) args -> empty .
+    (59) args -> empty .
 
-    DPAREN          reduce using rule 60 (args -> empty .)
+    DPAREN          reduce using rule 59 (args -> empty .)
 
 
 state 91
 
-    (59) args -> arg_list .
-    (61) arg_list -> arg_list . COMA expression
+    (58) args -> arg_list .
+    (60) arg_list -> arg_list . COMA expression
 
-    DPAREN          reduce using rule 59 (args -> arg_list .)
+    DPAREN          reduce using rule 58 (args -> arg_list .)
     COMA            shift and go to state 97
 
 
 state 92
 
-    (29) selection_stmt -> IF IPAREN expression . DPAREN statement
-    (30) selection_stmt -> IF IPAREN expression . DPAREN statement ELSE statement
+    (29) selection_stmt -> IF IPAREN expression . DPAREN statement ELSE statement
 
     DPAREN          shift and go to state 98
 
 
 state 93
 
-    (50) term -> term mulop factor .
+    (49) term -> term mulop factor .
 
-    MULTI           reduce using rule 50 (term -> term mulop factor .)
-    DIVI            reduce using rule 50 (term -> term mulop factor .)
-    MENORI          reduce using rule 50 (term -> term mulop factor .)
-    MENOR           reduce using rule 50 (term -> term mulop factor .)
-    MAYOR           reduce using rule 50 (term -> term mulop factor .)
-    MAYORI          reduce using rule 50 (term -> term mulop factor .)
-    IGUAL           reduce using rule 50 (term -> term mulop factor .)
-    DIST            reduce using rule 50 (term -> term mulop factor .)
-    SUMA            reduce using rule 50 (term -> term mulop factor .)
-    RESTA           reduce using rule 50 (term -> term mulop factor .)
-    DPAREN          reduce using rule 50 (term -> term mulop factor .)
-    PUNTOC          reduce using rule 50 (term -> term mulop factor .)
-    DCORCH          reduce using rule 50 (term -> term mulop factor .)
-    COMA            reduce using rule 50 (term -> term mulop factor .)
+    MULTI           reduce using rule 49 (term -> term mulop factor .)
+    DIVI            reduce using rule 49 (term -> term mulop factor .)
+    MENORI          reduce using rule 49 (term -> term mulop factor .)
+    MENOR           reduce using rule 49 (term -> term mulop factor .)
+    MAYOR           reduce using rule 49 (term -> term mulop factor .)
+    MAYORI          reduce using rule 49 (term -> term mulop factor .)
+    IGUAL           reduce using rule 49 (term -> term mulop factor .)
+    DIST            reduce using rule 49 (term -> term mulop factor .)
+    SUMA            reduce using rule 49 (term -> term mulop factor .)
+    RESTA           reduce using rule 49 (term -> term mulop factor .)
+    DPAREN          reduce using rule 49 (term -> term mulop factor .)
+    PUNTOC          reduce using rule 49 (term -> term mulop factor .)
+    DCORCH          reduce using rule 49 (term -> term mulop factor .)
+    COMA            reduce using rule 49 (term -> term mulop factor .)
 
 
 state 94
 
-    (31) iteration_stmt -> WHILE IPAREN expression DPAREN . statement
+    (30) iteration_stmt -> WHILE IPAREN expression DPAREN . statement
     (22) statement -> . expression_stmt
     (23) statement -> . compound_stmt
     (24) statement -> . selection_stmt
@@ -1560,26 +1555,25 @@ state 94
     (27) expression_stmt -> . expression PUNTOC
     (28) expression_stmt -> . PUNTOC
     (17) compound_stmt -> . ILLAVE local_declarations statement_list DLLAVE
-    (29) selection_stmt -> . IF IPAREN expression DPAREN statement
-    (30) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
-    (31) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
-    (32) return_stmt -> . RETURN PUNTOC
-    (33) return_stmt -> . RETURN expression PUNTOC
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (29) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
+    (30) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
+    (31) return_stmt -> . RETURN PUNTOC
+    (32) return_stmt -> . RETURN expression PUNTOC
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     PUNTOC          shift and go to state 50
     ILLAVE          shift and go to state 27
@@ -1606,63 +1600,63 @@ state 94
 
 state 95
 
-    (37) var -> ID ICORCH expression DCORCH .
+    (36) var -> ID ICORCH expression DCORCH .
 
-    ASIGN           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    MULTI           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    DIVI            reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    MENORI          reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    MENOR           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    MAYOR           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    MAYORI          reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    IGUAL           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    DIST            reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    SUMA            reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    RESTA           reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    PUNTOC          reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    DPAREN          reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    DCORCH          reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
-    COMA            reduce using rule 37 (var -> ID ICORCH expression DCORCH .)
+    ASIGN           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    MULTI           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    DIVI            reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    MENORI          reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    MENOR           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    MAYOR           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    MAYORI          reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    IGUAL           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    DIST            reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    SUMA            reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    RESTA           reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    PUNTOC          reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    DPAREN          reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    DCORCH          reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
+    COMA            reduce using rule 36 (var -> ID ICORCH expression DCORCH .)
 
 
 state 96
 
-    (58) call -> ID IPAREN args DPAREN .
+    (57) call -> ID IPAREN args DPAREN .
 
-    MULTI           reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    DIVI            reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    MENORI          reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    MENOR           reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    MAYOR           reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    MAYORI          reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    IGUAL           reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    DIST            reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    SUMA            reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    RESTA           reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    PUNTOC          reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    DPAREN          reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    DCORCH          reduce using rule 58 (call -> ID IPAREN args DPAREN .)
-    COMA            reduce using rule 58 (call -> ID IPAREN args DPAREN .)
+    MULTI           reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    DIVI            reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    MENORI          reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    MENOR           reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    MAYOR           reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    MAYORI          reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    IGUAL           reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    DIST            reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    SUMA            reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    RESTA           reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    PUNTOC          reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    DPAREN          reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    DCORCH          reduce using rule 57 (call -> ID IPAREN args DPAREN .)
+    COMA            reduce using rule 57 (call -> ID IPAREN args DPAREN .)
 
 
 state 97
 
-    (61) arg_list -> arg_list COMA . expression
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (60) arg_list -> arg_list COMA . expression
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     ID              shift and go to state 52
     IPAREN          shift and go to state 43
@@ -1678,8 +1672,7 @@ state 97
 
 state 98
 
-    (29) selection_stmt -> IF IPAREN expression DPAREN . statement
-    (30) selection_stmt -> IF IPAREN expression DPAREN . statement ELSE statement
+    (29) selection_stmt -> IF IPAREN expression DPAREN . statement ELSE statement
     (22) statement -> . expression_stmt
     (23) statement -> . compound_stmt
     (24) statement -> . selection_stmt
@@ -1688,26 +1681,25 @@ state 98
     (27) expression_stmt -> . expression PUNTOC
     (28) expression_stmt -> . PUNTOC
     (17) compound_stmt -> . ILLAVE local_declarations statement_list DLLAVE
-    (29) selection_stmt -> . IF IPAREN expression DPAREN statement
-    (30) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
-    (31) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
-    (32) return_stmt -> . RETURN PUNTOC
-    (33) return_stmt -> . RETURN expression PUNTOC
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (29) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
+    (30) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
+    (31) return_stmt -> . RETURN PUNTOC
+    (32) return_stmt -> . RETURN expression PUNTOC
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     PUNTOC          shift and go to state 50
     ILLAVE          shift and go to state 27
@@ -1734,50 +1726,38 @@ state 98
 
 state 99
 
-    (31) iteration_stmt -> WHILE IPAREN expression DPAREN statement .
+    (30) iteration_stmt -> WHILE IPAREN expression DPAREN statement .
 
-    DLLAVE          reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    PUNTOC          reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    ILLAVE          reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    IF              reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    WHILE           reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    RETURN          reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    ID              reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    IPAREN          reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    NUM             reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
-    ELSE            reduce using rule 31 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    DLLAVE          reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    PUNTOC          reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    ILLAVE          reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    IF              reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    WHILE           reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    RETURN          reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    ID              reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    IPAREN          reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    NUM             reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
+    ELSE            reduce using rule 30 (iteration_stmt -> WHILE IPAREN expression DPAREN statement .)
 
 
 state 100
 
-    (61) arg_list -> arg_list COMA expression .
+    (60) arg_list -> arg_list COMA expression .
 
-    COMA            reduce using rule 61 (arg_list -> arg_list COMA expression .)
-    DPAREN          reduce using rule 61 (arg_list -> arg_list COMA expression .)
+    COMA            reduce using rule 60 (arg_list -> arg_list COMA expression .)
+    DPAREN          reduce using rule 60 (arg_list -> arg_list COMA expression .)
 
 
 state 101
 
-    (29) selection_stmt -> IF IPAREN expression DPAREN statement .
-    (30) selection_stmt -> IF IPAREN expression DPAREN statement . ELSE statement
+    (29) selection_stmt -> IF IPAREN expression DPAREN statement . ELSE statement
 
-    DLLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    PUNTOC          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    ILLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    IF              reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    WHILE           reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    RETURN          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    ID              reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    IPAREN          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    NUM             reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-    ELSE            reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement .)
-
-  ! ELSE            [ shift and go to state 102 ]
+    ELSE            shift and go to state 102
 
 
 state 102
 
-    (30) selection_stmt -> IF IPAREN expression DPAREN statement ELSE . statement
+    (29) selection_stmt -> IF IPAREN expression DPAREN statement ELSE . statement
     (22) statement -> . expression_stmt
     (23) statement -> . compound_stmt
     (24) statement -> . selection_stmt
@@ -1786,26 +1766,25 @@ state 102
     (27) expression_stmt -> . expression PUNTOC
     (28) expression_stmt -> . PUNTOC
     (17) compound_stmt -> . ILLAVE local_declarations statement_list DLLAVE
-    (29) selection_stmt -> . IF IPAREN expression DPAREN statement
-    (30) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
-    (31) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
-    (32) return_stmt -> . RETURN PUNTOC
-    (33) return_stmt -> . RETURN expression PUNTOC
-    (34) expression -> . var ASIGN expression
-    (35) expression -> . simple_expression
-    (36) var -> . ID
-    (37) var -> . ID ICORCH expression DCORCH
-    (38) simple_expression -> . additive_expression relop additive_expression
-    (39) simple_expression -> . additive_expression
-    (46) additive_expression -> . additive_expression addop term
-    (47) additive_expression -> . term
-    (50) term -> . term mulop factor
-    (51) term -> . factor
-    (54) factor -> . IPAREN expression DPAREN
-    (55) factor -> . var
-    (56) factor -> . call
-    (57) factor -> . NUM
-    (58) call -> . ID IPAREN args DPAREN
+    (29) selection_stmt -> . IF IPAREN expression DPAREN statement ELSE statement
+    (30) iteration_stmt -> . WHILE IPAREN expression DPAREN statement
+    (31) return_stmt -> . RETURN PUNTOC
+    (32) return_stmt -> . RETURN expression PUNTOC
+    (33) expression -> . var ASIGN expression
+    (34) expression -> . simple_expression
+    (35) var -> . ID
+    (36) var -> . ID ICORCH expression DCORCH
+    (37) simple_expression -> . additive_expression relop additive_expression
+    (38) simple_expression -> . additive_expression
+    (45) additive_expression -> . additive_expression addop term
+    (46) additive_expression -> . term
+    (49) term -> . term mulop factor
+    (50) term -> . factor
+    (53) factor -> . IPAREN expression DPAREN
+    (54) factor -> . var
+    (55) factor -> . call
+    (56) factor -> . NUM
+    (57) call -> . ID IPAREN args DPAREN
 
     PUNTOC          shift and go to state 50
     ILLAVE          shift and go to state 27
@@ -1832,16 +1811,16 @@ state 102
 
 state 103
 
-    (30) selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .
+    (29) selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .
 
-    DLLAVE          reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    PUNTOC          reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    ILLAVE          reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    IF              reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    WHILE           reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    RETURN          reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    ID              reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    IPAREN          reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    NUM             reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
-    ELSE            reduce using rule 30 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    DLLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    PUNTOC          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    ILLAVE          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    IF              reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    WHILE           reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    RETURN          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    ID              reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    IPAREN          reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    NUM             reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
+    ELSE            reduce using rule 29 (selection_stmt -> IF IPAREN expression DPAREN statement ELSE statement .)
 

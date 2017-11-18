@@ -188,9 +188,9 @@ def p_expression_stmt2(p):
     pass
 
 
-def p_selection_stmt1(p):
-    """selection_stmt : IF IPAREN expression DPAREN statement"""
-    p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
+# def p_selection_stmt1(p):
+#     """selection_stmt : IF IPAREN expression DPAREN statement"""
+#     p[0] = nodos.SelectionStmt(p[1], p[3], p[5])
 
 
 def p_selection_stmt2(p):
@@ -380,7 +380,7 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-# with open('sample.txt', 'r') as arch1:
+# with open('parser-examples/sample1.txt', 'r') as arch1:
 #     contents = arch1.read()
 #     result = parser.parse(contents)
 #     visitor = Visitor()
@@ -403,7 +403,7 @@ with open('parser-examples/sample2.txt', 'r') as arch2:
     print('\n sample2')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out2.write(visitor.ast)
 
 out3 = open('parser-examples/out3.txt', 'w')
 with open('parser-examples/sample3.txt', 'r') as arch3:
@@ -412,7 +412,7 @@ with open('parser-examples/sample3.txt', 'r') as arch3:
     print('\n sample3')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out3.write(visitor.ast)
 
 out4 = open('parser-examples/out4.txt', 'w')
 with open('parser-examples/sample4.txt', 'r') as arch4:
@@ -421,7 +421,7 @@ with open('parser-examples/sample4.txt', 'r') as arch4:
     print('\n sample4')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out4.write(visitor.ast)
 
 out5 = open('parser-examples/out5.txt', 'w')
 with open('parser-examples/sample5.txt', 'r') as arch5:
@@ -430,7 +430,7 @@ with open('parser-examples/sample5.txt', 'r') as arch5:
     print('\n sample5')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out5.write(visitor.ast)
 
 out6 = open('parser-examples/out6.txt', 'w')
 with open('parser-examples/sample6.txt', 'r') as arch6:
@@ -439,7 +439,7 @@ with open('parser-examples/sample6.txt', 'r') as arch6:
     print('\n sample6')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out6.write(visitor.ast)
 
 out7 = open('parser-examples/out7.txt', 'w')
 with open('parser-examples/sample7.txt', 'r') as arch7:
@@ -448,5 +448,5 @@ with open('parser-examples/sample7.txt', 'r') as arch7:
     print('\n sample7')
     visitor = Visitor()
     nodos.Program.accept(result, visitor)
-    out1.write(visitor.ast)
+    out7.write(visitor.ast)
 

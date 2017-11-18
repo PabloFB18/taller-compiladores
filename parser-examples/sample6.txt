@@ -1,0 +1,9 @@
+if (algo ==00){
+
+}else{
+    void ;
+}
+
+int funcion (){
+    return int;
+}
