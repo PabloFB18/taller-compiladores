@@ -1,3 +1,4 @@
+# coding=utf-8
 import ply.yacc as yacc
 
 # Obtener tokens del scanner
@@ -6,8 +7,6 @@ from __builtin__ import raw_input
 import nodos
 from scanner import tokens
 from visitor import Visitor
-
-
 
 
 def p_program(p):
@@ -366,13 +365,13 @@ def p_empty(p):
     pass
 
 
-# Error rule for syntax errors
+# Errores en la sintaxis.
 def p_error(p):
     errors_parser.write('Error de sintaxis! ')
     if p is not None:
         errors_parser.write('Error en el ' + str(p.type) + '\n')
     else:
-        errors_parser.write('Null\n')
+        errors_parser.write('El archivo de entrada esta vacío\n')
 
 
 # Build the parser
