@@ -1,0 +1,12 @@
+while (23){
+int d;
+
+int 03;
+d= hola;
+}
+
+d = 02 + 09;
+
+void fun [ int a, int dd]{
+a = 34 + dd;
+}
