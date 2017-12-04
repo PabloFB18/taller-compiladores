@@ -1,63 +1,108 @@
-int aNumber1;
-int aNumber2;
-int anArray[123];
-void aVariable;
-void anotherArray[234];
-
-void aProcedure1 (void)
-{
-}
-
-void aProcedure2 ( void)
-{
-    ;
-}
-
-int aProcedure3 ( void )
-{
-    ; ; ; ; ;
-}
-
-int aProcedure4 ( int aNum1, void aNum2, int anArray1[], void anArray2[] )
-{
-    int aNum3;
-    int anArray3[456];
-    void aNum4;
-    void anArray4[78];
-    int aNum5;
-    aNum3 = aNum1;
-    aNum2 = aNum3 + 01;
-    anArray3[00] = anArray1[02];
-    anArray2[03] = anarray3[04];
-    ; ;
-    while (aNum3 > aNum4)
-        ;
-    while (aNum3+02 >= 03*aNum5)
-    {
-        return;
-    }
-    if (23)
-        ;
-    if (aNum5)
-        ;
-    else
-        ;
-    if (05*aNum5-04 <= aNum3+02*(aNum5/03 - 07))
-        aNum5 = 03 * aNum5;
-    if ((aNum5 - aNum3) * (aNum5/03 + 04*aNum3))
-    {
-        output(aNum3);
-    }
-    else
-    {
-        aNum4 = input();
-        return aNum3;
-    }
-    return 05 / 00;
-}
-
-
-void main ( void )
-{
-    aProcedure1 ( );
+digraph G {
+	"program1" -> "var1: int aNumber1"
+	"program1" -> "var2: int aNumber2"
+	"program1" -> "var3: int anArray[123]"
+	"program1" -> "var4: void aVariable"
+	"program1" -> "var5: void anotherArray[234]"
+	"program1" -> "function1: void aProcedure1"
+	"program1" -> "function2: void aProcedure2"
+	"function2: void aProcedure2" -> "compound_stmt1"
+	"program1" -> "function3: int aProcedure3"
+	"function3: int aProcedure3" -> "compound_stmt2"
+	"program1" -> "function4: int aProcedure4"
+	"function4: int aProcedure4" -> "compound_stmt3"
+	"compound_stmt3" -> "var6: int aNum3"
+	"compound_stmt3" -> "var7: int anArray3[456]"
+	"compound_stmt3" -> "var8: void aNum4"
+	"compound_stmt3" -> "var9: void anArray4[78]"
+	"compound_stmt3" -> "var10: int aNum5"
+	"compound_stmt3" -> "assign1"
+	"assign1" -> "var1: aNum3"
+	"assign1" -> "var2: aNum1"
+	"compound_stmt3" -> "assign2"
+	"assign2" -> "var3: aNum2"
+	"assign2" -> "SIGNO1: +"
+	"SIGNO1: +" -> "var4: aNum3"
+	"SIGNO1: +" -> "NUM1: 01"
+	"compound_stmt3" -> "assign3"
+	"assign3" -> "var5: anArray3"
+	"var5: anArray3" -> "NUM2: 00"
+	"assign3" -> "var6: anArray1"
+	"var6: anArray1" -> "NUM3: 02"
+	"compound_stmt3" -> "assign4"
+	"assign4" -> "var7: anArray2"
+	"var7: anArray2" -> "NUM4: 03"
+	"assign4" -> "var8: anarray3"
+	"var8: anarray3" -> "NUM5: 04"
+	"compound_stmt3" -> "while1"
+	"while1" -> "COMPARADOR1: >"
+	"COMPARADOR1: >" -> "var9: aNum3"
+	"COMPARADOR1: >" -> "var10: aNum4"
+	"compound_stmt3" -> "while2"
+	"while2" -> "COMPARADOR2: >="
+	"COMPARADOR2: >=" -> "SIGNO2: +"
+	"SIGNO2: +" -> "var11: aNum3"
+	"SIGNO2: +" -> "NUM6: 02"
+	"COMPARADOR2: >=" -> "SIGNO1: *"
+	"SIGNO1: *" -> "NUM7: 03"
+	"SIGNO1: *" -> "var12: aNum5"
+	"while2" -> "compound_stmt4"
+	"compound_stmt4" -> "return1"
+	"compound_stmt3" -> "if1"
+	"if1" -> "NUM8: 23"
+	"compound_stmt3" -> "if_else2"
+	"if_else2" -> "var13: aNum5"
+	"compound_stmt3" -> "if3"
+	"if3" -> "COMPARADOR3: <="
+	"COMPARADOR3: <=" -> "SIGNO3: -"
+	"SIGNO3: -" -> "SIGNO2: *"
+	"SIGNO2: *" -> "NUM9: 05"
+	"SIGNO2: *" -> "var14: aNum5"
+	"SIGNO3: -" -> "NUM10: 04"
+	"COMPARADOR3: <=" -> "SIGNO4: +"
+	"SIGNO4: +" -> "var15: aNum3"
+	"SIGNO4: +" -> "SIGNO3: *"
+	"SIGNO3: *" -> "NUM11: 02"
+	"SIGNO3: *" -> "SIGNO5: -"
+	"SIGNO5: -" -> "SIGNO4: /"
+	"SIGNO4: /" -> "var16: aNum5"
+	"SIGNO4: /" -> "NUM12: 03"
+	"SIGNO5: -" -> "NUM13: 07"
+	"if3" -> "assign5"
+	"assign5" -> "var17: aNum5"
+	"assign5" -> "SIGNO5: *"
+	"SIGNO5: *" -> "NUM14: 03"
+	"SIGNO5: *" -> "var18: aNum5"
+	"compound_stmt3" -> "if_else4"
+	"if_else4" -> "SIGNO6: *"
+	"SIGNO6: *" -> "SIGNO6: -"
+	"SIGNO6: -" -> "var19: aNum5"
+	"SIGNO6: -" -> "var20: aNum3"
+	"SIGNO6: *" -> "SIGNO7: +"
+	"SIGNO7: +" -> "SIGNO7: /"
+	"SIGNO7: /" -> "var21: aNum5"
+	"SIGNO7: /" -> "NUM15: 03"
+	"SIGNO7: +" -> "SIGNO8: *"
+	"SIGNO8: *" -> "NUM16: 04"
+	"SIGNO8: *" -> "var22: aNum3"
+	"if_else4" -> "compound_stmt5"
+	"compound_stmt5" -> "call1: output"
+	"call1: output" -> "var23: aNum3"
+	"if_else4" -> "compound_stmt6"
+	"compound_stmt6" -> "assign6"
+	"assign6" -> "var24: aNum4"
+	"assign6" -> "call2: input"
+	"compound_stmt6" -> "return2"
+	"return2" -> "var25: aNum3"
+	"compound_stmt3" -> "return3"
+	"return3" -> "SIGNO9: /"
+	"SIGNO9: /" -> "NUM17: 05"
+	"SIGNO9: /" -> "NUM18: 00"
+	"function4: int aProcedure4" -> "param1: int[] aNum1"
+	"function4: int aProcedure4" -> "param2: void[] aNum2"
+	"function4: int aProcedure4" -> "param3: int anArray1"
+	"function4: int aProcedure4" -> "param4: void anArray2"
+	"program1" -> "function5: void main"
+	"function5: void main" -> "compound_stmt7"
+	"compound_stmt7" -> "call3: aProcedure1"
 }

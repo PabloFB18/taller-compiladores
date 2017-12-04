@@ -309,7 +309,7 @@ def p_mulop2(p):
 
 def p_factor1(p):
     """factor : IPAREN expression DPAREN"""
-    p[0] = p[1]
+    p[0] = p[2]
 
 
 def p_factor2(p):
@@ -470,4 +470,18 @@ with open('parser-examples/sample7.txt', 'r') as arch7:
         out7.write(visitor.ast)
     else:
         out7.write('Error al realizar el parse.')
+
+
+out7 = open('parser-examples/AllSyntaxNoCommentsOut.cm', 'w')
+with open('parser-examples/AllSyntaxNoComments.cm', 'r') as arch7:
+    contents = arch7.read()
+    errors_parser.write('AllSyntaxNoComments\n')
+    result = parser.parse(contents)
+    if result is not None:
+        visitor = Visitor()
+        nodos.Program.accept(result, visitor)
+        out7.write(visitor.ast)
+    else:
+        out7.write('Error al realizar el parse.')
+
 

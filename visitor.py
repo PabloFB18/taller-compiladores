@@ -98,16 +98,19 @@ class Visitor(object):
             self.ast += '-> "' + 'if' + str(id_selection_stmt) + '"' + '\n'
             self.ast += '\t"' + 'if' + str(id_selection_stmt) + '" '
             selection_stmt.expression_p.accept(self)
-            self.ast += '\t"' + 'if' + str(id_selection_stmt) + '" '
-            selection_stmt.stmt_p.accept(self)
+            if selection_stmt.stmt_p is not None:
+                self.ast += '\t"' + 'if' + str(id_selection_stmt) + '" '
+                selection_stmt.stmt_p.accept(self)
         else:
             self.ast += '-> "' + 'if_else' + str(id_selection_stmt) + '"' + '\n'
             self.ast += '\t"' + 'if_else' + str(id_selection_stmt) + '" '
             selection_stmt.expression_p.accept(self)
-            self.ast += '\t"' + 'if_else' + str(id_selection_stmt) + '" '
-            selection_stmt.stmt_p.accept(self)
-            self.ast += '\t"' + 'if_else' + str(id_selection_stmt) + '" '
-            selection_stmt.stmt2_p.accept(self)
+            if selection_stmt.stmt_p is not None:
+                self.ast += '\t"' + 'if_else' + str(id_selection_stmt) + '" '
+                selection_stmt.stmt_p.accept(self)
+            if selection_stmt.stmt2_p is not None:
+                self.ast += '\t"' + 'if_else' + str(id_selection_stmt) + '" '
+                selection_stmt.stmt2_p.accept(self)
 
     def visit_iteration_stmt(self, iteration_stmt):
         self.id_iteration_stmt += 1
@@ -115,8 +118,9 @@ class Visitor(object):
         self.ast += '-> "' + 'while' + str(id_iteration_stmt) + '"' + '\n'
         self.ast += '\t"' + 'while' + str(id_iteration_stmt) + '" '
         iteration_stmt.expression_p.accept(self)
-        self.ast += '\t"' + 'while' + str(id_iteration_stmt) + '" '
-        iteration_stmt.stmt_p.accept(self)
+        if iteration_stmt.stmt_p is not None:
+            self.ast += '\t"' + 'while' + str(id_iteration_stmt) + '" '
+            iteration_stmt.stmt_p.accept(self)
 
     def visit_return_stmt(self, return_stmt):
         self.id_return_stmt += 1
@@ -167,8 +171,9 @@ class Visitor(object):
         self.ast += '-> "SIGNO' + str(id_term) + ': ' + term.mulop_t + '"' + '\n'
         self.ast += '\t"SIGNO' + str(id_term) + ': ' + term.mulop_t + '" '
         term.term_p.accept(self)
-        self.ast += '\t"SIGNO' + str(id_term) + ': ' + term.mulop_t + '" '
-        term.factor_p.accept(self)
+        if term.factor_p is not None:
+            self.ast += '\t"SIGNO' + str(id_term) + ': ' + term.mulop_t + '" '
+            term.factor_p.accept(self)
 
     def visit_num(self, num):
         self.id_num += 1
@@ -179,7 +184,8 @@ class Visitor(object):
         self.id_call += 1
         id_call = self.id_call
         self.ast += '-> "' + 'call' + str(id_call) + ": " + call.id_t + '"' + '\n'
-        for arg in call.args_p:
-            self.ast += '\t"' + 'call' + str(id_call) + ": " + call.id_t + '" '
-            arg.accept(self)
+        if call.args_p is not None:
+            for arg in call.args_p:
+                self.ast += '\t"' + 'call' + str(id_call) + ": " + call.id_t + '" '
+                arg.accept(self)
 

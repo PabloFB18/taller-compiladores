@@ -96,7 +96,7 @@ class IterationStmt(Nodo):
 class ReturnStmt(Nodo):
     def __init__(self, return_t, expression_p=None):
         self.return_t = return_t
-        self.expresion_si_no = False
+        self.expression_si_no = False
 
         if expression_p is not None:
             self.expression_p = expression_p

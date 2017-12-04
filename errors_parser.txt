@@ -12,3 +12,5 @@ Error de sintaxis! Error en el DPAREN
 sample7
 Error de sintaxis! Error en el WHILE
 Error de sintaxis! Error en el NUM
+Error de sintaxis! Error en el INT
+AllSyntaxNoComments
