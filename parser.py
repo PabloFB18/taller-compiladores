@@ -396,6 +396,9 @@ with open('parser_examples/sample1.cm', 'r') as arch1:
         visitor = Visitor()
         nodos.Program.accept(result, visitor)
         out1.write(visitor.ast)
+
+
+
     else:
         out1.write('Error al realizar el parse.')
 

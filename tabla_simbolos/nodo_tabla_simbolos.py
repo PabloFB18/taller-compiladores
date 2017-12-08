@@ -1,4 +1,4 @@
 class NodoTablaSimbolos:
     def __init__(self):
-        self.variables = {}
+        self.contenido = {}
         self.hijos = []
