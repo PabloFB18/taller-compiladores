@@ -387,8 +387,8 @@ errors_parser = open('errors_parser.txt', 'w')
 #     nodos.Program.accept(result, visitor)
 #     print(visitor.ast)
 
-out1 = open('parser-examples/out1.dot', 'w')
-with open('parser-examples/sample1.cm', 'r') as arch1:
+out1 = open('parser_examples/out1.dot', 'w')
+with open('parser_examples/sample1.cm', 'r') as arch1:
     contents = arch1.read()
     errors_parser.write('sample1\n')
     result = parser.parse(contents)
@@ -399,8 +399,8 @@ with open('parser-examples/sample1.cm', 'r') as arch1:
     else:
         out1.write('Error al realizar el parse.')
 
-out2 = open('parser-examples/out2.dot', 'w')
-with open('parser-examples/sample2.cm', 'r') as arch2:
+out2 = open('parser_examples/out2.dot', 'w')
+with open('parser_examples/sample2.cm', 'r') as arch2:
     contents = arch2.read()
     errors_parser.write('sample2\n')
     result = parser.parse(contents)
@@ -411,8 +411,8 @@ with open('parser-examples/sample2.cm', 'r') as arch2:
     else:
         out2.write('Error al realizar el parse.')
 
-out3 = open('parser-examples/out3.dot', 'w')
-with open('parser-examples/sample3.cm', 'r') as arch3:
+out3 = open('parser_examples/out3.dot', 'w')
+with open('parser_examples/sample3.cm', 'r') as arch3:
     contents = arch3.read()
     errors_parser.write('sample3\n')
     result = parser.parse(contents)
@@ -423,8 +423,8 @@ with open('parser-examples/sample3.cm', 'r') as arch3:
     else:
         out3.write('Error al realizar el parse.')
 
-out4 = open('parser-examples/out4.dot', 'w')
-with open('parser-examples/sample4.cm', 'r') as arch4:
+out4 = open('parser_examples/out4.dot', 'w')
+with open('parser_examples/sample4.cm', 'r') as arch4:
     contents = arch4.read()
     errors_parser.write('sample4\n')
     result = parser.parse(contents)
@@ -435,8 +435,8 @@ with open('parser-examples/sample4.cm', 'r') as arch4:
     else:
         out4.write('Error al realizar el parse.')
 
-out5 = open('parser-examples/out5.dot', 'w')
-with open('parser-examples/sample5.cm', 'r') as arch5:
+out5 = open('parser_examples/out5.dot', 'w')
+with open('parser_examples/sample5.cm', 'r') as arch5:
     contents = arch5.read()
     errors_parser.write('sample5\n')
     result = parser.parse(contents)
@@ -447,8 +447,8 @@ with open('parser-examples/sample5.cm', 'r') as arch5:
     else:
         out5.write('Error al realizar el parse.')
 
-out6 = open('parser-examples/out6.dot', 'w')
-with open('parser-examples/sample6.cm', 'r') as arch6:
+out6 = open('parser_examples/out6.dot', 'w')
+with open('parser_examples/sample6.cm', 'r') as arch6:
     contents = arch6.read()
     errors_parser.write('sample6\n')
     result = parser.parse(contents)
@@ -459,8 +459,8 @@ with open('parser-examples/sample6.cm', 'r') as arch6:
     else:
         out6.write('Error al realizar el parse.')
 
-out7 = open('parser-examples/out7.dot', 'w')
-with open('parser-examples/sample7.cm', 'r') as arch7:
+out7 = open('parser_examples/out7.dot', 'w')
+with open('parser_examples/sample7.cm', 'r') as arch7:
     contents = arch7.read()
     errors_parser.write('sample7\n')
     result = parser.parse(contents)
@@ -472,8 +472,8 @@ with open('parser-examples/sample7.cm', 'r') as arch7:
         out7.write('Error al realizar el parse.')
 
 
-out7 = open('parser-examples/AllSyntaxNoCommentsOut.dot', 'w')
-with open('parser-examples/AllSyntaxNoComments.cm', 'r') as arch7:
+out7 = open('parser_examples/AllSyntaxNoCommentsOut.dot', 'w')
+with open('parser_examples/AllSyntaxNoComments.cm', 'r') as arch7:
     contents = arch7.read()
     errors_parser.write('AllSyntaxNoComments\n')
     result = parser.parse(contents)
