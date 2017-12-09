@@ -39,5 +39,5 @@ digraph G {
 	"if2" -> "compound_stmt5"
 	"compound_stmt5" -> "return1"
 	"return1" -> "NUM10: 00"
-	"function1: Void funcion" -> "param1: int[] parametro"
+	"function1: Void funcion" -> "param1: int parametro[]"
 }

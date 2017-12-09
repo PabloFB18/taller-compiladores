@@ -65,8 +65,8 @@ class Visitor(object):
                   param.id_t + '"'
             self.ast += param + '\n'
         else:
-            param = '-> ' + '"param' + str(id_param) + ': ' + param.type_specifier_t + '[] ' + \
-                  param.id_t + '"'
+            param = '-> ' + '"param' + str(id_param) + ': ' + param.type_specifier_t + " " +\
+                  param.id_t + '[]"'
             self.ast += param + '\n'
 
     def visit_compound_stmt(self, compound_stmt):

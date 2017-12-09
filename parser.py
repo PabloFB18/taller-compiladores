@@ -5,6 +5,7 @@ import ply.yacc as yacc
 from __builtin__ import raw_input
 
 import nodos
+from build_tabla_simbolos_visitor import BuildTablaSimbolosVisitor
 from scanner import tokens
 from graphviz_visitor import Visitor
 
@@ -397,7 +398,8 @@ with open('parser_examples/sample1.cm', 'r') as arch1:
         nodos.Program.accept(result, visitor)
         out1.write(visitor.ast)
 
-
+        # build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor()
+        # nodos.Program.accept(result, build_tabla_simbolos_visitor)
 
     else:
         out1.write('Error al realizar el parse.')
