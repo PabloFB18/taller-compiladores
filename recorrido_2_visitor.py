@@ -96,7 +96,7 @@ class Recorrido2Visitor(object):
             tipo = self.check_sym_tab(nodo.hijo[1])
             if tipo != 'int':
                 return 'ERROR'
-            return 'bool'
+            return 'int'
 
         if kind == 'additive_expression':
             tipo = self.check_sym_tab(nodo.hijo[0])

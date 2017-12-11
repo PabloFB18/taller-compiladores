@@ -35,8 +35,8 @@ digraph G {
 	"call1: hola" -> "var6: a"
 	"call1: hola" -> "NUM11: 00"
 	"compound_stmt1" -> "NUM12: 00"
-	"function1: void main" -> "param1: int c_2[] "
-	"function1: void main" -> "param2: int c_3[] "
+	"function1: void main" -> "param1: int c_2[]"
+	"function1: void main" -> "param2: int c_3[]"
 	"program1" -> "var1: int b_1"
 	"program1" -> "var2: int a_1"
 }

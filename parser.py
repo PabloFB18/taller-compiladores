@@ -398,9 +398,6 @@ with open('parser_examples/sample1.cm', 'r') as arch1:
         nodos.Program.accept(result, visitor)
         out1.write(visitor.ast)
 
-        # build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor()
-        # nodos.Program.accept(result, build_tabla_simbolos_visitor)
-
     else:
         out1.write('Error al realizar el parse.')
 
@@ -477,7 +474,7 @@ with open('parser_examples/sample7.cm', 'r') as arch7:
         out7.write('Error al realizar el parse.')
 
 
-out7 = open('parser_examples/AllSyntaxNoCommentsOut.dot', 'w')
+out8 = open('parser_examples/AllSyntaxNoCommentsOut.dot', 'w')
 with open('parser_examples/AllSyntaxNoComments.cm', 'r') as arch7:
     contents = arch7.read()
     errors_parser.write('AllSyntaxNoComments\n')
@@ -485,8 +482,17 @@ with open('parser_examples/AllSyntaxNoComments.cm', 'r') as arch7:
     if result is not None:
         visitor = Visitor()
         nodos.Program.accept(result, visitor)
-        out7.write(visitor.ast)
+        out8.write(visitor.ast)
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor()
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        print build_tabla_simbolos_visitor.tabla_simbolos.root.to_string()
+
+        for funcion in build_tabla_simbolos_visitor.funciones:
+            print '\n' + funcion.to_string()
+
     else:
-        out7.write('Error al realizar el parse.')
+        out8.write('Error al realizar el parse.')
 
 
