@@ -18,7 +18,19 @@ int aProcedure3 ( void )
     ; ; ; ; ;
 }
 
-int aProcedure4 ( int aNum1, void aNum2, int anArray1[], void anArray2[] )
+int aProcedure4 ( int a1, void a2, int aa1[], void aa2[] )
+{
+}
+
+int aProcedure4 ( void aNum1, void aNum2, int anArray1[], void anArray2[] )
+{
+}
+
+int aProcedure4 ( int aNum1, void aNum2, int anArray1[] )
+{
+}
+
+int aProcedure4 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1 )
 {
     int aNum3;
     int anArray3[456];

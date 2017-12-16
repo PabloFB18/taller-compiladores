@@ -61,9 +61,17 @@ class BuildTablaSimbolosVisitor(object):
         if fun_declaration.params_p is not None:
             for param in fun_declaration.params_p:
                 param.accept(self)
-        # TODO: que hacer si es sobrecarga
         if error_fun is not None:
-            print 'error en funcion: ' + error_fun
+            for funcion_iteracion in self.funciones:
+                if funcion_iteracion != fun:
+                    if len(funcion_iteracion.parametros) == len(fun.parametros):
+                        if len(funcion_iteracion.parametros) == 0:
+                            print 'Sobrecarga en funcion: ' + error_fun.nombre
+                            break
+                        for i in range(0, len(fun.parametros)):
+                            if funcion_iteracion.parametros[i].tipo == fun.parametros[i].tipo:
+                                print 'Sobrecarga en funcion: ' + error_fun.nombre
+                                break
         # Visitar el contenido de la funcion.
         if fun_declaration.compound_stmt_p.local_declarations_p is not None or fun_declaration.compound_stmt_p\
                 .stmt_list_p is not None:
@@ -186,7 +194,6 @@ class BuildTablaSimbolosVisitor(object):
         expression.var_p.accept(self)
         expression.expression_p.accept(self)
 
-    # TODO: revisar si se declaro
     def visit_var(self, var):
         if not self.nodo.check_declarado(var.id_t):
             print 'Error variable ' + var.id_t + ' no declarada'
