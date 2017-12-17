@@ -15,11 +15,15 @@ class ChequeoTipos(object):
     def visit_fun_declaration(self, fun_declaration):
         if fun_declaration.compound_stmt_p.local_declarations_p is not None or fun_declaration.compound_stmt_p.stmt_list_p is not None:
             fun_declaration.compound_stmt_p.accept(self)
-            #TODO: DEFINIR LO DE TIPO
+            if fun_declaration.compound_stmt_p.tipo == 'ERROR':
+                fun_declaration.tipo = fun_declaration.compound_stmt_p.tipo
+            else:
+                fun_declaration.tipo = lower(fun_declaration.type_specifier_t)
         if fun_declaration.params_p is not None:
             for param in fun_declaration.params_p:
                 param.accept(self)
-                # TODO: DEFINIR LO DE TIPO
+                if param.tipo == 'ERROR':
+                    fun_declaration.tipo = param.tipo
 
     def visit_param(self, param):
         if lower(param.type_specifier_t) != 'int' or lower(param.type_specifier_t) != 'void':
@@ -88,9 +92,10 @@ class ChequeoTipos(object):
             expression.tipo = 'ERROR'
 
     def visit_var(self, var):
-        # TODO: ver que falta hacer con el id de var
         if var.expression_si_no:
             var.expression_p.accept(self)
+            if var.expression_p.tipo != 'int':
+                var.tipo = 'ERROR'
 
     def visit_simple_expression(self, simple_expresion):
         simple_expresion.additive_expression1_p.accept(self)
