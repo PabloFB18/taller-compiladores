@@ -7,7 +7,7 @@ from __builtin__ import raw_input
 import nodos
 from build_tabla_simbolos_visitor import BuildTablaSimbolosVisitor
 from scanner import tokens
-from graphviz_visitor import Visitor
+from dibujar_AST_visitor import Visitor
 
 
 def p_program(p):
@@ -494,5 +494,3 @@ with open('parser_examples/AllSyntaxNoComments.cm', 'r') as arch7:
 
     else:
         out8.write('Error al realizar el parse.')
-
-
