@@ -1,6 +1,7 @@
 # coding=utf-8
 import ply.yacc as yacc
 
+
 # Obtener tokens del scanner
 from __builtin__ import raw_input
 
@@ -8,6 +9,7 @@ import nodos
 from build_tabla_simbolos_visitor import BuildTablaSimbolosVisitor
 from scanner import tokens
 from dibujar_AST_visitor import Visitor
+from chequeo_tipos import ChequeoTipos
 
 
 def p_program(p):
@@ -395,7 +397,9 @@ with open('parser_examples/sample1.cm', 'r') as arch1:
     result = parser.parse(contents)
     if result is not None:
         visitor = Visitor()
+        chequeo = ChequeoTipos()
         nodos.Program.accept(result, visitor)
+        nodos.Program.accept(result, chequeo)
         out1.write(visitor.ast)
 
     else:
