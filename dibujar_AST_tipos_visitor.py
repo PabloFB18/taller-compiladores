@@ -1,4 +1,4 @@
-class Visitor(object):
+class VisitorTipos(object):
     def __init__(self):
         self.ast = ''
         self.id_program = 0

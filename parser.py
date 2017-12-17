@@ -7,6 +7,7 @@ from __builtin__ import raw_input
 
 import nodos
 from build_tabla_simbolos_visitor import BuildTablaSimbolosVisitor
+from dibujar_AST_tipos_visitor import VisitorTipos
 from scanner import tokens
 from dibujar_AST_visitor import Visitor
 from chequeo_tipos import ChequeoTipos
@@ -490,6 +491,13 @@ with open('parser_examples/AllSyntaxNoComments.cm', 'r') as arch7:
 
         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor()
         nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        chequeo = ChequeoTipos()
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out8.write(visitor_tipos.ast)
 
         print build_tabla_simbolos_visitor.tabla_simbolos.root.to_string()
 
