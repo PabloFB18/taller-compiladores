@@ -71,5 +71,8 @@ int aProcedure4 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1
 
 void main ( void )
 {
+    int aNumber1;
     aProcedure1 ( );
+    aProcedure12 ( );
+    aProcedure1 ( aNumber1 );
 }

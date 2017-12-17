@@ -191,6 +191,7 @@ class Call(Nodo):
     def __init__(self, id_t, args_p):
         self.id_t = id_t
         self.args_p = args_p
+        self.funcion = None
         self.tipo = None
 
     def accept(self, visitor):

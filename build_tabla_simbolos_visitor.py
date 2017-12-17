@@ -220,3 +220,19 @@ class BuildTablaSimbolosVisitor(object):
         if call.args_p is not None:
             for arg in call.args_p:
                 arg.accept(self)
+        existe_funcion = False
+        for funcion_iteracion in self.funciones:
+            if call.id_t == funcion_iteracion.nombre:
+                if call.args_p is not None and funcion_iteracion.parametros is not None:
+                    if len(funcion_iteracion.parametros) == len(call.args_p):
+                        call.funcion = funcion_iteracion
+                        existe_funcion = True
+                        break
+                else:
+                    call.funcion = funcion_iteracion
+                    existe_funcion = True
+                    break
+            else:
+                existe_funcion = False
+        if not existe_funcion:
+            print 'Llamada a funcion que no existe ' + call.id_t

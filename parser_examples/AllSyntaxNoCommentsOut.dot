@@ -119,5 +119,9 @@ digraph G {
 	"function7: int aProcedure4" -> "param16: int a1[]"
 	"program1" -> "function8: void main"
 	"function8: void main" -> "compound_stmt7"
+	"compound_stmt7" -> "var11: int aNumber1"
 	"compound_stmt7" -> "call3: aProcedure1"
+	"compound_stmt7" -> "call4: aProcedure12"
+	"compound_stmt7" -> "call5: aProcedure1"
+	"call5: aProcedure1" -> "var26: aNumber1"
 }
