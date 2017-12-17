@@ -97,12 +97,25 @@ class ChequeoTipos(object):
             expression.tipo = 'ERROR'
 
     def visit_var(self, var):
-        if var.expression_si_no:
-            var.expression_p.accept(self)
-            if var.expression_p.tipo != 'int':
-                print('El índice de un arreglo debe ser de tipo entero.')
-                var.tipo = 'ERROR'
-        # TODO: SABER SI ESTOY LLAMANDO SU VALOR O SI LE ESTOY ASIGNANDO UN VALOR. SI ES LLAMAR HAY QUE VALIDAR SI FUE INICIALIZADA.
+        nombre = var.id_t
+        variables_declaradas = var.simbolos.declaraciones
+        for variable in variables_declaradas:
+            if variable.nombre == nombre:
+                if variable.arreglo_si_no:  #Si es arreglo
+                    if var.expression_si_no: #Si es llamado un valor del arreglo
+                        var.expression_p.accept(self)
+                        if var.expression_p.tipo != 'int':
+                            print('El índice de un arreglo debe ser de tipo entero.')
+                            var.tipo = 'ERROR'
+                        # TODO: VALIDAR SI EL INDICE NO ES MAYOR AL TAMAÑO
+                        var.tipo = lower(variable.tipo)
+                    else:
+                        var.tipo = 'intArreglo'
+                else:
+                    # TODO: VER SI ESTA INICIALIZADA
+                    var.tipo = lower(variable.tipo)
+                break
+
 
     def visit_simple_expression(self, simple_expresion):
         simple_expresion.additive_expression1_p.accept(self)
