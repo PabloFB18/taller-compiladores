@@ -1,0 +1,18 @@
+Void funcion (int parametro){
+    int a;
+
+    a=00;
+    if(00 == 00){
+        a = 04;
+    }
+    else{
+        a = 05;
+    }
+    while(parametro <> 00){
+        a = a + 01;
+        parametro = parametro - 01;
+        if (00 == a){
+            return 00;
+        }
+    }
+}

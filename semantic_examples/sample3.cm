@@ -1,0 +1,14 @@
+void sum(int e_2, int e_3, int e_4){
+    return e_2 + e_3 + e_4;
+}
+
+void main(void){
+    int a;
+    int b;
+    int c;
+    a = 01;
+    b = 02;
+    c = 03;
+
+    sum(a, b, c);
+}

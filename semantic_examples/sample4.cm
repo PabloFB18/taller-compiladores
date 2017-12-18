@@ -1,0 +1,11 @@
+int IF (int){
+    int a = 89;
+    a=00;
+    if(00 == 00){
+
+    }
+    while(parametro  00){
+        a = a + 01;
+        parametro = parametro - 01
+    }
+}
