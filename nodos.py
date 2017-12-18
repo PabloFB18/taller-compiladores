@@ -1,5 +1,6 @@
 from tabla_simbolos.nodo_funcion import NodoFuncion
 from tabla_simbolos.nodo_tabla_simbolos import NodoTablaSimbolos
+from tabla_simbolos.nodo_variable import NodoVariable
 
 
 class Nodo():
@@ -26,6 +27,7 @@ class VarDeclaration(Nodo):
         self.id_t = id_t
         self.numero_si_no = False
         self.tipo = None
+        self.variable = NodoVariable()
 
         if num_t is not None:
             self.num_t = num_t
@@ -55,6 +57,7 @@ class Param(Nodo):
         self.id_t = id_t
         self.arreglo_si_no = arreglo_si_no
         self.tipo = None
+        self.variable = NodoVariable()
 
     def accept(self, visitor):
         visitor.visit_param(self)

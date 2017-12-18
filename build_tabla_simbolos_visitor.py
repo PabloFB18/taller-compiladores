@@ -15,6 +15,7 @@ class BuildTablaSimbolosVisitor(object):
         self.funciones = []
         # Nodo que se encuentra siendo modificado, se va cambiando cuando se crea otro.
         self.nodo = NodoTablaSimbolos()
+        self.errors_tabla_simbolos = open('errors_tabla_simbolos.txt', 'w')
 
     def visit_program(self, program):
         # Crear el nodo raiz y agregarlo.
@@ -31,20 +32,23 @@ class BuildTablaSimbolosVisitor(object):
         error_var = self.nodo.check_repetido(var_declaration.id_t)
         if error_var is None:
             # Añadir la declaracion al nodo de la tabla de simbolos.
-            self.nodo.new_entry(var_declaration.id_t, var_declaration.type_specifier_t, var_declaration.numero_si_no)
+            self.nodo.new_entry(var_declaration.id_t, lower(var_declaration.type_specifier_t), var_declaration
+                                .numero_si_no)
+            var_declaration.variable = NodoVariable(var_declaration.id_t, lower(var_declaration.type_specifier_t),
+                                                    var_declaration.numero_si_no)
         else:
             # Indicar el error.
-            print 'error en declaracion de variable: ' + error_var
+            self.errors_tabla_simbolos.write('error en declaracion de variable: ' + error_var + '\n')
 
     def visit_fun_declaration(self, fun_declaration):
         # Revisar si ya esta declarada la funcion.
         error_fun = None
         for funcion in self.funciones:
-            if funcion.nombre == fun_declaration.id_t and funcion.tipo == fun_declaration.type_specifier_t:
+            if funcion.nombre == fun_declaration.id_t and funcion.tipo == lower(fun_declaration.type_specifier_t):
                 error_fun = funcion
                 break
         # Crear la nueva funcion
-        fun = NodoFuncion(fun_declaration.id_t, fun_declaration.type_specifier_t)
+        fun = NodoFuncion(fun_declaration.id_t, lower(fun_declaration.type_specifier_t))
         # Crear nuevo nodo de la tabla de simbolos.
         new_nodo = NodoTablaSimbolos()
         # Agregar el nuevo nodo al nodo padre.
@@ -66,11 +70,11 @@ class BuildTablaSimbolosVisitor(object):
                 if funcion_iteracion != fun:
                     if len(funcion_iteracion.parametros) == len(fun.parametros):
                         if len(funcion_iteracion.parametros) == 0:
-                            print 'Sobrecarga en funcion: ' + error_fun.nombre
+                            self.errors_tabla_simbolos.write('Sobrecarga en funcion: ' + error_fun.nombre + '\n')
                             break
                         for i in range(0, len(fun.parametros)):
                             if funcion_iteracion.parametros[i].tipo == fun.parametros[i].tipo:
-                                print 'Sobrecarga en funcion: ' + error_fun.nombre
+                                self.errors_tabla_simbolos.write('Sobrecarga en funcion: ' + error_fun.nombre + '\n')
                                 break
         # Visitar el contenido de la funcion.
         if fun_declaration.compound_stmt_p.local_declarations_p is not None or fun_declaration.compound_stmt_p\
@@ -86,11 +90,12 @@ class BuildTablaSimbolosVisitor(object):
     def visit_param(self, param):
         error_param = self.nodo.check_repetido(param.id_t)
         if error_param is None:
-            self.nodo.new_entry(param.id_t, param.type_specifier_t, param.arreglo_si_no)
-            self.funciones[len(self.funciones)-1].parametros.append(NodoVariable(param.id_t, param.type_specifier_t,
-                                                                                 param.arreglo_si_no))
+            self.nodo.new_entry(param.id_t, lower(param.type_specifier_t), param.arreglo_si_no)
+            param.variable = NodoVariable(param.id_t, lower(param.type_specifier_t), param.arreglo_si_no)
+            self.funciones[len(self.funciones)-1].parametros.append(NodoVariable(param.id_t, lower(
+                param.type_specifier_t), param.arreglo_si_no))
         else:
-            print 'error en parametro: ' + error_param
+            self.errors_tabla_simbolos.write('error en parametro: ' + error_param + '\n')
 
     def visit_compound_stmt(self, compound_stmt):
         # Crear nuevo nodo de la tabla de simbolos.
@@ -182,13 +187,13 @@ class BuildTablaSimbolosVisitor(object):
     def visit_return_stmt(self, return_stmt):
         if return_stmt.expression_si_no:
             if lower(self.funciones[len(self.funciones) - 1].tipo) == 'void':
-                print 'Error funcion ' + self.funciones[len(self.funciones)-1].nombre + \
-                  ' declarada void no debe retornar un valor'
+                self.errors_tabla_simbolos.write('Error funcion ' + self.funciones[len(self.funciones)-1].nombre +
+                                                 ' declarada void no debe retornar un valor\n')
             return_stmt.expression_p.accept(self)
         else:
             if lower(self.funciones[len(self.funciones)-1].tipo) == 'int':
-                print 'Error funcion ' + self.funciones[len(self.funciones)-1].nombre + \
-                      ' declarada int debe retornar un valor'
+                self.errors_tabla_simbolos.write('Error funcion ' + self.funciones[len(self.funciones)-1].nombre +
+                                                 ' declarada int debe retornar un valor\n')
 
     def visit_expression(self, expression):
         expression.var_p.accept(self)
@@ -196,7 +201,7 @@ class BuildTablaSimbolosVisitor(object):
 
     def visit_var(self, var):
         if not self.nodo.check_declarado(var.id_t):
-            print 'Error variable ' + var.id_t + ' no declarada'
+            self.errors_tabla_simbolos.write('Error variable ' + var.id_t + ' no declarada\n')
         if var.expression_si_no:
             var.expression_p.accept(self)
 
@@ -235,4 +240,4 @@ class BuildTablaSimbolosVisitor(object):
             else:
                 existe_funcion = False
         if not existe_funcion:
-            print 'Llamada a funcion que no existe ' + call.id_t
+            self.errors_tabla_simbolos.write('Llamada a funcion que no existe ' + call.id_t + '\n')

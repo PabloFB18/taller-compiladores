@@ -4,22 +4,21 @@ from string import lower
 
 class ChequeoTipos(object):
     def __init__(self):
-        pass
+        self.errors_chequeo_tipos = open('errors_chequeo_tipos.txt', 'w')
+        self.inicializadas = []
 
     def visit_program(self, program):
         for declaration in program.declarations_p:
             declaration.accept(self)
 
     def visit_var_declaration(self, var_declaration):
-        var_declaration.tipo = lower(var_declaration.type_specifier_t)
+        var_declaration.tipo = var_declaration.variable.tipo
 
     def visit_fun_declaration(self, fun_declaration):
-        if fun_declaration.compound_stmt_p.local_declarations_p is not None or fun_declaration.compound_stmt_p.stmt_list_p is not None:
+        if fun_declaration.compound_stmt_p.local_declarations_p is not None or \
+                        fun_declaration.compound_stmt_p.stmt_list_p is not None:
             fun_declaration.compound_stmt_p.accept(self)
-            if fun_declaration.compound_stmt_p.tipo == 'ERROR':
-                fun_declaration.tipo = fun_declaration.compound_stmt_p.tipo
-            else:
-                fun_declaration.tipo = lower(fun_declaration.type_specifier_t)
+        fun_declaration.tipo = fun_declaration.funcion.tipo
         if fun_declaration.params_p is not None:
             for param in fun_declaration.params_p:
                 param.accept(self)
@@ -27,66 +26,45 @@ class ChequeoTipos(object):
                     fun_declaration.tipo = param.tipo
 
     def visit_param(self, param):
-        if lower(param.type_specifier_t) != 'int' or lower(param.type_specifier_t) != 'void':
-            print('El parámetro es de tipo desconocido.')
-            param.tipo = 'ERROR'
-        else:
-            param.tipo = lower(param.type_specifier_t)
+        param.tipo = param.variable.tipo
 
     def visit_compound_stmt(self, compound_stmt):
-
         if compound_stmt.local_declarations_p is not None:
             for local_declaration in compound_stmt.local_declarations_p:
                 if local_declaration is not None:
                     local_declaration.accept(self)
-                    if local_declaration.tipo == 'ERROR':
-                        compound_stmt.tipo = local_declaration.tipo
         if compound_stmt.stmt_list_p is not None:
             for stmt in compound_stmt.stmt_list_p:
                 if stmt is not None:
                     stmt.accept(self)
-                    if stmt.tipo == 'ERROR':
-                        compound_stmt.tipo = stmt.tipo
 
     def visit_selection_stmt(self, selection_stmt):
         if not selection_stmt.else_si_no:
             selection_stmt.expression_p.accept(self)
             if selection_stmt.expression_p.tipo != 'int':
-                print('La condición de la selección debe ser de tipo entero.')
-                selection_stmt.tipo = 'ERROR'
+                self.errors_chequeo_tipos.write('La condición de la selección debe ser de tipo entero.\n')
             if selection_stmt.stmt_p is not None:
                 selection_stmt.stmt_p.accept(self)
-                if selection_stmt.stmt_p.tipo == 'ERROR':
-                    selection_stmt.tipo = selection_stmt.stmt_p.tipo
         else:
             selection_stmt.expression_p.accept(self)
             if selection_stmt.expression_p.tipo != 'int':
-                print('La condición de la selección debe ser de tipo entero.')
-                selection_stmt.tipo = 'ERROR'
+                self.errors_chequeo_tipos.write('La condición de la selección debe ser de tipo entero.\n')
             if selection_stmt.stmt_p is not None:
                 selection_stmt.stmt_p.accept(self)
-                if selection_stmt.stmt_p.tipo == 'ERROR':
-                    selection_stmt.tipo = selection_stmt.stmt_p.tipo
             if selection_stmt.stmt2_p is not None:
                 selection_stmt.stmt2_p.accept(self)
-                if selection_stmt.stmt2_p.tipo == 'ERROR':
-                    selection_stmt.tipo = selection_stmt.stmt2_p.tipo
 
     def visit_iteration_stmt(self, iteration_stmt):
         iteration_stmt.expression_p.accept(self)
         if iteration_stmt.expression_p.tipo != 'int':
-            print(' La condición de la iteración debe ser de tipo entero.')
-            iteration_stmt.tipo = 'ERROR'
+            self.errors_chequeo_tipos.write('La condición de la iteración debe ser de tipo entero.\n')
         if iteration_stmt.stmt_p is not None:
             iteration_stmt.stmt_p.accept(self)
-            if iteration_stmt.stmt_p.tipo == 'ERROR':
-                iteration_stmt.tipo = iteration_stmt.stmt_p.tipo
 
     def visit_return_stmt(self, return_stmt):
         if return_stmt.expression_si_no:
             return_stmt.expression_p.accept(self)
-            if return_stmt.expression_p.tipo != 'int':
-                return_stmt.tipo = 'ERROR'
+            return_stmt.tipo = return_stmt.expression_p.tipo
 
     def visit_expression(self, expression):
         expression.var_p.accept(self)
@@ -94,29 +72,25 @@ class ChequeoTipos(object):
         if expression.var_p.tipo == expression.expression_p.tipo:
             expression.tipo = expression.var_p.tipo
         else:
-            print('La expresión debe ser del mismo tipo que la variable declarada.')
+            self.errors_chequeo_tipos.write('La expresión debe ser del mismo tipo que la variable declarada.\n')
             expression.tipo = 'ERROR'
+        self.inicializadas.append(expression.var_p.id_t)
 
     def visit_var(self, var):
-        nombre = var.id_t
-        variables_declaradas = var.simbolos.declaraciones
-        for variable in variables_declaradas:
-            if variable.nombre == nombre:
-                if variable.arreglo_si_no:  #Si es arreglo
-                    if var.expression_si_no: #Si es llamado un valor del arreglo
-                        var.expression_p.accept(self)
-                        if var.expression_p.tipo != 'int':
-                            print('El índice de un arreglo debe ser de tipo entero.')
-                            var.tipo = 'ERROR'
-                        # TODO: VALIDAR SI EL INDICE NO ES MAYOR AL TAMAÑO
-                        var.tipo = lower(variable.tipo)
-                    else:
-                        var.tipo = 'intArreglo'
-                else:
-                    # TODO: VER SI ESTA INICIALIZADA
-                    var.tipo = lower(variable.tipo)
-                break
-
+        if var.expression_si_no:  # Si es llamado un valor del arreglo
+            var.expression_p.accept(self)
+            if var.expression_p.tipo != 'int':
+                self.errors_chequeo_tipos.write('El índice de un arreglo debe ser de tipo entero.\n')
+                print()
+                var.tipo = 'ERROR'
+        else:
+            inicializada_si_no = False
+            for inicializada in self.inicializadas:
+                if var.id_t == inicializada:
+                    inicializada_si_no = True
+                    break
+            if not inicializada_si_no:
+                self.errors_chequeo_tipos.write('La variable ' + var.id_t + '.\n')
 
     def visit_simple_expression(self, simple_expresion):
         simple_expresion.additive_expression1_p.accept(self)

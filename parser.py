@@ -392,118 +392,118 @@ errors_parser = open('errors_parser.txt', 'w')
 #     nodos.Program.accept(result, visitor)
 #     print(visitor.ast)
 
-out1 = open('parser_examples/out1.dot', 'w')
-with open('parser_examples/sample1.cm', 'r') as arch1:
-    contents = arch1.read()
-    errors_parser.write('sample1\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out1.write(dibujo.ast)
-
-    else:
-        out1.write('Error al realizar el parse.')
-
-out2 = open('semantic_examples/out2.dot', 'w')
-with open('semantic_examples/sample2.cm', 'r') as arch2:
-    contents = arch2.read()
-    errors_parser.write('sample2\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out2.write(dibujo.ast)
-    else:
-        out2.write('Error al realizar el parse.')
-
-out3 = open('semantic_examples/out3.dot', 'w')
-with open('semantic_examples/sample3.cm', 'r') as arch3:
-    contents = arch3.read()
-    errors_parser.write('sample3\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out3.write(dibujo.ast)
-    else:
-        out3.write('Error al realizar el parse.')
-
-out4 = open('semantic_examples/out4.dot', 'w')
-with open('semantic_examples/sample4.cm', 'r') as arch4:
-    contents = arch4.read()
-    errors_parser.write('sample4\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out4.write(dibujo.ast)
-    else:
-        out4.write('Error al realizar el parse.')
-
-out5 = open('semantic_examples/out5.dot', 'w')
-with open('semantic_examples/sample5.cm', 'r') as arch5:
-    contents = arch5.read()
-    errors_parser.write('sample5\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out5.write(dibujo.ast)
-    else:
-        out5.write('Error al realizar el parse.')
-
-out6 = open('semantic_examples/out6.dot', 'w')
-with open('semantic_examples/sample6.cm', 'r') as arch6:
-    contents = arch6.read()
-    errors_parser.write('sample6\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out6.write(dibujo.ast)
-    else:
-        out6.write('Error al realizar el parse.')
-
-out7 = open('semantic_examples/out7.dot', 'w')
-with open('semantic_examples/sample7.cm', 'r') as arch7:
-    contents = arch7.read()
-    errors_parser.write('sample7\n')
-    result = parser.parse(contents)
-    if result is not None:
-        visitor = Visitor()
-        chequeo = ChequeoTipos()
-        dibujo = VisitorTipos()
-        nodos.Program.accept(result, visitor)
-        nodos.Program.accept(result, chequeo)
-        nodos.Program.accept(result, dibujo)
-        out7.write(dibujo.ast)
-    else:
-        out7.write('Error al realizar el parse.')
+# out1 = open('parser_examples/out1.dot', 'w')
+# with open('parser_examples/sample1.cm', 'r') as arch1:
+#     contents = arch1.read()
+#     errors_parser.write('sample1\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out1.write(dibujo.ast)
+#
+#     else:
+#         out1.write('Error al realizar el parse.')
+#
+# out2 = open('semantic_examples/out2.dot', 'w')
+# with open('semantic_examples/sample2.cm', 'r') as arch2:
+#     contents = arch2.read()
+#     errors_parser.write('sample2\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out2.write(dibujo.ast)
+#     else:
+#         out2.write('Error al realizar el parse.')
+#
+# out3 = open('semantic_examples/out3.dot', 'w')
+# with open('semantic_examples/sample3.cm', 'r') as arch3:
+#     contents = arch3.read()
+#     errors_parser.write('sample3\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out3.write(dibujo.ast)
+#     else:
+#         out3.write('Error al realizar el parse.')
+#
+# out4 = open('semantic_examples/out4.dot', 'w')
+# with open('semantic_examples/sample4.cm', 'r') as arch4:
+#     contents = arch4.read()
+#     errors_parser.write('sample4\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out4.write(dibujo.ast)
+#     else:
+#         out4.write('Error al realizar el parse.')
+#
+# out5 = open('semantic_examples/out5.dot', 'w')
+# with open('semantic_examples/sample5.cm', 'r') as arch5:
+#     contents = arch5.read()
+#     errors_parser.write('sample5\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out5.write(dibujo.ast)
+#     else:
+#         out5.write('Error al realizar el parse.')
+#
+# out6 = open('semantic_examples/out6.dot', 'w')
+# with open('semantic_examples/sample6.cm', 'r') as arch6:
+#     contents = arch6.read()
+#     errors_parser.write('sample6\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out6.write(dibujo.ast)
+#     else:
+#         out6.write('Error al realizar el parse.')
+#
+# out7 = open('semantic_examples/out7.dot', 'w')
+# with open('semantic_examples/sample7.cm', 'r') as arch7:
+#     contents = arch7.read()
+#     errors_parser.write('sample7\n')
+#     result = parser.parse(contents)
+#     if result is not None:
+#         visitor = Visitor()
+#         chequeo = ChequeoTipos()
+#         dibujo = VisitorTipos()
+#         nodos.Program.accept(result, visitor)
+#         nodos.Program.accept(result, chequeo)
+#         nodos.Program.accept(result, dibujo)
+#         out7.write(dibujo.ast)
+#     else:
+#         out7.write('Error al realizar el parse.')
 
 
 out8 = open('semantic_examples/AllSyntaxNoCommentsOut.dot', 'w')
