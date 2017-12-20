@@ -125,10 +125,12 @@ class VisitorTipos(object):
     def visit_return_stmt(self, return_stmt):
         self.id_return_stmt += 1
         id_return_stmt = self.id_return_stmt
-        self.ast += '-> "' + 'return' + str(id_return_stmt) + '"' + '\n'
         if return_stmt.expression_si_no:
+            self.ast += '-> "' + 'return' + str(id_return_stmt) + ' : ' + return_stmt.tipo + '"' + '\n'
             self.ast += '\t"' + 'return' + str(id_return_stmt) + ' : ' + return_stmt.tipo + '" '
             return_stmt.expression_p.accept(self)
+        else:
+            self.ast += '-> "' + 'return' + str(id_return_stmt) + '"' + '\n'
 
     def visit_expression(self, expression):
         self.id_expression += 1

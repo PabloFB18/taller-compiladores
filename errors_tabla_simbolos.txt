@@ -1,0 +1,33 @@
+Sobrecarga en funcion: aProcedure4
+Error variable aNum3 no declarada
+Error variable aNum1 no declarada
+Error variable aNum2 no declarada
+Error variable aNum3 no declarada
+Error variable anArray3 no declarada
+Error variable anArray1 no declarada
+Error variable anArray2 no declarada
+Error variable aNum3 no declarada
+Error variable aNum4 no declarada
+Error variable aNum3 no declarada
+Error variable aNum5 no declarada
+Error funcion aProcedure4 declarada int debe retornar un valor
+Error variable aNum5 no declarada
+Error variable aNum5 no declarada
+Error variable aNum3 no declarada
+Error variable aNum5 no declarada
+Error variable aNum5 no declarada
+Error variable aNum5 no declarada
+Error variable aNum5 no declarada
+Error variable aNum3 no declarada
+Error variable aNum5 no declarada
+Error variable aNum3 no declarada
+Error variable aNum1 no declarada
+Error variable aNum3 no declarada
+Error variable aNum3 no declarada
+Llamada a funcion que no existe output
+Error variable aNum4 no declarada
+Llamada a funcion que no existe input
+Error variable aNum3 no declarada
+Llamada a funcion que no existe aProcedure12
+Error variable aNumber1 no declarada
+Llamada a funcion que no existe aProcedure1

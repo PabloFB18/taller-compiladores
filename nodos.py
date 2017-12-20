@@ -27,7 +27,7 @@ class VarDeclaration(Nodo):
         self.id_t = id_t
         self.numero_si_no = False
         self.tipo = None
-        self.variable = NodoVariable()
+        self.variable = None
 
         if num_t is not None:
             self.num_t = num_t
@@ -57,7 +57,7 @@ class Param(Nodo):
         self.id_t = id_t
         self.arreglo_si_no = arreglo_si_no
         self.tipo = None
-        self.variable = NodoVariable()
+        self.variable = None
 
     def accept(self, visitor):
         visitor.visit_param(self)
@@ -140,6 +140,7 @@ class Var(Nodo):
         self.id_t = id_t
         self.expression_si_no = False
         self.tipo = None
+        self.variable = None
 
         if expression_p is not None:
             self.expression_p = expression_p

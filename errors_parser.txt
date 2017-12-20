@@ -1,8 +1,1 @@
 AllSyntaxNoComments
-: aProcedure4
-Error variable anarray3 no declarada
-Error funcion aProcedure4 declarada int debe retornar un valor
-Llamada a funcion que no existe output
-Llamada a funcion que no existe input
-Llamada a funcion que no existe aProcedure12
-Llamada a funcion que no existe aProcedure1

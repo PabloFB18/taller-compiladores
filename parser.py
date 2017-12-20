@@ -512,9 +512,6 @@ with open('semantic_examples/AllSyntaxNoComments.cm', 'r') as arch7:
     errors_parser.write('AllSyntaxNoComments\n')
     result = parser.parse(contents)
     if result is not None:
-        visitor = Visitor()
-        nodos.Program.accept(result, visitor)
-        out8.write(visitor.ast)
 
         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor()
         nodos.Program.accept(result, build_tabla_simbolos_visitor)

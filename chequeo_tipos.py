@@ -27,6 +27,7 @@ class ChequeoTipos(object):
 
     def visit_param(self, param):
         param.tipo = param.variable.tipo
+        self.inicializadas.append(param.id_t)
 
     def visit_compound_stmt(self, compound_stmt):
         if compound_stmt.local_declarations_p is not None:
@@ -57,7 +58,7 @@ class ChequeoTipos(object):
     def visit_iteration_stmt(self, iteration_stmt):
         iteration_stmt.expression_p.accept(self)
         if iteration_stmt.expression_p.tipo != 'int':
-            self.errors_chequeo_tipos.write('La condición de la iteración debe ser de tipo entero.\n')
+            self.errors_chequeo_tipos.write('La condición del while debe ser de tipo entero.\n')
         if iteration_stmt.stmt_p is not None:
             iteration_stmt.stmt_p.accept(self)
 
@@ -80,9 +81,13 @@ class ChequeoTipos(object):
         if var.expression_si_no:  # Si es llamado un valor del arreglo
             var.expression_p.accept(self)
             if var.expression_p.tipo != 'int':
-                self.errors_chequeo_tipos.write('El índice de un arreglo debe ser de tipo entero.\n')
-                print()
+                self.errors_chequeo_tipos.write('El índice del arreglo ' + var.id_t + ' debe ser de tipo entero.\n')
                 var.tipo = 'ERROR'
+            else:
+                if var.variable is not None:
+                    var.tipo = var.variable.tipo
+                else:
+                    var.tipo = 'ERROR'
         else:
             inicializada_si_no = False
             for inicializada in self.inicializadas:
@@ -90,68 +95,85 @@ class ChequeoTipos(object):
                     inicializada_si_no = True
                     break
             if not inicializada_si_no:
-                self.errors_chequeo_tipos.write('La variable ' + var.id_t + '.\n')
+                self.errors_chequeo_tipos.write('La variable ' + var.id_t + ' no está inicializada.\n')
+                var.tipo = 'ERROR'
+            else:
+                if var.variable is not None:
+                    var.tipo = var.variable.tipo
+                else:
+                    var.tipo = 'ERROR'
 
     def visit_simple_expression(self, simple_expresion):
         simple_expresion.additive_expression1_p.accept(self)
-        if simple_expresion.additive_expression2_p.tipo != 'int':
-            print('El lado izquierdo de la comparación debe ser de tipo entero.')
+        if simple_expresion.additive_expression1_p.tipo != 'int':
+            self.errors_chequeo_tipos.write('El lado izquierdo de la comparación debe ser de tipo entero.\n')
             simple_expresion.tipo = 'ERROR'
         simple_expresion.additive_expression2_p.accept(self)
         if simple_expresion.additive_expression2_p.tipo != 'int':
-            print('El lado derecho de la comparación debe ser de tipo entero.')
+            self.errors_chequeo_tipos.write('El lado derecho de la comparación debe ser de tipo entero.\n')
             simple_expresion.tipo = 'ERROR'
-        else:
+        if simple_expresion.additive_expression1_p.tipo == 'int' and simple_expresion.additive_expression2_p.tipo == \
+                'int':
             simple_expresion.tipo = 'int'
 
     def visit_additive_expression(self, additive_expresion):
         additive_expresion.additive_expression_p.accept(self)
         if additive_expresion.additive_expression_p.tipo != 'int':
-            print('El lado izquierdo de la expresión aditiva debe ser de tipo entero.')
+            self.errors_chequeo_tipos.write('El lado izquierdo de la expresión aditiva debe ser de tipo entero.\n')
             additive_expresion.tipo = 'ERROR'
         additive_expresion.term_p.accept(self)
         if additive_expresion.term_p.tipo != 'int':
-            print('El lado derecho de la expresión aditiva debe ser de tipo entero.')
+            self.errors_chequeo_tipos.write('El lado derecho de la expresión aditiva debe ser de tipo entero.\n')
             additive_expresion.tipo = 'ERROR'
-        else:
+        if additive_expresion.additive_expression_p.tipo == 'int' and additive_expresion.term_p.tipo == 'int':
             additive_expresion.tipo = 'int'
 
     def visit_term(self, term):
         term.term_p.accept(self)
-        if(term.term_p.tipo != 'int'):
-            print('El lado izquierdo de la expresión multiplicativa debe ser de tipo entero.')
+        if term.term_p.tipo != 'int':
+            self.errors_chequeo_tipos.write('El lado izquierdo de la expresión multiplicativa debe ser de tipo entero.'
+                                            '\n')
             term.tipo = 'ERROR'
-        else:
-            term.tipo = term.term_p.tipo
         if term.factor_p is not None:
             term.factor_p.accept(self)
-            if (term.factor_p.tipo != 'int'):
-                print('El lado derecho de la expresión multiplicativa debe ser de tipo entero.')
+            if term.factor_p.tipo != 'int':
+                self.errors_chequeo_tipos.write('El lado derecho de la expresión multiplicativa debe ser de tipo entero'
+                                                '.\n')
                 term.tipo = 'ERROR'
-            else:
-                term.tipo = term.factor_p.tipo
+        if term.term_p.tipo == 'int' and term.factor_p.tipo == 'int':
+            term.tipo = 'int'
 
     def visit_num(self, num):
         num.tipo = 'int'
 
     def visit_call(self, call):
-        if call.funcion.nombre != call.id_t:
-            print('Invocación de función no definida: ' + call.funcion.nombre)
-            call.tipo = 'ERROR'
-        if call.args_p is not None:
-            if len(call.funcion.parametros) == len(call.args_p):
-                indice = 0
-                for arg in call.args_p:
-                    arg.accept(self)
-                    if arg.tipo != call.funcion.parametros[indice]:
-                        print('Invocación de función definida, pero no con los mismos parámetros: ' + call.funcion.nombre)
-                        call.tipo = 'ERROR'
-                    indice = indice + 1
-            else:
-                print('Invocación de la función incompleta: ' + call.funcion.nombre)
+        if call.funcion is not None:
+            if call.funcion.nombre != call.id_t:
+                self.errors_chequeo_tipos.write('Invocación de función no definida: ' + call.funcion.nombre + '.\n')
                 call.tipo = 'ERROR'
-            call.tipo = call.funcion.tipo
+            if call.args_p is not None:
+                if len(call.funcion.parametros) == len(call.args_p):
+                    error = False
+                    indice = 0
+                    for arg in call.args_p:
+                        arg.accept(self)
+                        if arg.tipo != call.funcion.parametros[indice].tipo:
+                            self.errors_chequeo_tipos.write('Invocación de función definida, pero no con los mismos '
+                                                            'parámetros: ' + call.funcion.nombre + '.\n')
+                            call.tipo = 'ERROR'
+                            error = True
+                        indice = indice + 1
+                    if not error:
+                        call.tipo = call.funcion.tipo
+                else:
+                    self.errors_chequeo_tipos.write('Invocación de la función incompleta: ' + call.funcion.nombre +
+                                                    '.\n')
+                    call.tipo = 'ERROR'
+            if call.args_p is None:
+                call.tipo = call.funcion.tipo
 
-
-
-
+        else:
+            call.tipo = 'ERROR'
+            if call.args_p is not None:
+                for arg in call.args_p:
+                    arg.tipo = 'ERROR'

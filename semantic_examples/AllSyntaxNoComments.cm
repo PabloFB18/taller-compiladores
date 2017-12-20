@@ -58,6 +58,7 @@ int aProcedure4 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1
         aNum5 = 03 * aNum5;
     if ((aNum5 - aNum3) * (aNum5/03 + 04*aNum3))
     {
+        aNum1 = aNum3;
         output(aNum3);
     }
     else

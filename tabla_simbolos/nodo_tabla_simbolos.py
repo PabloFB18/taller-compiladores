@@ -16,10 +16,10 @@ class NodoTablaSimbolos:
 
     def check_declarado(self, nombre):
         if self.padre is None:
-            return False
+            return None
         if self.check_repetido(nombre) is None:
             return self.padre.check_declarado(nombre)
-        return True
+        return self.check_repetido(nombre)
 
     def new_entry(self, nombre, tipo, arreglo_si_no):
         declaracion = nodo_variable.NodoVariable(nombre, tipo, arreglo_si_no)

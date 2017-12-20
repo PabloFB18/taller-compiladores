@@ -83,7 +83,7 @@ class BuildTablaSimbolosVisitor(object):
         # Asociar a nodo AST.
         fun_declaration.simbolos = self.nodo
         # Asociar lista funciones a nodo AST.
-        fun_declaration.funcion = self.nodo
+        fun_declaration.funcion = fun
         # Volver al nodo padre.
         self.nodo = nodo_padre
 
@@ -200,10 +200,12 @@ class BuildTablaSimbolosVisitor(object):
         expression.expression_p.accept(self)
 
     def visit_var(self, var):
-        if not self.nodo.check_declarado(var.id_t):
+        var_def = self.nodo.check_declarado(var.id_t)
+        if var_def is not None:
             self.errors_tabla_simbolos.write('Error variable ' + var.id_t + ' no declarada\n')
         if var.expression_si_no:
             var.expression_p.accept(self)
+        var.variable = var_def
 
     def visit_simple_expression(self, simple_expresion):
         simple_expresion.additive_expression1_p.accept(self)
