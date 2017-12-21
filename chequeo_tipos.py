@@ -68,7 +68,9 @@ class ChequeoTipos(object):
             return_stmt.tipo = return_stmt.expression_p.tipo
 
     def visit_expression(self, expression):
+        self.inicializadas.append(expression.var_p.id_t)
         expression.var_p.accept(self)
+        self.inicializadas.remove(expression.var_p.id_t)
         expression.expression_p.accept(self)
         if expression.var_p.tipo == expression.expression_p.tipo:
             expression.tipo = expression.var_p.tipo

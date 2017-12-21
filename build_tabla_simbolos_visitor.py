@@ -201,7 +201,7 @@ class BuildTablaSimbolosVisitor(object):
 
     def visit_var(self, var):
         var_def = self.nodo.check_declarado(var.id_t)
-        if var_def is not None:
+        if var_def is None:
             self.errors_tabla_simbolos.write('Error variable ' + var.id_t + ' no declarada\n')
         if var.expression_si_no:
             var.expression_p.accept(self)

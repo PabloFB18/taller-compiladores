@@ -3,4 +3,10 @@ digraph G {
 	"function1: void aProcedure1 : void" -> "compound_stmt1"
 	"compound_stmt1" -> "var1: int aNum1 : int"
 	"compound_stmt1" -> "var2: int aNum2 : int"
+	"compound_stmt1" -> "assign1 : int"
+	"assign1 : int" -> "var1: aNum2 : int"
+	"assign1 : int" -> "NUM1: 03"
+	"compound_stmt1" -> "assign2 : int"
+	"assign2 : int" -> "var2: aNum1 : int"
+	"assign2 : int" -> "var3: aNum2 : int"
 }
