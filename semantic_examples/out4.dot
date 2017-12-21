@@ -1,0 +1,6 @@
+digraph G {
+	"program1" -> "function1: void aProcedure1 : void"
+	"function1: void aProcedure1 : void" -> "compound_stmt1"
+	"compound_stmt1" -> "var1: int aNum1 : int"
+	"compound_stmt1" -> "var2: int aNum2 : int"
+}

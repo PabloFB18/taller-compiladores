@@ -3,8 +3,8 @@ from string import lower
 
 
 class ChequeoTipos(object):
-    def __init__(self):
-        self.errors_chequeo_tipos = open('errors_chequeo_tipos.txt', 'w')
+    def __init__(self, archivo):
+        self.errors_chequeo_tipos = archivo
         self.inicializadas = []
 
     def visit_program(self, program):

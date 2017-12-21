@@ -8,14 +8,14 @@ from tabla_simbolos.tabla_simbolos import TablaSimbolos
 
 
 class BuildTablaSimbolosVisitor(object):
-    def __init__(self):
+    def __init__(self, archivo):
         # La tabla de simbolos.
         self.tabla_simbolos = TablaSimbolos()
         # Lista de las funciones.
         self.funciones = []
         # Nodo que se encuentra siendo modificado, se va cambiando cuando se crea otro.
         self.nodo = NodoTablaSimbolos()
-        self.errors_tabla_simbolos = open('errors_tabla_simbolos.txt', 'w')
+        self.errors_tabla_simbolos = archivo
 
     def visit_program(self, program):
         # Crear el nodo raiz y agregarlo.

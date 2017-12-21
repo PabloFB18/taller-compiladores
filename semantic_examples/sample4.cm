@@ -1,11 +1,6 @@
-int IF (int){
-    int a = 89;
-    a=00;
-    if(00 == 00){
-
-    }
-    while(parametro  00){
-        a = a + 01;
-        parametro = parametro - 01
-    }
+void aProcedure1 (void)
+{
+    int aNum1;
+    int aNum2;
+    aNum2 = aNum1;
 }

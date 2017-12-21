@@ -1,3 +1,49 @@
+
+sample1
+
+La variable a no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable parametro no está inicializada.
+El lado izquierdo de la comparación debe ser de tipo entero.
+La condición del while debe ser de tipo entero.
+La variable parametro no está inicializada.
+La variable parametro no está inicializada.
+El lado izquierdo de la expresión aditiva debe ser de tipo entero.
+
+sample2
+
+La variable a no está inicializada.
+El lado izquierdo de la comparación debe ser de tipo entero.
+La condición de la selección debe ser de tipo entero.
+La variable c no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable a no está inicializada.
+La variable t no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable b no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+
+sample3
+
+La variable e_2 no está inicializada.
+El lado izquierdo de la expresión aditiva debe ser de tipo entero.
+La variable e_3 no está inicializada.
+El lado derecho de la expresión aditiva debe ser de tipo entero.
+El lado izquierdo de la expresión aditiva debe ser de tipo entero.
+La variable e_4 no está inicializada.
+El lado derecho de la expresión aditiva debe ser de tipo entero.
+La variable a no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable b no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable c no está inicializada.
+La expresión debe ser del mismo tipo que la variable declarada.
+
+sample4
+
+
+AllSyntaxNoComments
+
 La variable aNum3 no está inicializada.
 La expresión debe ser del mismo tipo que la variable declarada.
 La expresión debe ser del mismo tipo que la variable declarada.

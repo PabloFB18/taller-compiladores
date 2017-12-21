@@ -1,3 +1,40 @@
+
+sample1
+
+Error variable a no declarada
+Error variable a no declarada
+Error variable a no declarada
+Error variable parametro no declarada
+Error variable a no declarada
+Error variable a no declarada
+Error variable parametro no declarada
+Error variable parametro no declarada
+Error variable a no declarada
+Error funcion funcion declarada void no debe retornar un valor
+
+sample2
+
+Error funcion main declarada void no debe retornar un valor
+Llamada a funcion que no existe hola
+
+sample3
+
+Error funcion sum declarada void no debe retornar un valor
+Error variable e_2 no declarada
+Error variable e_3 no declarada
+Error variable e_4 no declarada
+Error variable a no declarada
+Error variable b no declarada
+Error variable c no declarada
+Error variable a no declarada
+Error variable b no declarada
+Error variable c no declarada
+
+sample4
+
+
+AllSyntaxNoComments
+
 Sobrecarga en funcion: aProcedure4
 Error variable aNum3 no declarada
 Error variable aNum1 no declarada
