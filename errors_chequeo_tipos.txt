@@ -65,6 +65,32 @@ La expresión debe ser del mismo tipo que la variable declarada.
 La expresión debe ser del mismo tipo que la variable declarada.
 La expresión debe ser del mismo tipo que la variable declarada.
 
+sample5
+
+La variable a no está inicializada.
+El lado izquierdo de la comparación debe ser de tipo entero.
+La condición de la selección debe ser de tipo entero.
+La variable a no está inicializada.
+El lado izquierdo de la expresión aditiva debe ser de tipo entero.
+La expresión debe ser del mismo tipo que la variable declarada.
+
+sample6
+
+La variable algo1 no está inicializada.
+El lado izquierdo de la comparación debe ser de tipo entero.
+La variable otro3 no está inicializada.
+El lado derecho de la comparación debe ser de tipo entero.
+La condición de la selección debe ser de tipo entero.
+
+sample7
+
+El lado izquierdo de la comparación debe ser de tipo entero.
+La condición del while debe ser de tipo entero.
+La expresión debe ser del mismo tipo que la variable declarada.
+La variable dd no está inicializada.
+El lado derecho de la expresión aditiva debe ser de tipo entero.
+La expresión debe ser del mismo tipo que la variable declarada.
+
 AllSyntaxNoComments
 
 La expresión debe ser del mismo tipo que la variable declarada.

@@ -19,6 +19,22 @@ Error variable b no declarada
 Error variable a no declarada
 Llamada a funcion que no existe hola
 
+sample5
+
+Error variable a no declarada
+Error variable a no declarada
+
+sample6
+
+Error variable algo1 no declarada
+Error variable otro3 no declarada
+
+sample7
+
+Error variable d1 no declarada
+Llamada a funcion que no existe fun
+Error variable dd no declarada
+
 AllSyntaxNoComments
 
 Error variable anarray3 no declarada
