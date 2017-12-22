@@ -1,13 +1,15 @@
-
 void a;
 
-if [ a == 24 ] {
-    35;
+if( a == 24 ){
+    a = 35;
 }
-
-a <> 03;
 
 int function (){
-
-    return 00
+    return 00;
 }
+
+b = 03 + function();
+
+
+
+
