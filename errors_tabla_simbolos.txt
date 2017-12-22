@@ -1,3 +1,27 @@
 
+sample1
+
+
+sample2
+
+
+sample3
+
+
 sample4
 
+Error variable a no declarada
+Error variable c no declarada
+Error funcion main declarada void no debe retornar un valor
+Error variable a no declarada
+Error variable t no declarada
+Error variable b no declarada
+Error variable a no declarada
+Llamada a funcion que no existe hola
+
+AllSyntaxNoComments
+
+Error variable anarray3 no declarada
+Error funcion aProcedure4 declarada int debe retornar un valor
+Llamada a funcion que no existe aProcedure12
+Llamada a funcion que no existe aProcedure1

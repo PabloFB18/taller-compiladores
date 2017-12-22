@@ -1,3 +1,31 @@
 
+sample1
+
+
+sample2
+
+
+sample3
+
+
 sample4
+
+
+sample5
+
+Error de sintaxis! Error en el IF
+Error de sintaxis! Error en el DPAREN
+
+sample6
+
+Error de sintaxis! Error en el IF
+Error de sintaxis! Error en el DPAREN
+
+sample7
+
+Error de sintaxis! Error en el WHILE
+Error de sintaxis! Error en el NUM
+Error de sintaxis! Error en el INT
+
+AllSyntaxNoComments
 

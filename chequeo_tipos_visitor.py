@@ -15,19 +15,19 @@ class ChequeoTipos(object):
         var_declaration.tipo = var_declaration.variable.tipo
 
     def visit_fun_declaration(self, fun_declaration):
-        if fun_declaration.compound_stmt_p.local_declarations_p is not None or \
-                        fun_declaration.compound_stmt_p.stmt_list_p is not None:
-            fun_declaration.compound_stmt_p.accept(self)
-        fun_declaration.tipo = fun_declaration.funcion.tipo
         if fun_declaration.params_p is not None:
             for param in fun_declaration.params_p:
                 param.accept(self)
                 if param.tipo == 'ERROR':
                     fun_declaration.tipo = param.tipo
+        if fun_declaration.compound_stmt_p.local_declarations_p is not None or \
+                        fun_declaration.compound_stmt_p.stmt_list_p is not None:
+            fun_declaration.compound_stmt_p.accept(self)
+        fun_declaration.tipo = fun_declaration.funcion.tipo
 
     def visit_param(self, param):
-        param.tipo = param.variable.tipo
         self.inicializadas.append(param.id_t)
+        param.tipo = param.variable.tipo
 
     def visit_compound_stmt(self, compound_stmt):
         if compound_stmt.local_declarations_p is not None:

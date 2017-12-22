@@ -17,6 +17,13 @@ class BuildTablaSimbolosVisitor(object):
         self.nodo = NodoTablaSimbolos()
         self.errors_tabla_simbolos = archivo
 
+        fun_output = NodoFuncion('output', 'void')
+        param = NodoVariable('x', 'int', False)
+        fun_output.parametros.append(param)
+        self.funciones.append(fun_output)
+        fun_input = NodoFuncion('input', 'int')
+        self.funciones.append(fun_input)
+
     def visit_program(self, program):
         # Crear el nodo raiz y agregarlo.
         self.nodo = NodoTablaSimbolos()
@@ -70,12 +77,16 @@ class BuildTablaSimbolosVisitor(object):
                 if funcion_iteracion != fun:
                     if len(funcion_iteracion.parametros) == len(fun.parametros):
                         if len(funcion_iteracion.parametros) == 0:
-                            self.errors_tabla_simbolos.write('Sobrecarga en funcion: ' + error_fun.nombre + '\n')
+                            self.errors_tabla_simbolos.write('Ya esta definida la funcion: ' + error_fun.nombre + '\n')
                             break
+                        mismos_tipos = True
                         for i in range(0, len(fun.parametros)):
-                            if funcion_iteracion.parametros[i].tipo == fun.parametros[i].tipo:
-                                self.errors_tabla_simbolos.write('Sobrecarga en funcion: ' + error_fun.nombre + '\n')
+                            if funcion_iteracion.parametros[i].tipo != fun.parametros[i].tipo:
+                                mismos_tipos = False
                                 break
+                        if mismos_tipos:
+                            self.errors_tabla_simbolos.write('Ya esta definida la funcion: ' + error_fun.nombre + '\n')
+                            break
         # Visitar el contenido de la funcion.
         if fun_declaration.compound_stmt_p.local_declarations_p is not None or fun_declaration.compound_stmt_p\
                 .stmt_list_p is not None:
@@ -230,15 +241,16 @@ class BuildTablaSimbolosVisitor(object):
         existe_funcion = False
         for funcion_iteracion in self.funciones:
             if call.id_t == funcion_iteracion.nombre:
-                if call.args_p is not None and funcion_iteracion.parametros is not None:
+                if call.args_p is not None and len(funcion_iteracion.parametros) != 0:
                     if len(funcion_iteracion.parametros) == len(call.args_p):
                         call.funcion = funcion_iteracion
                         existe_funcion = True
                         break
                 else:
-                    call.funcion = funcion_iteracion
-                    existe_funcion = True
-                    break
+                    if len(funcion_iteracion.parametros) == 0 and call.args_p is None:
+                        call.funcion = funcion_iteracion
+                        existe_funcion = True
+                        break
             else:
                 existe_funcion = False
         if not existe_funcion:

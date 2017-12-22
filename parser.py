@@ -10,7 +10,7 @@ from build_tabla_simbolos_visitor import BuildTablaSimbolosVisitor
 from dibujar_AST_tipos_visitor import VisitorTipos
 from scanner import tokens
 from dibujar_AST_visitor import Visitor
-from chequeo_tipos import ChequeoTipos
+from chequeo_tipos_visitor import ChequeoTipos
 from dibujar_AST_tipos_visitor import VisitorTipos
 
 
@@ -396,74 +396,74 @@ out_simbolos = open('errors_tabla_simbolos.txt', 'w')
 
 out_tipos = open('errors_chequeo_tipos.txt', 'w')
 
-# out1 = open('parser_examples/out1.dot', 'w')
-# with open('parser_examples/sample1.cm', 'r') as arch1:
-#     contents = arch1.read()
-#     errors_parser.write('\nsample1\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample1\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample1\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out1.write(visitor_tipos.ast)
-#     else:
-#         out1.write('Error al realizar el parse.')
-#
-# out2 = open('semantic_examples/out2.dot', 'w')
-# with open('semantic_examples/sample2.cm', 'r') as arch2:
-#     contents = arch2.read()
-#     errors_parser.write('\nsample2\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample2\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample2\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out2.write(visitor_tipos.ast)
-#     else:
-#         out2.write('Error al realizar el parse.')
-#
-# out3 = open('semantic_examples/out3.dot', 'w')
-# with open('semantic_examples/sample3.cm', 'r') as arch3:
-#     contents = arch3.read()
-#     errors_parser.write('\nsample3\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample3\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample3\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out3.write(visitor_tipos.ast)
-#     else:
-#         out3.write('Error al realizar el parse.')
+out1 = open('semantic_examples/out1.dot', 'w')
+with open('semantic_examples/sample1.cm', 'r') as arch1:
+    contents = arch1.read()
+    errors_parser.write('\nsample1\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample1\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample1\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out1.write(visitor_tipos.ast)
+    else:
+        out1.write('Error al realizar el parse.')
+
+out2 = open('semantic_examples/out2.dot', 'w')
+with open('semantic_examples/sample2.cm', 'r') as arch2:
+    contents = arch2.read()
+    errors_parser.write('\nsample2\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample2\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample2\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out2.write(visitor_tipos.ast)
+    else:
+        out2.write('Error al realizar el parse.')
+
+out3 = open('semantic_examples/out3.dot', 'w')
+with open('semantic_examples/sample3.cm', 'r') as arch3:
+    contents = arch3.read()
+    errors_parser.write('\nsample3\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample3\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample3\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out3.write(visitor_tipos.ast)
+    else:
+        out3.write('Error al realizar el parse.')
 
 out4 = open('semantic_examples/out4.dot', 'w')
 with open('semantic_examples/sample4.cm', 'r') as arch4:
@@ -488,101 +488,101 @@ with open('semantic_examples/sample4.cm', 'r') as arch4:
     else:
         out4.write('Error al realizar el parse.')
 
-# out5 = open('semantic_examples/out5.dot', 'w')
-# with open('semantic_examples/sample5.cm', 'r') as arch5:
-#     contents = arch5.read()
-#     errors_parser.write('\nsample5\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample5\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample5\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out5.write(visitor_tipos.ast)
-#     else:
-#         out5.write('Error al realizar el parse.')
-#
-# out6 = open('semantic_examples/out6.dot', 'w')
-# with open('semantic_examples/sample6.cm', 'r') as arch6:
-#     contents = arch6.read()
-#     errors_parser.write('\nsample6\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample6\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample6\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out6.write(visitor_tipos.ast)
-#     else:
-#         out6.write('Error al realizar el parse.')
-#
-# out7 = open('semantic_examples/out7.dot', 'w')
-# with open('semantic_examples/sample7.cm', 'r') as arch7:
-#     contents = arch7.read()
-#     errors_parser.write('\nsample7\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nsample7\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nsample7\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out7.write(visitor_tipos.ast)
-#     else:
-#         out7.write('Error al realizar el parse.')
-#
-#
-# out8 = open('semantic_examples/AllSyntaxNoCommentsOut.dot', 'w')
-# with open('semantic_examples/AllSyntaxNoComments.cm', 'r') as arch7:
-#     contents = arch7.read()
-#     errors_parser.write('\nAllSyntaxNoComments\n\n')
-#     result = parser.parse(contents)
-#     if result is not None:
-#
-#         out_simbolos.write('\nAllSyntaxNoComments\n\n')
-#
-#         build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
-#         nodos.Program.accept(result, build_tabla_simbolos_visitor)
-#
-#         out_tipos.write('\nAllSyntaxNoComments\n\n')
-#
-#         chequeo = ChequeoTipos(out_tipos)
-#         nodos.Program.accept(result, chequeo)
-#
-#         visitor_tipos = VisitorTipos()
-#         nodos.Program.accept(result, visitor_tipos)
-#         out8.write(visitor_tipos.ast)
-#
-#         # print build_tabla_simbolos_visitor.tabla_simbolos.root.to_string()
-#         #
-#         # for funcion in build_tabla_simbolos_visitor.funciones:
-#         #     print '\n' + funcion.to_string()
-#
-#     else:
-#         out8.write('Error al realizar el parse.')
+out5 = open('semantic_examples/out5.dot', 'w')
+with open('semantic_examples/sample5.cm', 'r') as arch5:
+    contents = arch5.read()
+    errors_parser.write('\nsample5\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample5\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample5\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out5.write(visitor_tipos.ast)
+    else:
+        out5.write('Error al realizar el parse.')
+
+out6 = open('semantic_examples/out6.dot', 'w')
+with open('semantic_examples/sample6.cm', 'r') as arch6:
+    contents = arch6.read()
+    errors_parser.write('\nsample6\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample6\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample6\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out6.write(visitor_tipos.ast)
+    else:
+        out6.write('Error al realizar el parse.')
+
+out7 = open('semantic_examples/out7.dot', 'w')
+with open('semantic_examples/sample7.cm', 'r') as arch7:
+    contents = arch7.read()
+    errors_parser.write('\nsample7\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nsample7\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nsample7\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out7.write(visitor_tipos.ast)
+    else:
+        out7.write('Error al realizar el parse.')
+
+
+out8 = open('semantic_examples/AllSyntaxNoCommentsOut.dot', 'w')
+with open('semantic_examples/AllSyntaxNoComments.cm', 'r') as arch7:
+    contents = arch7.read()
+    errors_parser.write('\nAllSyntaxNoComments\n\n')
+    result = parser.parse(contents)
+    if result is not None:
+
+        out_simbolos.write('\nAllSyntaxNoComments\n\n')
+
+        build_tabla_simbolos_visitor = BuildTablaSimbolosVisitor(out_simbolos)
+        nodos.Program.accept(result, build_tabla_simbolos_visitor)
+
+        out_tipos.write('\nAllSyntaxNoComments\n\n')
+
+        chequeo = ChequeoTipos(out_tipos)
+        nodos.Program.accept(result, chequeo)
+
+        visitor_tipos = VisitorTipos()
+        nodos.Program.accept(result, visitor_tipos)
+        out8.write(visitor_tipos.ast)
+
+        # print build_tabla_simbolos_visitor.tabla_simbolos.root.to_string()
+        #
+        # for funcion in build_tabla_simbolos_visitor.funciones:
+        #     print '\n' + funcion.to_string()
+
+    else:
+        out8.write('Error al realizar el parse.')

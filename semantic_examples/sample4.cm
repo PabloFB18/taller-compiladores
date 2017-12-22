@@ -1,7 +1,17 @@
-void aProcedure1 (void)
-{
-    int aNum1;
-    int aNum2;
-    aNum2 = 03;
-    aNum1 = aNum2;
+void main(int c_2, int c_3){
+    while(00 == 00){
+        if(a <> 01){
+            c = 45;
+            return 04;
+        }
+        a = t = 04;
+    }
+    if(00){
+        b = 54 + 10 * 05;
+    }
+    hola(a, 00);
+    00;
 }
+
+int b_1;
+int a_1;

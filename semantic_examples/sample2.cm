@@ -1,17 +1,77 @@
-void main(int c_2, int c_3){
-    while(00 == 00){
-        if(a <> 01){
-            c = 45;
-            return 04;
-        }
-        a = t = 04;
-    }
-    if(00){
-        b = 54 + 10 * 05;
-    }
-    hola(a, 00);
-    00;
+int aNumber1;
+int aNumber2;
+int anArray[123];
+void aVariable;
+void anotherArray[234];
+
+int aProcedure3 ( int a1, void a2, int aa1[], void aa2[] )
+{
+    return 05;
 }
 
-int b_1;
-int a_1;
+int aProcedure3 ( void a1, void a2, int aa1[], void aa2[] )
+{
+    return 05;
+}
+
+int aProcedure3 ( int aNum1, void aNum2, int anArray1[] )
+{
+    return 03;
+}
+
+int aProcedure3 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1 )
+{
+    int aNum3;
+    int anArray3[456];
+    void aNum4;
+    void anArray4[78];
+    int aNum5;
+    aNum3 = aNum1;
+    aNum2 = aNum3 + 01;
+    anArray3[00] = anArray1[02];
+    anArray2[03] = anArray3[04];
+    while (aNum3 > aNum4)
+        aNum3 = 05;
+    while (aNum3+02 >= 03*aNum5)
+    {
+        return 06;
+    }
+    if (23)
+        aNum3 = 06;
+    if (aNum5)
+        aNum3 = 07;
+    else
+        aNum3 = 08;
+    if (05*aNum5-04 <= aNum3+02*(aNum5/03 - 07))
+        aNum5 = 03 * aNum5;
+    if ((aNum5 - aNum3) * (aNum5/03 + 04*aNum3))
+    {
+        aNum1 = aNum3;
+        aNum1 = input();
+        output(aNum3);
+    }
+    else
+    {
+        aNum4 = input();
+        return aNum3;
+    }
+    return 05 / 00;
+}
+
+
+void main ( void )
+{
+    int a;
+    int b;
+    void c;
+    void d;
+    int e[02];
+    int f[45];
+    void g[23];
+    a = 02;
+    b = 01;
+    aProcedure3(a,c,b,d);
+    aProcedure3(c,d,e,f);
+    aProcedure3(b,c,e);
+    aProcedure3(a,c,f,g,a);
+}

@@ -1,14 +1,19 @@
-void sum(int e_2, int e_3, int e_4){
-    return e_2 + e_3 + e_4;
+
+int sum(int sum1, int sum2) {
+    return sum1 + sum2;
 }
 
-void main(void){
-    int a;
-    int b;
-    int c;
-    a = 01;
-    b = 02;
-    c = 03;
-
-    sum(a, b, c);
+void aProcedure1(void) {
+    int aNum1;
+    int aNum2;
+    int aNum5;
+    aNum2 = 03;
+    aNum1 = aNum2;
+    aNum5 = 45 + 03;
+    if(aNum5 == 03) {
+        aNum2 = aNum1;
+    } else {
+        aNum1 = aNum2;
+    }
+    aNum5 = sum(aNum2, aNum1);
 }
