@@ -243,9 +243,18 @@ class BuildTablaSimbolosVisitor(object):
             if call.id_t == funcion_iteracion.nombre:
                 if call.args_p is not None and len(funcion_iteracion.parametros) != 0:
                     if len(funcion_iteracion.parametros) == len(call.args_p):
-                        call.funcion = funcion_iteracion
-                        existe_funcion = True
-                        break
+
+                        error = False
+                        indice = 0
+                        for arg in call.args_p:
+                            if arg.variable.tipo != funcion_iteracion.parametros[indice].tipo:
+                                error = True
+                            indice = indice + 1
+                        if not error:
+                            call.funcion = funcion_iteracion
+                            existe_funcion = True
+                            break
+
                 else:
                     if len(funcion_iteracion.parametros) == 0 and call.args_p is None:
                         call.funcion = funcion_iteracion

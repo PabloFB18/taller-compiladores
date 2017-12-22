@@ -19,13 +19,17 @@ int aProcedure3 ( int aNum1, void aNum2, int anArray1[] )
     return 03;
 }
 
-int aProcedure3 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1 )
+int aProcedure3 ( int aNum1, int aNum2, int anArray1[], int anArray2[], int a1 )
 {
     int aNum3;
     int anArray3[456];
-    void aNum4;
+    void aNum41;
     void anArray4[78];
     int aNum5;
+    int aNum4;
+
+    aNum4 = 03;
+    aNum5 = aNum4;
     aNum3 = aNum1;
     aNum2 = aNum3 + 01;
     anArray3[00] = anArray1[02];
@@ -58,6 +62,8 @@ int aProcedure3 ( int aNum1, void aNum2, int anArray1[], void anArray2[], int a1
     return 05 / 00;
 }
 
+void fun_void(void){
+}
 
 void main ( void )
 {
@@ -68,10 +74,19 @@ void main ( void )
     int e[02];
     int f[45];
     void g[23];
-    a = 02;
+
+    aNumber1 = 00;
+
+    e = 01;
+    f = 03;
+    a = aNumber1;
     b = 01;
-    aProcedure3(a,c,b,d);
-    aProcedure3(c,d,e,f);
-    aProcedure3(b,c,e);
-    aProcedure3(a,c,f,g,a);
+    c = fun_void();
+    d = fun_void();
+    g = fun_void();
+
+    aProcedure3(a,c,e,g);
+    aProcedure3(c,d,e,g);
+    aProcedure3(a,c,e);
+    aProcedure3(a,b,f,e,a);
 }

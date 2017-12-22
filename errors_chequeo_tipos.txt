@@ -4,54 +4,6 @@ sample1
 
 sample2
 
-La expresión debe ser del mismo tipo que la variable declarada.
-La expresión debe ser del mismo tipo que la variable declarada.
-La variable aNum4 no está inicializada.
-El lado derecho de la comparación debe ser de tipo entero.
-La condición del while debe ser de tipo entero.
-La variable aNum5 no está inicializada.
-El lado derecho de la expresión multiplicativa debe ser de tipo entero.
-El lado derecho de la comparación debe ser de tipo entero.
-La condición del while debe ser de tipo entero.
-La variable aNum5 no está inicializada.
-La condición de la selección debe ser de tipo entero.
-La variable aNum5 no está inicializada.
-El lado derecho de la expresión multiplicativa debe ser de tipo entero.
-El lado izquierdo de la expresión aditiva debe ser de tipo entero.
-El lado izquierdo de la comparación debe ser de tipo entero.
-La variable aNum5 no está inicializada.
-El lado izquierdo de la expresión multiplicativa debe ser de tipo entero.
-El lado izquierdo de la expresión aditiva debe ser de tipo entero.
-El lado derecho de la expresión multiplicativa debe ser de tipo entero.
-El lado derecho de la expresión aditiva debe ser de tipo entero.
-El lado derecho de la comparación debe ser de tipo entero.
-La condición de la selección debe ser de tipo entero.
-La variable aNum5 no está inicializada.
-El lado derecho de la expresión multiplicativa debe ser de tipo entero.
-La expresión debe ser del mismo tipo que la variable declarada.
-La expresión debe ser del mismo tipo que la variable declarada.
-La variable c no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable d no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable c no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable d no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable e no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable f no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable c no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable e no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable c no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable f no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
-La variable g no está inicializada.
-Invocación de función definida, pero no con los mismos parámetros: aProcedure3.
 
 sample3
 

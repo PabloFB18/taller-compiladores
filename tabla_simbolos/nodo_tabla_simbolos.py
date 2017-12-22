@@ -16,7 +16,7 @@ class NodoTablaSimbolos:
 
     def check_declarado(self, nombre):
         if self.padre is None:
-            return None
+            return self.check_repetido(nombre)
         if self.check_repetido(nombre) is None:
             return self.padre.check_declarado(nombre)
         return self.check_repetido(nombre)
