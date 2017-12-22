@@ -25,6 +25,7 @@ La condición de la selección debe ser de tipo entero.
 La variable a no está inicializada.
 El lado izquierdo de la expresión aditiva debe ser de tipo entero.
 La expresión debe ser del mismo tipo que la variable declarada.
+El lado izquierdo de la expresión aditiva debe ser de tipo entero.
 
 sample6
 

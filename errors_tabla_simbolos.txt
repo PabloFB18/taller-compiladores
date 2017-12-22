@@ -21,6 +21,7 @@ Llamada a funcion que no existe hola
 
 sample5
 
+Error variable b no declarada
 
 sample6
 

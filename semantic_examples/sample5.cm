@@ -5,6 +5,10 @@ void funcion1 (int b){
     }
 }
 
+int funcion2 (void a){
+    b = a + 10;
+}
+
 
 
 

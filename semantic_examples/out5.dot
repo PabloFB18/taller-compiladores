@@ -13,4 +13,12 @@ digraph G {
 	"SIGNO1: + : ERROR" -> "var3: a : ERROR"
 	"SIGNO1: + : ERROR" -> "NUM2: 35"
 	"function1: void funcion1 : void" -> "param1: int b[] : int"
+	"program1" -> "function2: int funcion2 : int"
+	"function2: int funcion2 : int" -> "compound_stmt3"
+	"compound_stmt3" -> "assign2 : ERROR"
+	"assign2 : ERROR" -> "var4: b : ERROR"
+	"assign2 : ERROR" -> "SIGNO2: + : ERROR"
+	"SIGNO2: + : ERROR" -> "var5: a : void"
+	"SIGNO2: + : ERROR" -> "NUM3: 10"
+	"function2: int funcion2 : int" -> "param2: void a[] : void"
 }
