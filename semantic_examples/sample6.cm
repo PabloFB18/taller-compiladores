@@ -1,15 +1,15 @@
 
 int algo1;
 void otro3;
-
-if (algo1 == otro3){
-   int algo2;
-}else{
-    void c1;
+int funcion (int a){
+    if (algo1 == otro3){
+       int algo2;
+    }else{
+        void c1;
+    }
 }
 
-int funcion (){
+int funcion (void a){
     return 03;
 }
 
-return;

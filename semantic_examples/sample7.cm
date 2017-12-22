@@ -1,11 +1,11 @@
-while (13 < 23){
-int d1;
+void funcion1 (void a){
+    while (a < 23){
+        void d1;
+        d1 = 02 + 09;
+    }
+    d1 = fun(09);
 }
-int d1;
-d1 = 02 + 09;
 
 void fun ( int a, int d2){
-a1 = 34 + dd;
+    a = 34 + dd;
 }
-
-d1 = fun();

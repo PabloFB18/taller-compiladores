@@ -1,1 +1,20 @@
-Error al realizar el parse.
+digraph G {
+	"program1" -> "var1: int algo1 : int"
+	"program1" -> "var2: void otro3 : void"
+	"program1" -> "function1: int funcion : int"
+	"function1: int funcion : int" -> "compound_stmt1"
+	"compound_stmt1" -> "if_else1"
+	"if_else1" -> "COMPARADOR1: == : ERROR"
+	"COMPARADOR1: == : ERROR" -> "var1: algo1 : ERROR"
+	"COMPARADOR1: == : ERROR" -> "var2: otro3 : ERROR"
+	"if_else1" -> "compound_stmt2"
+	"compound_stmt2" -> "var3: int algo2 : int"
+	"if_else1" -> "compound_stmt3"
+	"compound_stmt3" -> "var4: void c1 : void"
+	"function1: int funcion : int" -> "param1: int a[] : int"
+	"program1" -> "function2: int funcion : int"
+	"function2: int funcion : int" -> "compound_stmt4"
+	"compound_stmt4" -> "return1 : int"
+	"return1 : int" -> "NUM1: 03"
+	"function2: int funcion : int" -> "param2: void a[] : void"
+}

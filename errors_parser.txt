@@ -13,22 +13,12 @@ sample4
 
 sample5
 
-Error de sintaxis! Error en el IF
-Error de sintaxis! Error en el DPAREN
 
 sample6
 
-Error de sintaxis! Error en el IF
-Error de sintaxis! Error en el DLLAVE
-Error de sintaxis! Error en el DLLAVE
-Error de sintaxis! Error en el DPAREN
 
 sample7
 
-Error de sintaxis! Error en el WHILE
-Error de sintaxis! Error en el DLLAVE
-Error de sintaxis! Error en el ID
-Error de sintaxis! Error en el ID
 
 AllSyntaxNoComments
 

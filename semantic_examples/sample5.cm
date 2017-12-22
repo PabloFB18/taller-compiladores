@@ -1,14 +1,10 @@
 void a;
-
-if( a == 24 ){
-    a = 35;
+void funcion1 (int b){
+    if( a == 24 ){
+        b = a + 35 ;
+    }
 }
 
-int function (){
-    return 00;
-}
-
-b = 03 + function();
 
 
 
